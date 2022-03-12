@@ -1,0 +1,3 @@
+C:\AaronsProjects\NightFall\x64\Debug\NightFall.vcxproj.CopyComplete
+C:\AaronsProjects\NightFall\x64\Debug\NightFall.exe
+C:\AaronsProjects\NightFall\x64\Debug\raylib.dll

@@ -1,0 +1,8 @@
+{
+  "name": "nightfall",
+  "version-string": "1.0.0",
+  "dependencies": [
+    "raylib",
+    "box2d"
+  ]
+}

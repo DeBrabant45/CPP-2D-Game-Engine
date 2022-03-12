@@ -1,0 +1,9 @@
+Package: box2d
+Version: 2.4.1
+Port-Version: 2
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 38c4b22be39ff92c17e374eacbadc3d779360b12bc94f2725aaa7f0d22dcff07
+Description: An open source C++ engine for simulating rigid bodies in 2D
+Type: Port
+Status: install ok half-installed
