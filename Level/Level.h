@@ -21,7 +21,7 @@ private:
 
 public:
 	Level();
-	void Update(float deltaTime);
+	void Update(const float& deltaTime);
 
 private:
 	void DrawMapToWorld();

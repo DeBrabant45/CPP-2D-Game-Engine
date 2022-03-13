@@ -9,7 +9,7 @@ class MainCamera
 {
 private:
 	Camera2D _camera{ 0 };
-	float _zoom{ 3.f };
+	float _zoom{ 4.f };
 	std::shared_ptr<GameObject> _target{};
 
 public:

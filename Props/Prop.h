@@ -13,6 +13,7 @@ private:
 	std::shared_ptr<b2World> _world{};
 	b2Body* _body{};
 	Texture2D _texture{};
+	Vector2 boxSize = { 120, 32 };
 	float _scale{ 1.0f };
 	bool _isWalkable{ false };
 

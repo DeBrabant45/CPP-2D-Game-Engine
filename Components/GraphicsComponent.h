@@ -10,10 +10,9 @@ protected:
 	Texture2D Texture{};
 
 public:
-	virtual Vector2 GetSize() = 0;
 	virtual void Update(GameObject& gameOjbect, std::shared_ptr<PhysicsComponent> physics, const float& deltaTime) = 0;
 
 protected:
-	virtual void Draw() = 0;
+	virtual void Draw(GameObject& gameOjbect) = 0;
 };
 #endif

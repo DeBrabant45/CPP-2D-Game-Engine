@@ -7,15 +7,11 @@ HeroPhysicsComponent::HeroPhysicsComponent(std::shared_ptr<b2World> world) :
     PhysicsComponent(world)
 {
     _bodyDefinition.type = b2_dynamicBody;
-    _bodyDefinition.position.Set(0.f / 38, -50.f / 48);
+    _bodyDefinition.position.Set(111.f, 300.f);
     _bodyDefinition.userData.pointer = uintptr_t(2);
     _bodyDefinition.fixedRotation = true;
     _body = World->CreateBody(&_bodyDefinition);
-}
-
-void HeroPhysicsComponent::SetSize(const Vector2& size)
-{
-    _shape.SetAsBox((size.x / 40) /2, (size.y / 50) /2 );
+    _shape.SetAsBox(38.f / 2.f, 48.f / 2.f);
     b2FixtureDef fixtureDefinition;
     fixtureDefinition.shape = &_shape;
     fixtureDefinition.density = 1.f;
@@ -29,4 +25,29 @@ void HeroPhysicsComponent::Update(GameObject& gameObject, const std::vector<Prop
     float impulse = _body->GetMass() * velocityChange;
     float jumpImpluse = _body->GetMass() * gameObject.Velocity.y;
     _body->ApplyLinearImpulseToCenter(b2Vec2(impulse, jumpImpluse), true);
+}
+
+bool HeroPhysicsComponent::IsGrounded()
+{
+    for (b2ContactEdge* ce = _body->GetContactList(); ce != nullptr; ce = ce->next)
+    {
+        b2Contact* c = ce->contact;
+        if (c->IsTouching())
+        {
+            b2WorldManifold man;
+            c->GetWorldManifold(&man);
+            for (int i = 0; i < b2_maxManifoldPoints; i++)
+            {
+                if (man.points[i].y > _body->GetPosition().y - _body->GetPosition().y / 2.0f + 0.01f)
+                {
+                    return true;
+                }
+
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

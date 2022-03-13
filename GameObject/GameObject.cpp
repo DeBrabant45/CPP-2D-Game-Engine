@@ -13,7 +13,7 @@ GameObject::GameObject(Vector2 position, std::shared_ptr<PhysicsComponent> physi
 	_graphics{ graphics },
 	_input{ input }
 {
-	_physics->SetSize(_graphics->GetSize()); //refactor
+
 }
 
 void GameObject::Update(const std::vector<Prop>& props, const float& deltaTime)
@@ -25,5 +25,5 @@ void GameObject::Update(const std::vector<Prop>& props, const float& deltaTime)
 
 const Vector2& GameObject::GetPosition()
 {
-	return Vector2 { _physics->GetBody()->GetPosition().x * 38, _physics->GetBody()->GetPosition().y * 65};
+	return Vector2 { _physics->GetBody()->GetPosition().x, _physics->GetBody()->GetPosition().y};
 }

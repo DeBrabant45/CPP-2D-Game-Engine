@@ -15,16 +15,20 @@ void HeroInputComponent::Update(GameObject& gameObject, std::shared_ptr<PhysicsC
 {
 	_input->Update(deltaTime);
 	gameObject.Velocity = { 0.f, 0.f };
-	if (IsKeyPressed(KEY_SPACE) /*&& isBelow == true*/)
+	if (_input->IsJumpPressed())
 	{
-		gameObject.Velocity.y = -5.f;
+		gameObject.Velocity.y = -95.f;
 	}
-	if (IsKeyDown(KEY_D))
+	if (_input->IsMoveRightPressed())
 	{
-		gameObject.Velocity.x = 5.f;
+		gameObject.Velocity.x = 95.f;
 	}
-	if (IsKeyDown(KEY_A))
+	if (_input->IsMoveLeftPressed())
 	{
-		gameObject.Velocity.x = -5.f;
+		gameObject.Velocity.x = -95.f;
+	}
+	if (_input->IsAttackPressed())
+	{
+		gameObject.IsAttacking = true;
 	}
 }

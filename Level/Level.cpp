@@ -10,7 +10,7 @@
 
 Level::Level()
 {
-	_world = std::make_shared<b2World>(b2Vec2(0.f, 9.f));
+	_world = std::make_shared<b2World>(b2Vec2(0.f, 99.8f));
 	_props =
 	{
 		{ Vector2{ 110.f, 300.0f }, _world, LoadTexture("./Assets/Props/Ground/Ground.png"), true },
@@ -30,7 +30,7 @@ Level::Level()
 	_mainCamera = { std::make_unique<MainCamera>(_hero) };
 }
 
-void Level::Update(float deltaTime)
+void Level::Update(const float& deltaTime)
 {
 	_world->Step(deltaTime, 8, 2);
 	_mainCamera->Update(deltaTime);

@@ -12,12 +12,24 @@ HeroGraphicsComponent::HeroGraphicsComponent()
 
 void HeroGraphicsComponent::Update(GameObject& gameObject, std::shared_ptr<PhysicsComponent> physics, const float& deltaTime)
 {
-
+	SetLookDirection(gameObject);
 	if (gameObject.Velocity.x != 0.0f)
 	{
 		Texture = _run;
 		SetWidth(12);
 		_animator.SetMaxFrames(12);
+	}
+	else if (!physics->IsGrounded())
+	{
+		Texture = _jump;
+		SetWidth(5);
+		_animator.SetMaxFrames(5);
+	}
+	else if (gameObject.IsAttacking)
+	{
+		Texture = _attack;
+		SetWidth(6);
+		_animator.SetMaxFrames(6);
 	}
 	else
 	{
@@ -25,33 +37,31 @@ void HeroGraphicsComponent::Update(GameObject& gameObject, std::shared_ptr<Physi
 		SetWidth(4);
 		_animator.SetMaxFrames(4);
 	}
-	if (gameObject.Velocity.y != 0)
-	{
-		Texture = _jump;
-		SetWidth(5);
-		_animator.SetMaxFrames(5);
-	}
 	_animator.Update(deltaTime);
-	Rectangle source{ _animator.GetCurrentFrame() * _width, 0.0f, 1.f * _width, _height };
-	Rectangle dest{ gameObject.GetPosition().x - 20, gameObject.GetPosition().y - 48, gameObject.GetScale() * _width, gameObject.GetScale() * _height};
-	DrawTexturePro(Texture, source, dest, Vector2{}, 0.f, WHITE);
-
-	//Rectangle playerRect = { gameObject.GetPosition().x - 20, gameObject.GetPosition().y - 40, 40, 40 };
-	//DrawRectangleRec(playerRect, RED);
+	Draw(gameObject);
 
 }
 
-void HeroGraphicsComponent::Draw()
+void HeroGraphicsComponent::SetLookDirection(GameObject& gameObject)
 {
+	if (gameObject.Velocity.x > 0)
+	{
+		_lookDirection = 1.f;
+	}
+	else if (gameObject.Velocity.x < 0)
+	{
+		_lookDirection = -1.f;
+	}
+}
 
+void HeroGraphicsComponent::Draw(GameObject& gameObject)
+{
+	Rectangle source{ _animator.GetCurrentFrame() * _width, 0.f, _lookDirection * _width, _height };
+	Rectangle dest{ gameObject.GetPosition().x - _width / 2, gameObject.GetPosition().y - _height / 2, _width,  _height };
+	DrawTexturePro(Texture, source, dest, Vector2{}, 0.f, WHITE);
 }
 
 void HeroGraphicsComponent::SetWidth(int value)
 {
 	_width = static_cast<float>(Texture.width) / value;
-}
-
-Vector2 HeroGraphicsComponent::GetSize()
-{
-	return Vector2{ _width, _height };
 }

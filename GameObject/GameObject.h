@@ -25,5 +25,6 @@ public:
 	const Vector2& GetPosition();
 	float GetScale() const { return _scale; }
 	Vector2 Velocity{ 0.f };
+	bool IsAttacking{ false };
 };
 #endif
