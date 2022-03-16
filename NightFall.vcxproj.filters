@@ -42,9 +42,6 @@
     <ClCompile Include="Input\InputHandler.cpp">
       <Filter>Source Files\Input</Filter>
     </ClCompile>
-    <ClCompile Include="Animation\Animator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Props\Prop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -78,6 +75,9 @@
     <ClCompile Include="Camera\MainCamera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Sprite\Sprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Game.h">
@@ -85,9 +85,6 @@
     </ClInclude>
     <ClInclude Include="Input\InputHandler.h">
       <Filter>Header Files\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="Animation\Animator.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Props\Prop.h">
       <Filter>Header Files</Filter>
@@ -120,6 +117,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Camera\MainCamera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite\Sprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
