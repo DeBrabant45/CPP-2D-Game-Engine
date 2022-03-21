@@ -3,11 +3,11 @@
 #include <iostream>
 
 
-HeroPhysicsComponent::HeroPhysicsComponent(std::shared_ptr<b2World> world) :
+HeroPhysicsComponent::HeroPhysicsComponent(std::shared_ptr<b2World> world, Vector2 startPosition) :
     PhysicsComponent(world)
 {
     _bodyDefinition.type = b2_dynamicBody;
-    _bodyDefinition.position.Set(111.f, 300.f);
+    _bodyDefinition.position.Set(startPosition.x, startPosition.y);
     _bodyDefinition.userData.pointer = uintptr_t(2);
     _bodyDefinition.fixedRotation = true;
     _body = World->CreateBody(&_bodyDefinition);

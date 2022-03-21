@@ -11,7 +11,7 @@ private:
 	Vector2 _worldPosition{};
 
 public:
-	HeroPhysicsComponent(std::shared_ptr<b2World> world);
+	HeroPhysicsComponent(std::shared_ptr<b2World> world, Vector2 startPosition);
 	virtual b2Body* GetBody() override { return _body; }
 	virtual void Update(GameObject& gameOjbect, const float& deltaTime) override;
 	virtual bool IsGrounded() override;

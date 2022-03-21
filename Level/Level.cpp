@@ -20,18 +20,14 @@ Level::Level()
 	{
 		std::make_shared<GameObject>
 		(
-			Vector2{ 200.f, 0.f },
-			std::make_shared<HeroPhysicsComponent>(_world),
+			std::make_shared<HeroPhysicsComponent>(_world, Vector2{ 100.f, 200.f }),
 			std::make_shared<HeroGraphicsComponent>(),
 			std::make_shared<HeroInputComponent>(std::make_shared<InputHandler>())
 		) 
 	};
 	_grounds =
 	{
-		{ Vector2{ 200.f, 300.0f},
-			std::make_shared<GroundPhysicsComponent>(_world, Vector2{120.f, 32.f}, Vector2{ 200.f, 300.f}),
-			std::make_shared<GroundGraphicsComponent>(),
-			std::make_shared<HeroInputComponent>(std::make_shared<InputHandler>()) },
+		{ std::make_shared<GroundPhysicsComponent>(_world, Vector2{120.f, 32.f}, Vector2{ 200.f, 300.f}), std::make_shared<GroundGraphicsComponent>(), std::make_shared<HeroInputComponent>(std::make_shared<InputHandler>()) },
 	};
 	_mainCamera = { std::make_unique<MainCamera>(_hero) };
 }

@@ -7,8 +7,7 @@
 #include "../../box2d-main/include/box2d/box2d.h"
 #include <iostream>
 
-GameObject::GameObject(Vector2 position, std::shared_ptr<PhysicsComponent> physics, std::shared_ptr<GraphicsComponent> graphics, std::shared_ptr<InputComponent> input) :
-	_worldPosition{ position },
+GameObject::GameObject(std::shared_ptr<PhysicsComponent> physics, std::shared_ptr<GraphicsComponent> graphics, std::shared_ptr<InputComponent> input) :
 	_physics{ physics },
 	_graphics{ graphics },
 	_input{ input }
