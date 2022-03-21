@@ -15,7 +15,7 @@ protected:
 
 public:
 	PhysicsComponent(std::shared_ptr<b2World> world);
-	virtual void Update(GameObject& gameObject, const std::vector<Prop>& props, const float& deltaTime) = 0;
+	virtual void Update(GameObject& gameObject, const float& deltaTime) = 0;
 	virtual b2Body* GetBody() = 0;
 	virtual bool IsGrounded() = 0;
 };

@@ -10,13 +10,18 @@ HeroGraphicsComponent::HeroGraphicsComponent()
 void HeroGraphicsComponent::Update(GameObject& gameObject, std::shared_ptr<PhysicsComponent> physics, const float& deltaTime)
 {
 	SetLookDirection(gameObject);
-	if (gameObject.Velocity.x != 0.0f)
+	std::cout << physics->IsGrounded();
+	if (gameObject.Velocity.x != 0.0f && physics->IsGrounded())
 	{
 		_run.Draw(deltaTime, gameObject.GetPosition(), _lookDirection);
 	}
-	else if (!physics->IsGrounded())
+	else if (!physics->IsGrounded() && gameObject.IsJumping)
 	{
 		_jump.Draw(deltaTime, gameObject.GetPosition(), _lookDirection);
+	}
+	else if (!physics->IsGrounded())
+	{
+		_fall.Draw(deltaTime, gameObject.GetPosition(), _lookDirection);
 	}
 	else if (gameObject.IsAttacking)
 	{

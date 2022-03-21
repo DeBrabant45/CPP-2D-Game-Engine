@@ -16,10 +16,10 @@ GameObject::GameObject(Vector2 position, std::shared_ptr<PhysicsComponent> physi
 
 }
 
-void GameObject::Update(const std::vector<Prop>& props, const float& deltaTime)
+void GameObject::Update(const float& deltaTime)
 {
 	_input->Update(*this, _physics, deltaTime);
-	_physics->Update(*this, props, deltaTime);
+	_physics->Update(*this, deltaTime);
 	_graphics->Update(*this, _physics, deltaTime);
 }
 

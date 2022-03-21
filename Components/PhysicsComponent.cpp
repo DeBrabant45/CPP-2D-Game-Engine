@@ -7,6 +7,6 @@ PhysicsComponent::PhysicsComponent(std::shared_ptr<b2World> world) :
 
 }
 
-void PhysicsComponent::Update(GameObject& gameOjbect, const std::vector<Prop>& props, const float& deltaTime)
+void PhysicsComponent::Update(GameObject& gameOjbect, const float& deltaTime)
 {
 }

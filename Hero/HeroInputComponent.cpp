@@ -1,6 +1,6 @@
 #include "HeroInputComponent.h"
-#include "../../Input/InputHandler.h"
-#include "../../GameObject/GameObject.h"
+#include "../Input/InputHandler.h"
+#include "../GameObject/GameObject.h"
 #include <raymath.h>
 #include <iostream>
 
@@ -15,9 +15,14 @@ void HeroInputComponent::Update(GameObject& gameObject, std::shared_ptr<PhysicsC
 {
 	_input->Update(deltaTime);
 	gameObject.Velocity = { 0.f, 0.f };
-	if (_input->IsJumpPressed())
+	if (_input->IsJumpPressed() && physics->IsGrounded())
 	{
 		gameObject.Velocity.y = -95.f;
+		gameObject.IsJumping = true;
+	}
+	if (IsKeyReleased(KEY_SPACE))
+	{
+		gameObject.IsJumping = false;
 	}
 	if (_input->IsMoveRightPressed())
 	{
@@ -30,5 +35,9 @@ void HeroInputComponent::Update(GameObject& gameObject, std::shared_ptr<PhysicsC
 	if (_input->IsAttackPressed())
 	{
 		gameObject.IsAttacking = true;
+	}
+	if (IsMouseButtonReleased(0))
+	{
+		gameObject.IsAttacking = false;
 	}
 }

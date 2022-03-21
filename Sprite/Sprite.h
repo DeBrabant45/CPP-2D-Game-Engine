@@ -22,5 +22,6 @@ public:
 	float GetHeight() const { return _height; }
 
 private:
-	void LoopFrames(const float& deltaTime);
+	void LoopFrames(const float& deltaTime, const Vector2& location);
+
 };

@@ -1,4 +1,4 @@
-#include "../InputComponent.h"
+#include "../Components/InputComponent.h"
 #include <memory>
 
 class InputHandler;

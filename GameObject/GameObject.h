@@ -21,10 +21,11 @@ private:
 
 public:
 	GameObject(Vector2 position, std::shared_ptr<PhysicsComponent> physics, std::shared_ptr<GraphicsComponent> graphics, std::shared_ptr<InputComponent> input);
-	void Update(const std::vector<Prop>& props, const float& deltaTime);
+	void Update(const float& deltaTime);
 	const Vector2& GetPosition();
 	float GetScale() const { return _scale; }
 	Vector2 Velocity{ 0.f };
 	bool IsAttacking{ false };
+	bool IsJumping{ false };
 };
 #endif

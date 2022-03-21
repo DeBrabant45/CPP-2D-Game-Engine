@@ -1,12 +1,10 @@
-#include "../PhysicsComponent.h"
+#include "../Components/PhysicsComponent.h"
 #include <vector>
-#include "../../../box2d-main/include/box2d/box2d.h"
+#include "../../box2d-main/include/box2d/box2d.h"
 
 class HeroPhysicsComponent : public PhysicsComponent
 {
 private:
-	bool _isGrounded{ false };
-	float _gravity{ 350.f };
 	b2BodyDef _bodyDefinition{};
 	b2Body* _body{};
 	b2PolygonShape _shape;
@@ -15,6 +13,6 @@ private:
 public:
 	HeroPhysicsComponent(std::shared_ptr<b2World> world);
 	virtual b2Body* GetBody() override { return _body; }
-	virtual void Update(GameObject& gameOjbect, const std::vector<Prop>& props, const float& deltaTime) override;
+	virtual void Update(GameObject& gameOjbect, const float& deltaTime) override;
 	virtual bool IsGrounded() override;
 };

@@ -60,22 +60,28 @@
     <ClCompile Include="Game\GameWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Components\Hero\HeroPhysicsComponent.cpp">
+    <ClCompile Include="Hero\HeroPhysicsComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Components\Hero\HeroGraphicsComponent.cpp">
+    <ClCompile Include="Hero\HeroGraphicsComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Components\InputComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Components\Hero\HeroInputComponent.cpp">
+    <ClCompile Include="Hero\HeroInputComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Camera\MainCamera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Sprite\Sprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Ground\GroundPhysicsComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Ground\GroundGraphicsComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -104,22 +110,28 @@
     <ClInclude Include="Game\GameWindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Components\Hero\HeroPhysicsComponent.h">
+    <ClInclude Include="Hero\HeroPhysicsComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Components\Hero\HeroGraphicsComponent.h">
+    <ClInclude Include="Hero\HeroGraphicsComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Components\InputComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Components\Hero\HeroInputComponent.h">
+    <ClInclude Include="Hero\HeroInputComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Camera\MainCamera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Sprite\Sprite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Ground\GroundPhysicsComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Ground\GroundGraphicsComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -11,7 +11,7 @@ HeroPhysicsComponent::HeroPhysicsComponent(std::shared_ptr<b2World> world) :
     _bodyDefinition.userData.pointer = uintptr_t(2);
     _bodyDefinition.fixedRotation = true;
     _body = World->CreateBody(&_bodyDefinition);
-    _shape.SetAsBox(38.f / 2.f, 48.f / 2.f);
+    _shape.SetAsBox(20.f / 2.f, 48.f / 2.f);
     b2FixtureDef fixtureDefinition;
     fixtureDefinition.shape = &_shape;
     fixtureDefinition.density = 1.f;
@@ -19,7 +19,7 @@ HeroPhysicsComponent::HeroPhysicsComponent(std::shared_ptr<b2World> world) :
     _body->CreateFixture(&fixtureDefinition);
 }
 
-void HeroPhysicsComponent::Update(GameObject& gameObject, const std::vector<Prop>& props, const float& deltaTime)
+void HeroPhysicsComponent::Update(GameObject& gameObject, const float& deltaTime)
 {
     float velocityChange = gameObject.Velocity.x - _body->GetLinearVelocity().x;
     float impulse = _body->GetMass() * velocityChange;
