@@ -1,7 +1,6 @@
 #include "HeroInputComponent.h"
 #include "../Input/InputHandler.h"
-#include "../GameObject/GameObject.h"
-#include <raymath.h>
+#include "../Character/Character.h"
 #include <iostream>
 
 
@@ -11,33 +10,24 @@ HeroInputComponent::HeroInputComponent(std::shared_ptr<InputHandler> input) :
 
 }
 
-void HeroInputComponent::Update(GameObject& gameObject, std::shared_ptr<PhysicsComponent> physics, const float& deltaTime)
+void HeroInputComponent::Update(Character& character, const float& deltaTime)
 {
 	_input->Update(deltaTime);
-	gameObject.Velocity = { 0.f, 0.f };
-	if (_input->IsJumpPressed() && physics->IsGrounded())
+	character.Velocity = {0.f, 0.f};
+	if (_input->IsJumpPressed() && character.IsGrounded)
 	{
-		gameObject.Velocity.y = -95.f;
-		gameObject.IsJumping = true;
+		character.Velocity.y = -95.f;
 	}
-	if (IsKeyReleased(KEY_SPACE))
+	else if (_input->IsMoveRightPressed())
 	{
-		gameObject.IsJumping = false;
+		character.Velocity.x = 95.f;
 	}
-	if (_input->IsMoveRightPressed())
+	else if (_input->IsMoveLeftPressed())
 	{
-		gameObject.Velocity.x = 95.f;
+		character.Velocity.x = -95.f;
 	}
-	if (_input->IsMoveLeftPressed())
+	else if (_input->IsAttackPressed())
 	{
-		gameObject.Velocity.x = -95.f;
-	}
-	if (_input->IsAttackPressed())
-	{
-		gameObject.IsAttacking = true;
-	}
-	if (IsMouseButtonReleased(0))
-	{
-		gameObject.IsAttacking = false;
+
 	}
 }

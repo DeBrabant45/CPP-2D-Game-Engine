@@ -11,23 +11,20 @@
 
 Level::Level()
 {
-	_world = std::make_shared<b2World>(b2Vec2(0.f, 99.8f));
+	_world = std::make_shared<b2World>(b2Vec2(0.f, 199.8f));
 	_props =
 	{
 		{ Vector2{ 100.f, 300.0f }, _world, LoadTexture("./Assets/Ground/Ground.png"), true },
 	};
-	_hero = 
+	_hero = std::make_shared<Character>(std::vector<std::shared_ptr<ICharacterComponent>>
 	{
-		std::make_shared<GameObject>
-		(
-			std::make_shared<HeroPhysicsComponent>(_world, Vector2{ 100.f, 200.f }),
-			std::make_shared<HeroGraphicsComponent>(),
-			std::make_shared<HeroInputComponent>(std::make_shared<InputHandler>())
-		) 
-	};
+		std::make_shared<HeroPhysicsComponent>(_world, Vector2{ 100.f, 200.f }),
+		std::make_shared<HeroGraphicsComponent>(),
+		std::make_shared<HeroInputComponent>(std::make_shared<InputHandler>())
+	});
 	_grounds =
 	{
-		{ std::make_shared<GroundPhysicsComponent>(_world, Vector2{120.f, 32.f}, Vector2{ 200.f, 300.f}), std::make_shared<GroundGraphicsComponent>(), std::make_shared<HeroInputComponent>(std::make_shared<InputHandler>()) },
+		{ std::make_shared<GroundPhysicsComponent>(_world, Vector2{120.f, 32.f}, Vector2{ 200.f, 300.f}), std::make_shared<GroundGraphicsComponent>() },
 	};
 	_mainCamera = { std::make_unique<MainCamera>(_hero) };
 }

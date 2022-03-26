@@ -1,29 +1,36 @@
+#include "../../box2d-main/include/box2d/box2d.h"
 #include "HeroPhysicsComponent.h"
-#include <raymath.h>
+#include "../Character/Character.h"
 #include <iostream>
+#include <raymath.h>
 
 
 HeroPhysicsComponent::HeroPhysicsComponent(std::shared_ptr<b2World> world, Vector2 startPosition) :
-    PhysicsComponent(world)
+    _world{ world }
 {
-    _bodyDefinition.type = b2_dynamicBody;
-    _bodyDefinition.position.Set(startPosition.x, startPosition.y);
-    _bodyDefinition.userData.pointer = uintptr_t(2);
-    _bodyDefinition.fixedRotation = true;
-    _body = World->CreateBody(&_bodyDefinition);
-    _shape.SetAsBox(20.f / 2.f, 48.f / 2.f);
+    b2BodyDef bodyDefinition{};
+    bodyDefinition.type = b2_dynamicBody;
+    bodyDefinition.position.Set(startPosition.x, startPosition.y);
+    bodyDefinition.userData.pointer = uintptr_t(2);
+    bodyDefinition.fixedRotation = true;
+    _body = _world->CreateBody(&bodyDefinition);
+    b2PolygonShape shape;
+    shape.SetAsBox(20.f / 2.f, 48.f / 2.f);
     b2FixtureDef fixtureDefinition;
-    fixtureDefinition.shape = &_shape;
+    fixtureDefinition.shape = &shape;
     fixtureDefinition.density = 1.f;
     fixtureDefinition.friction = .03f;
     _body->CreateFixture(&fixtureDefinition);
 }
 
-void HeroPhysicsComponent::Update(GameObject& gameObject, const float& deltaTime)
-{
-    float velocityChange = gameObject.Velocity.x - _body->GetLinearVelocity().x;
+void HeroPhysicsComponent::Update(Character& character, const float& deltaTime)
+{ 
+    character.IsGrounded = IsGrounded();
+    Vector2 position{ _body->GetPosition().x, _body->GetPosition().y };
+    character.SetWorldPosition(position);
+    float velocityChange = character.Velocity.x - _body->GetLinearVelocity().x;
     float impulse = _body->GetMass() * velocityChange;
-    float jumpImpluse = _body->GetMass() * gameObject.Velocity.y;
+    float jumpImpluse = _body->GetMass() * character.Velocity.y;
     _body->ApplyLinearImpulseToCenter(b2Vec2(impulse, jumpImpluse), true);
 }
 

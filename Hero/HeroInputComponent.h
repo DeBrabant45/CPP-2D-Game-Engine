@@ -1,14 +1,15 @@
-#include "../Components/InputComponent.h"
+#include "../Character/ICharacterComponent.h"
 #include <memory>
 
 class InputHandler;
+class Character;
 
-class HeroInputComponent : public InputComponent 
+class HeroInputComponent : public ICharacterComponent
 {
 private:
 	std::shared_ptr<InputHandler>  _input{};
 
 public:
-	HeroInputComponent(std::shared_ptr<InputHandler>  input);
-	virtual void Update(GameObject& gameOjbect, std::shared_ptr<PhysicsComponent> physics, const float& deltaTime) override;
+	HeroInputComponent(std::shared_ptr<InputHandler> input);
+	virtual void Update(Character& character, const float& deltaTime) override;
 };

@@ -6,6 +6,7 @@
 #include "../Props/Prop.h"
 #include "../Sprite/Sprite.h"
 #include "../GameObject/GameObject.h"
+#include "../Character/Character.h"
 
 class b2World;
 
@@ -18,7 +19,7 @@ private:
 	Vector2 _worldPosition{ 0.f, 0.f };
 	std::vector<Prop> _props{};
 	std::vector<GameObject> _grounds{};
-	std::shared_ptr<GameObject> _hero{};
+	std::shared_ptr<Character> _hero{};
 	std::unique_ptr<MainCamera> _mainCamera{};
 	std::shared_ptr<b2World> _world{};
 

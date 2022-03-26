@@ -1,18 +1,18 @@
 #include "MainCamera.h"
 #include "../Game/GameWindow.h"
-#include "../GameObject/GameObject.h"
+#include "../Character/Character.h"
 
-MainCamera::MainCamera(std::shared_ptr<GameObject> gameObject) :
-	_target{ gameObject }
+MainCamera::MainCamera(std::shared_ptr<Character> character) :
+	_target{ character }
 {
 	_camera.offset = Vector2{ GameWindow::GetWidth() / 2.0f, GameWindow::GetHeight() / 2.0f};
 	_camera.rotation = 0.0f;
 	_camera.zoom = _zoom;
 }
 
-void MainCamera::SetTarget(std::shared_ptr<GameObject> gameObject)
+void MainCamera::SetTarget(std::shared_ptr<Character> character)
 {
-	_target = gameObject;
+	_target = character;
 }
 
 void MainCamera::CenterLocationOnTarget()

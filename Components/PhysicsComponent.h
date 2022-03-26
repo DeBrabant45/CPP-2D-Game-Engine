@@ -3,7 +3,6 @@
 #include "../GameObject/GameObject.h"
 #include <vector>
 #include <memory>
-#include "../Props/Prop.h"
 
 class b2World;
 class b2Body;
