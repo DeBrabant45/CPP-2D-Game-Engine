@@ -1,16 +1,19 @@
 #pragma once
-#include ".././Components/PhysicsComponent.h"
+#include <memory>
+#include <raylib.h>
+#include "../GameObject/IGameObjectComponent.h"
+#include "../GameObject/IGameObject.h"
 
 class b2Body;
+class b2World;
 
-class GroundPhysicsComponent : public PhysicsComponent
+class GroundPhysicsComponent : public IGameObjectComponent
 {
 private:
 	b2Body* _body{};
+	std::shared_ptr<b2World> _world{};
 
 public:
 	GroundPhysicsComponent(std::shared_ptr<b2World> world, Vector2 size, Vector2 worldPosition);
-	virtual void Update(GameObject& gameObject, const float& deltaTime) override;
-	virtual b2Body* GetBody() override { return _body; };
-	virtual bool IsGrounded() override { return true; };
+	virtual void Update(IGameObject& gameObject, const float& deltaTime) override;
 };

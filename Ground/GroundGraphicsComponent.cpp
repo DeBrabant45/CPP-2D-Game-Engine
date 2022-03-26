@@ -1,6 +1,6 @@
 #include "GroundGraphicsComponent.h"
 
-void GroundGraphicsComponent::Update(GameObject& gameOjbect, std::shared_ptr<PhysicsComponent> physics, const float& deltaTime)
+void GroundGraphicsComponent::Update(IGameObject& gameObject, const float& deltaTime)
 {
-	_ground.Draw(deltaTime, gameOjbect.GetPosition(), 1.f);
+	_ground.Draw(deltaTime, gameObject.GetPosition(), 1.f);
 }

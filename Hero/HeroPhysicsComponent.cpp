@@ -27,7 +27,7 @@ void HeroPhysicsComponent::Update(Character& character, const float& deltaTime)
 { 
     character.IsGrounded = IsGrounded();
     Vector2 position{ _body->GetPosition().x, _body->GetPosition().y };
-    character.SetWorldPosition(position);
+    character.SetPosition(position);
     float velocityChange = character.Velocity.x - _body->GetLinearVelocity().x;
     float impulse = _body->GetMass() * velocityChange;
     float jumpImpluse = _body->GetMass() * character.Velocity.y;

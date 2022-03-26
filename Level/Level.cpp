@@ -8,14 +8,12 @@
 #include "../../box2d-main/include/box2d/box2d.h"
 #include "../Ground/GroundPhysicsComponent.h"
 #include "../Ground/GroundGraphicsComponent.h"
+#include "../GameObject/IGameObjectComponent.h"
+#include "../GameObject/IGameObject.h"
 
 Level::Level()
 {
 	_world = std::make_shared<b2World>(b2Vec2(0.f, 199.8f));
-	_props =
-	{
-		{ Vector2{ 100.f, 300.0f }, _world, LoadTexture("./Assets/Ground/Ground.png"), true },
-	};
 	_hero = std::make_shared<Character>(std::vector<std::shared_ptr<ICharacterComponent>>
 	{
 		std::make_shared<HeroPhysicsComponent>(_world, Vector2{ 100.f, 200.f }),
@@ -24,7 +22,11 @@ Level::Level()
 	});
 	_grounds =
 	{
-		{ std::make_shared<GroundPhysicsComponent>(_world, Vector2{120.f, 32.f}, Vector2{ 200.f, 300.f}), std::make_shared<GroundGraphicsComponent>() },
+		std::make_shared<Ground>(std::vector<std::shared_ptr<IGameObjectComponent>>
+		{
+			std::make_shared<GroundPhysicsComponent>(_world, Vector2{ 120.f, 32.f }, Vector2{ 200.f, 300.f }),
+			std::make_shared<GroundGraphicsComponent>()
+		}, GroundType::Walkable)
 	};
 	_mainCamera = { std::make_unique<MainCamera>(_hero) };
 }
@@ -37,13 +39,9 @@ void Level::Update(const float& deltaTime)
 	DrawMapToWorld();
 	for (auto ground : _grounds)
 	{
-		ground.Update(deltaTime);
+		ground->Update(deltaTime);
 	}
 	_hero->Update(deltaTime);
-	for (auto prop : _props)
-	{
-		prop.Update(deltaTime);
-	}
 	EndMode2D();
 }
 

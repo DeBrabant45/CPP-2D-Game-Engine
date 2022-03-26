@@ -29,9 +29,9 @@ private:
 public:
 	Character(std::vector<std::shared_ptr<ICharacterComponent>> components);
 	virtual void Update(const float& deltaTime) override;
+	virtual void SetPosition(Vector2& position) override;
 	virtual const Vector2& GetPosition() override { return _worldPosition; }
-	void SetWorldPosition(Vector2& position);
-	float GetLookDirection() const { return _lookDirection; }
-	CharacterState GetCurrentState() const { return _currentState; }
+	const float& GetLookDirection() { return _lookDirection; }
+	const CharacterState& GetCurrentState() { return _currentState; }
 };
 #endif

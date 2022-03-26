@@ -1,12 +1,13 @@
 #pragma once
-#include "../Components/GraphicsComponent.h"
+#include "../GameObject/IGameObjectComponent.h"
 #include "../Sprite/Sprite.h"
+#include "../GameObject/IGameObject.h"
 
-class GroundGraphicsComponent : public GraphicsComponent
+class GroundGraphicsComponent : public IGameObjectComponent
 {
 private:
 	Sprite _ground{ LoadTexture("./Assets/Ground/Ground.png"), 1, 1 };
 
 public:
-	virtual void Update(GameObject& gameOjbect, std::shared_ptr<PhysicsComponent> physics, const float& deltaTime) override;
+	virtual void Update(IGameObject& gameObject, const float& deltaTime) override;
 };

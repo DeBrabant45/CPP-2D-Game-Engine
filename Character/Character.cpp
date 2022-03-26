@@ -45,7 +45,7 @@ void Character::SetLookDirection()
 	}
 }
 
-void Character::SetWorldPosition(Vector2& position)
+void Character::SetPosition(Vector2& position)
 {
 	_worldPosition = position;
 }
