@@ -145,6 +145,7 @@
     <ClCompile Include="Character\Character.cpp" />
     <ClCompile Include="Game\GameWindow.cpp" />
     <ClCompile Include="Game\Game.cpp" />
+    <ClCompile Include="Ground\GroundFactory.cpp" />
     <ClCompile Include="Ground\Ground.cpp" />
     <ClCompile Include="Hero\HeroPhysicsComponent.cpp" />
     <ClCompile Include="Hero\HeroGraphicsComponent.cpp" />
@@ -166,6 +167,7 @@
     <ClInclude Include="Character\Character.h" />
     <ClInclude Include="Game\GameWindow.h" />
     <ClInclude Include="Game\Game.h" />
+    <ClInclude Include="Ground\GroundFactory.h" />
     <ClInclude Include="Ground\GroundType.h" />
     <ClInclude Include="Ground\Ground.h" />
     <ClInclude Include="Hero\HeroPhysicsComponent.h" />

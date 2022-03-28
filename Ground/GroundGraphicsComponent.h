@@ -6,8 +6,9 @@
 class GroundGraphicsComponent : public IGameObjectComponent
 {
 private:
-	Sprite _ground{ LoadTexture("./Assets/Ground/Ground.png"), 1, 1 };
+	Sprite _ground;
 
 public:
+	GroundGraphicsComponent(const Texture2D texture, Vector2 size);
 	virtual void Update(IGameObject& gameObject, const float& deltaTime) override;
 };

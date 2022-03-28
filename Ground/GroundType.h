@@ -3,6 +3,5 @@ enum class GroundType
 {
 	Hazard,
 	Walkable,
-	Floating,
 	None
 };

@@ -6,8 +6,6 @@
 #include "../Hero/HeroInputComponent.h"
 #include "../Input/InputHandler.h"
 #include "../../box2d-main/include/box2d/box2d.h"
-#include "../Ground/GroundPhysicsComponent.h"
-#include "../Ground/GroundGraphicsComponent.h"
 #include "../GameObject/IGameObjectComponent.h"
 #include "../GameObject/IGameObject.h"
 
@@ -22,11 +20,8 @@ Level::Level()
 	});
 	_grounds =
 	{
-		std::make_shared<Ground>(std::vector<std::shared_ptr<IGameObjectComponent>>
-		{
-			std::make_shared<GroundPhysicsComponent>(_world, Vector2{ 120.f, 32.f }, Vector2{ 200.f, 300.f }),
-			std::make_shared<GroundGraphicsComponent>()
-		}, GroundType::Walkable)
+		_groundFactory.Create(_world, Vector2{ 100.f, 32.f }, Vector2{ 100.f, 300.f}),
+		_groundFactory.Create(_world, Vector2{ 100.f, 32.f }, Vector2{ 230.f, 300.f})
 	};
 	_mainCamera = { std::make_unique<MainCamera>(_hero) };
 }

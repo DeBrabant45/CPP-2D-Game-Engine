@@ -16,6 +16,7 @@ private:
 
 public:
 	Sprite(const Texture2D texture, int frames, int speed);
+	Sprite(const Texture2D texture, Vector2 size, int frames, int speed);
 	void Draw(const float& deltaTime, const Vector2& location, const float& lookDirection);
 	Texture2D GetTexture() const { return _texture; }
 	float GetWidth() const { return _width; }
@@ -23,5 +24,4 @@ public:
 
 private:
 	void LoopFrames(const float& deltaTime, const Vector2& location);
-
 };

@@ -7,6 +7,7 @@
 #include "../GameObject/IGameObject.h"
 #include "../Character/Character.h"
 #include "../Ground/Ground.h"
+#include "../Ground/GroundFactory.h"
 
 class b2World;
 
@@ -21,6 +22,7 @@ private:
 	std::shared_ptr<Character> _hero{};
 	std::unique_ptr<MainCamera> _mainCamera{};
 	std::shared_ptr<b2World> _world{};
+	GroundFactory _groundFactory{};
 
 public:
 	Level();

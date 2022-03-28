@@ -8,6 +8,16 @@ Sprite::Sprite(const Texture2D texture, int frames, int speed) :
 
 }
 
+Sprite::Sprite(const Texture2D texture, Vector2 size, int frames, int speed) : 
+	_texture{ texture},
+	_width{ size.x / _frames },
+	_height{ size.y },
+	_frames { frames },
+	_speed{ speed }
+{
+
+}
+
 void Sprite::Draw(const float& deltaTime, const Vector2& location, const float& lookDirection)
 {
 	LoopFrames(deltaTime, location);
