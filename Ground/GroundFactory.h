@@ -11,5 +11,7 @@ class GroundFactory
 {
 public:
 	std::shared_ptr<Ground> Create(std::shared_ptr<b2World> world, Vector2 size, Vector2 position);
+	std::shared_ptr<Ground> CreateGraveyard(std::shared_ptr<b2World> world, Vector2 size, Vector2 position);
+	std::shared_ptr<Ground> CreateGraveyardHazard(std::shared_ptr<b2World> world, Vector2 size, Vector2 position);
 };
 #endif

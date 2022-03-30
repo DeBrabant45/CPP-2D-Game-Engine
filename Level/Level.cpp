@@ -11,17 +11,19 @@
 
 Level::Level()
 {
-	_world = std::make_shared<b2World>(b2Vec2(0.f, 199.8f));
+	_world = std::make_shared<b2World>(b2Vec2(0.f, 129.8f));
 	_hero = std::make_shared<Character>(std::vector<std::shared_ptr<ICharacterComponent>>
 	{
-		std::make_shared<HeroPhysicsComponent>(_world, Vector2{ 100.f, 200.f }),
+		std::make_shared<HeroPhysicsComponent>(_world, Vector2{ 100.f, 266.f }),
 		std::make_shared<HeroGraphicsComponent>(),
 		std::make_shared<HeroInputComponent>(std::make_shared<InputHandler>())
 	});
 	_grounds =
 	{
-		_groundFactory.Create(_world, Vector2{ 100.f, 32.f }, Vector2{ 100.f, 300.f}),
-		_groundFactory.Create(_world, Vector2{ 100.f, 32.f }, Vector2{ 230.f, 300.f})
+		_groundFactory.CreateGraveyard(_world, Vector2{ 300.f, 41.f }, Vector2{ 190.f, 300.f}),
+		_groundFactory.CreateGraveyardHazard(_world, Vector2{ 100.f, 41.f }, Vector2{ 390.f, 300.f}),
+		_groundFactory.CreateGraveyard(_world, Vector2{ 100.f, 41.f }, Vector2{ 470.f, 300.f}),
+		_groundFactory.CreateGraveyard(_world, Vector2{ 100.f, 41.f }, Vector2{ 590.f, 300.f}),
 	};
 	_mainCamera = { std::make_unique<MainCamera>(_hero) };
 }
@@ -37,6 +39,7 @@ void Level::Update(const float& deltaTime)
 		ground->Update(deltaTime);
 	}
 	_hero->Update(deltaTime);
+	DrawRectangle(0.f, 320.f, 5000.f, 60.f, BLACK);
 	EndMode2D();
 }
 

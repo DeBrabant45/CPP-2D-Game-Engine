@@ -1,7 +1,8 @@
 #include "GroundPhysicsComponent.h"
 #include "../../box2d-main/include/box2d/box2d.h"
+#include <iostream>
 
-GroundPhysicsComponent::GroundPhysicsComponent(std::shared_ptr<b2World> world, Vector2 size, Vector2 worldPosition) :
+GroundPhysicsComponent::GroundPhysicsComponent(std::shared_ptr<b2World> world, GroundType groundType, Vector2 size, Vector2 worldPosition) :
 	_world{ world }
 {
 	b2BodyDef bodyDef;
@@ -16,6 +17,7 @@ GroundPhysicsComponent::GroundPhysicsComponent(std::shared_ptr<b2World> world, V
 	fixtureDef.shape = &dynamicBox;
 	fixtureDef.density = 0.0f;
 	fixtureDef.friction = 5.3f;
+	fixtureDef.userData.pointer = uintptr_t(groundType);
 	_body->CreateFixture(&fixtureDef);
 }
 

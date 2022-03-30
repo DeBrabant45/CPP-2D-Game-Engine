@@ -3,6 +3,7 @@
 #include <raylib.h>
 #include "../GameObject/IGameObjectComponent.h"
 #include "../GameObject/IGameObject.h"
+#include "../Ground/GroundType.h"
 
 class b2Body;
 class b2World;
@@ -14,6 +15,6 @@ private:
 	std::shared_ptr<b2World> _world{};
 
 public:
-	GroundPhysicsComponent(std::shared_ptr<b2World> world, Vector2 size, Vector2 worldPosition);
+	GroundPhysicsComponent(std::shared_ptr<b2World> world, GroundType groundType, Vector2 size, Vector2 worldPosition);
 	virtual void Update(IGameObject& gameObject, const float& deltaTime) override;
 };

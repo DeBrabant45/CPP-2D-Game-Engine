@@ -3,6 +3,7 @@
 #include "../Character/Character.h"
 #include <iostream>
 #include <raymath.h>
+#include "../Ground/Ground.h"
 
 
 HeroPhysicsComponent::HeroPhysicsComponent(std::shared_ptr<b2World> world, Vector2 startPosition) :
@@ -25,7 +26,8 @@ HeroPhysicsComponent::HeroPhysicsComponent(std::shared_ptr<b2World> world, Vecto
 
 void HeroPhysicsComponent::Update(Character& character, const float& deltaTime)
 { 
-    character.IsGrounded = IsGrounded();
+    ContactCheck();
+    character.IsGrounded = _isGrounded;
     Vector2 position{ _body->GetPosition().x, _body->GetPosition().y };
     character.SetPosition(position);
     float velocityChange = character.Velocity.x - _body->GetLinearVelocity().x;
@@ -34,27 +36,43 @@ void HeroPhysicsComponent::Update(Character& character, const float& deltaTime)
     _body->ApplyLinearImpulseToCenter(b2Vec2(impulse, jumpImpluse), true);
 }
 
-bool HeroPhysicsComponent::IsGrounded()
+void HeroPhysicsComponent::ContactCheck()
 {
-    for (b2ContactEdge* ce = _body->GetContactList(); ce != nullptr; ce = ce->next)
+    for (b2ContactEdge* contactEdge = _body->GetContactList(); contactEdge != nullptr; contactEdge = contactEdge->next)
     {
-        b2Contact* c = ce->contact;
-        if (c->IsTouching())
-        {
-            b2WorldManifold man;
-            c->GetWorldManifold(&man);
-            for (int i = 0; i < b2_maxManifoldPoints; i++)
-            {
-                if (man.points[i].y > _body->GetPosition().y - _body->GetPosition().y / 2.0f + 0.01f)
-                {
-                    return true;
-                }
+        b2Contact* contactPoint = contactEdge->contact;
+        ApplyHazardForce(contactPoint);
+        GroundedCheck(contactPoint);
+    }
+}
 
-            }
-        }
-        else
+void HeroPhysicsComponent::GroundedCheck(b2Contact* contact)
+{
+    if (contact->IsTouching())
+    {
+        b2WorldManifold man;
+        contact->GetWorldManifold(&man);
+        for (int i = 0; i < b2_maxManifoldPoints; i++)
         {
-            return false;
+            if (man.points[i].y > _body->GetPosition().y - _body->GetPosition().y / 2.0f + 0.01f)
+            {
+                _isGrounded = true;
+            }
+
         }
     }
+    else
+    {
+        _isGrounded = false;
+    }
+}
+
+void HeroPhysicsComponent::ApplyHazardForce(b2Contact* contact)
+{
+    GroundType fixtureA = (GroundType)contact->GetFixtureA()->GetUserData().pointer;
+    GroundType fixtureB = (GroundType)contact->GetFixtureB()->GetUserData().pointer;
+    if (contact->IsTouching() && fixtureA == GroundType::Hazard && fixtureB == GroundType::Hazard)
+    {
+        _body->ApplyForce(b2Vec2(0, _body->GetMass() * (-500.f * 12)), _body->GetPosition(), true);
+    };
 }

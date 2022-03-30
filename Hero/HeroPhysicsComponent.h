@@ -5,17 +5,21 @@
 class Character;
 class b2Body;
 class b2World;
+class b2Contact;
 
 class HeroPhysicsComponent : public ICharacterComponent
 {
 private:
 	std::shared_ptr<b2World> _world;
 	b2Body* _body{};
+	bool _isGrounded{ true };
 
 public:
 	HeroPhysicsComponent(std::shared_ptr<b2World> world, Vector2 startPosition);
 	virtual void Update(Character& character, const float& deltaTime) override;
 
 private:
-	bool IsGrounded();
+	void GroundedCheck(b2Contact* contact);
+	void ApplyHazardForce(b2Contact* contact);
+	void ContactCheck();
 };
