@@ -48,7 +48,8 @@ void HeroPhysicsComponent::ContactCheck()
 
 void HeroPhysicsComponent::GroundedCheck(b2Contact* contact)
 {
-    if (contact->IsTouching())
+    GroundType fixtureB = (GroundType)contact->GetFixtureB()->GetUserData().pointer;
+    if (contact->IsTouching() && fixtureB == GroundType::Walkable)
     {
         b2WorldManifold man;
         contact->GetWorldManifold(&man);
@@ -69,9 +70,8 @@ void HeroPhysicsComponent::GroundedCheck(b2Contact* contact)
 
 void HeroPhysicsComponent::ApplyHazardForce(b2Contact* contact)
 {
-    GroundType fixtureA = (GroundType)contact->GetFixtureA()->GetUserData().pointer;
     GroundType fixtureB = (GroundType)contact->GetFixtureB()->GetUserData().pointer;
-    if (contact->IsTouching() && fixtureA == GroundType::Hazard && fixtureB == GroundType::Hazard)
+    if (contact->IsTouching() && fixtureB == GroundType::Hazard)
     {
         _body->ApplyForce(b2Vec2(0, _body->GetMass() * (-500.f * 12)), _body->GetPosition(), true);
     };

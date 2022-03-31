@@ -8,7 +8,6 @@ GroundPhysicsComponent::GroundPhysicsComponent(std::shared_ptr<b2World> world, G
 	b2BodyDef bodyDef;
 	bodyDef.type = b2_staticBody;
 	bodyDef.position.Set(worldPosition.x, worldPosition.y);
-	bodyDef.userData.pointer = uintptr_t(&size);
 	bodyDef.fixedRotation = true;
 	_body = _world->CreateBody(&bodyDef);
 	b2PolygonShape dynamicBox;
