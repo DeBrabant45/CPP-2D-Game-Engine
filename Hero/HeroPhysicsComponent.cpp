@@ -1,9 +1,9 @@
 #include "../../box2d-main/include/box2d/box2d.h"
 #include "HeroPhysicsComponent.h"
 #include "../Character/Character.h"
+#include "../Ground/GroundType.h"
 #include <iostream>
 #include <raymath.h>
-#include "../Ground/Ground.h"
 
 
 HeroPhysicsComponent::HeroPhysicsComponent(std::shared_ptr<b2World> world, Vector2 startPosition) :
@@ -74,5 +74,5 @@ void HeroPhysicsComponent::ApplyHazardForce(b2Contact* contact)
     if (contact->IsTouching() && fixtureB == GroundType::Hazard)
     {
         _body->ApplyForce(b2Vec2(0, _body->GetMass() * (-500.f * 12)), _body->GetPosition(), true);
-    };
+    }
 }

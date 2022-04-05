@@ -1,7 +1,7 @@
 #include "Character.h"
 #include <iostream>
 
-Character::Character(std::vector<std::shared_ptr<ICharacterComponent>> components) :
+Character::Character(std::vector<std::shared_ptr<IComponent<Character>>> components) :
 	_components{ components }
 {
 

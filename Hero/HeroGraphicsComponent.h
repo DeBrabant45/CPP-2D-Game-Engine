@@ -1,9 +1,9 @@
 #include "../Sprite/Sprite.h"
-#include "../Character/ICharacterComponent.h"
+#include "../Component/IComponent.h"
 
 class Character;
 
-class HeroGraphicsComponent : public ICharacterComponent
+class HeroGraphicsComponent : public IComponent<Character>
 {
 
 private:

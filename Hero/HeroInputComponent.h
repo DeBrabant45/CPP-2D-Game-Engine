@@ -1,10 +1,10 @@
-#include "../Character/ICharacterComponent.h"
 #include <memory>
+#include "../Component/IComponent.h"
 
 class InputHandler;
 class Character;
 
-class HeroInputComponent : public ICharacterComponent
+class HeroInputComponent : public IComponent<Character>
 {
 private:
 	std::shared_ptr<InputHandler>  _input{};

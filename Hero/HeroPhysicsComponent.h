@@ -1,13 +1,13 @@
-#include "../Character/ICharacterComponent.h"
 #include <memory>
 #include <raylib.h>
+#include "../Component/IComponent.h"
 
 class Character;
 class b2Body;
 class b2World;
 class b2Contact;
 
-class HeroPhysicsComponent : public ICharacterComponent
+class HeroPhysicsComponent : public IComponent<Character>
 {
 private:
 	std::shared_ptr<b2World> _world;

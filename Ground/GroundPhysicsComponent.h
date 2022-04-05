@@ -1,14 +1,14 @@
 #pragma once
 #include <memory>
 #include <raylib.h>
-#include "../GameObject/IGameObjectComponent.h"
-#include "../GameObject/IGameObject.h"
 #include "../Ground/GroundType.h"
+#include "../Component/IComponent.h"
+#include "../GameObject/IGameObject.h"
 
 class b2Body;
 class b2World;
 
-class GroundPhysicsComponent : public IGameObjectComponent
+class GroundPhysicsComponent : public IComponent<IGameObject>
 {
 private:
 	b2Body* _body{};

@@ -6,13 +6,13 @@
 #include "../Hero/HeroInputComponent.h"
 #include "../Input/InputHandler.h"
 #include "../../box2d-main/include/box2d/box2d.h"
-#include "../GameObject/IGameObjectComponent.h"
-#include "../GameObject/IGameObject.h"
+#include "../Ground/GroundType.h"
+#include "../Component/IComponent.h"
 
 Level::Level()
 {
 	_world = std::make_shared<b2World>(b2Vec2(0.f, 129.8f));
-	_hero = std::make_shared<Character>(std::vector<std::shared_ptr<ICharacterComponent>>
+	_hero = std::make_shared<Character>(std::vector<std::shared_ptr<IComponent<Character>>>
 	{
 		std::make_shared<HeroPhysicsComponent>(_world, Vector2{ 100.f, 266.f }),
 		std::make_shared<HeroGraphicsComponent>(),
@@ -20,10 +20,10 @@ Level::Level()
 	});
 	_grounds =
 	{
-		_groundFactory.CreateGraveyard(_world, Vector2{ 300.f, 41.f }, Vector2{ 190.f, 300.f}),
-		_groundFactory.CreateGraveyardHazard(_world, Vector2{ 100.f, 41.f }, Vector2{ 390.f, 300.f}),
-		_groundFactory.CreateGraveyard(_world, Vector2{ 100.f, 41.f }, Vector2{ 470.f, 300.f}),
-		_groundFactory.CreateGraveyard(_world, Vector2{ 100.f, 41.f }, Vector2{ 590.f, 300.f}),
+		_groundFactory.Create(GroundType::Walkable, _world, Vector2{ 300.f, 41.f }, Vector2{ 190.f, 300.f}),
+		_groundFactory.Create(GroundType::Hazard, _world, Vector2{ 100.f, 41.f }, Vector2{ 390.f, 300.f}),
+		_groundFactory.Create(GroundType::Walkable, _world, Vector2{ 100.f, 41.f }, Vector2{ 470.f, 300.f}),
+		_groundFactory.Create(GroundType::Walkable, _world, Vector2{ 100.f, 41.f }, Vector2{ 590.f, 300.f}),
 	};
 	_mainCamera = { std::make_unique<MainCamera>(_hero) };
 }

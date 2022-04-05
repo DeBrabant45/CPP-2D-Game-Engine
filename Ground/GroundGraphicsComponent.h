@@ -1,9 +1,9 @@
 #pragma once
-#include "../GameObject/IGameObjectComponent.h"
 #include "../Sprite/Sprite.h"
 #include "../GameObject/IGameObject.h"
+#include "../Component/IComponent.h"
 
-class GroundGraphicsComponent : public IGameObjectComponent
+class GroundGraphicsComponent : public IComponent<IGameObject>
 {
 private:
 	Sprite _ground;
