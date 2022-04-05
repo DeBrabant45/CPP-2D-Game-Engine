@@ -163,6 +163,7 @@
     <ClCompile Include="Sprite\Sprite.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Character\CharacterType.h" />
     <ClInclude Include="Character\CharacterFactory.h" />
     <ClInclude Include="Character\CharacterState.h" />
     <ClInclude Include="Character\Character.h" />

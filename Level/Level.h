@@ -2,14 +2,14 @@
 #include <raylib.h>
 #include <vector>
 #include <memory>
-#include "../Camera/MainCamera.h"
 #include "../Sprite/Sprite.h"
-#include "../GameObject/IGameObject.h"
-#include "../Character/Character.h"
+#include "../Camera/MainCamera.h"
 #include "../Ground/GroundFactory.h"
 #include "../GameObject/GameObject.h"
+#include "../Character/CharacterFactory.h"
 
 class b2World;
+class Character;
 
 class Level
 {
@@ -23,6 +23,7 @@ private:
 	std::unique_ptr<MainCamera> _mainCamera{};
 	std::shared_ptr<b2World> _world{};
 	GroundFactory _groundFactory{};
+	CharacterFactory _characterFactory{};
 
 public:
 	Level();

@@ -1,23 +1,16 @@
 #include "Level.h"
 #include <raymath.h>
 #include <iostream>
-#include "../Hero/HeroPhysicsComponent.h"
-#include "../Hero/HeroGraphicsComponent.h"
-#include "../Hero/HeroInputComponent.h"
-#include "../Input/InputHandler.h"
-#include "../../box2d-main/include/box2d/box2d.h"
 #include "../Ground/GroundType.h"
 #include "../Component/IComponent.h"
+#include "../Character/Character.h"
+#include "../Character/CharacterType.h"
+#include "../../box2d-main/include/box2d/box2d.h"
 
 Level::Level()
 {
 	_world = std::make_shared<b2World>(b2Vec2(0.f, 129.8f));
-	_hero = std::make_shared<Character>(std::vector<std::shared_ptr<IComponent<Character>>>
-	{
-		std::make_shared<HeroPhysicsComponent>(_world, Vector2{ 100.f, 266.f }),
-		std::make_shared<HeroGraphicsComponent>(),
-		std::make_shared<HeroInputComponent>(std::make_shared<InputHandler>())
-	});
+	_hero = _characterFactory.Create(CharacterType::Hero, _world, Vector2{ 100.f, 266.f });
 	_grounds =
 	{
 		_groundFactory.Create(GroundType::Walkable, _world, Vector2{ 300.f, 41.f }, Vector2{ 190.f, 300.f}),
