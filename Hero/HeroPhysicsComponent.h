@@ -1,9 +1,9 @@
 #include <memory>
 #include <raylib.h>
 #include "../Component/IComponent.h"
+#include "../Rigidbody/Rigidbody.h"
 
 class Character;
-class b2Body;
 class b2World;
 class b2Contact;
 
@@ -11,7 +11,7 @@ class HeroPhysicsComponent : public IComponent<Character>
 {
 private:
 	std::shared_ptr<b2World> _world;
-	b2Body* _body{};
+	Rigidbody _rigidbody;
 	bool _isGrounded{ true };
 
 public:
