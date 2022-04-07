@@ -3,15 +3,15 @@
 #include <raylib.h>
 #include "../Ground/GroundType.h"
 #include "../Component/IComponent.h"
-#include "../GameObject/IGameObject.h"
+#include "../Rigidbody/Rigidbody.h"
 
-class b2Body;
 class b2World;
+class IGameObject;
 
 class GroundPhysicsComponent : public IComponent<IGameObject>
 {
 private:
-	b2Body* _body{};
+	Rigidbody _rigidbody;
 	std::shared_ptr<b2World> _world{};
 
 public:

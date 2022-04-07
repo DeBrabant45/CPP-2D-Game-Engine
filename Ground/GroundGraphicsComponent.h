@@ -1,7 +1,8 @@
 #pragma once
 #include "../Sprite/Sprite.h"
-#include "../GameObject/IGameObject.h"
 #include "../Component/IComponent.h"
+
+class IGameObject;
 
 class GroundGraphicsComponent : public IComponent<IGameObject>
 {

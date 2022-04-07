@@ -1,4 +1,5 @@
 #include "GroundGraphicsComponent.h"
+#include "../GameObject/IGameObject.h"
 
 GroundGraphicsComponent::GroundGraphicsComponent(const Texture2D texture, Vector2 size) :
 	_ground{ texture, size, 1, 0}
