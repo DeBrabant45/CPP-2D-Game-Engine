@@ -17,9 +17,14 @@ HeroPhysicsComponent::HeroPhysicsComponent(std::shared_ptr<b2World> world, Vecto
     _rigidbody.CreateFixtureDefinition<CharacterType>(1.f, 0.3f, CharacterType::Hero);
 }
 
+void HeroPhysicsComponent::Receive(int message)
+{
+
+}
+
 void HeroPhysicsComponent::Update(Character& character, const float& deltaTime)
 { 
-    ContactCheck();
+    ContactCheck(character);
     character.IsGrounded = _isGrounded;
     Vector2 position{ _rigidbody.GetPosition().x,  _rigidbody.GetBody()->GetPosition().y };
     character.SetPosition(position);
@@ -29,12 +34,12 @@ void HeroPhysicsComponent::Update(Character& character, const float& deltaTime)
     _rigidbody.GetBody()->ApplyLinearImpulseToCenter(b2Vec2(impulse, jumpImpluse), true);
 }
 
-void HeroPhysicsComponent::ContactCheck()
+void HeroPhysicsComponent::ContactCheck(Character& character)
 {
     for (b2ContactEdge* contactEdge = _rigidbody.GetBody()->GetContactList(); contactEdge != nullptr; contactEdge = contactEdge->next)
     {
         b2Contact* contactPoint = contactEdge->contact;
-        ApplyHazardForce(contactPoint);
+        ApplyHazardForce(character, contactPoint);
         GroundedCheck(contactPoint);
     }
 }
@@ -61,11 +66,12 @@ void HeroPhysicsComponent::GroundedCheck(b2Contact* contact)
     }
 }
 
-void HeroPhysicsComponent::ApplyHazardForce(b2Contact* contact)
+void HeroPhysicsComponent::ApplyHazardForce(Character& character, b2Contact* contact)
 {
     GroundType fixtureB = (GroundType)contact->GetFixtureB()->GetUserData().pointer;
     if (contact->IsTouching() && fixtureB == GroundType::Hazard)
     {
+        character.Send(5);
         _rigidbody.GetBody()->ApplyForce(b2Vec2(0, _rigidbody.GetMass() * (-500.f * 12)), _rigidbody.GetPosition(), true);
     }
 }

@@ -17,9 +17,10 @@ private:
 public:
 	HeroPhysicsComponent(std::shared_ptr<b2World> world, Vector2 startPosition);
 	virtual void Update(Character& character, const float& deltaTime) override;
+	virtual void Receive(int message) override;
 
 private:
 	void GroundedCheck(b2Contact* contact);
-	void ApplyHazardForce(b2Contact* contact);
-	void ContactCheck();
+	void ApplyHazardForce(Character& character, b2Contact* contact);
+	void ContactCheck(Character& character);
 };

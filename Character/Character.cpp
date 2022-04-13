@@ -1,5 +1,6 @@
 #include "Character.h"
 #include <iostream>
+#include "../Observer/ISender.h"
 
 Character::Character(std::vector<std::shared_ptr<IComponent<Character>>> components) :
 	_components{ components }
@@ -9,6 +10,7 @@ Character::Character(std::vector<std::shared_ptr<IComponent<Character>>> compone
 
 void Character::Update(const float& deltaTime)
 {
+	IsAttacking = (AttackTimer > 0) ? true : false;
 	SetState();
 	SetLookDirection();
 	for (auto component :  _components)
@@ -19,13 +21,23 @@ void Character::Update(const float& deltaTime)
 
 void Character::SetState()
 {
-	if (Velocity.x != 0.0f && IsGrounded)
+	if (Velocity.x != 0.0f && IsGrounded && !IsAttacking)
 	{
 		_currentState = CharacterState::Run;
 	}
-	else if (!IsGrounded)
+	else if (!IsGrounded && !IsAttacking)
 	{
 		_currentState = CharacterState::Jump;
+	}
+	else if (IsAttacking)
+	{
+		_currentState = CharacterState::Attack;
+		AttackTimer--;
+	}
+	else if (HurtTimer > 0)
+	{
+		_currentState = CharacterState::Hurt;
+		HurtTimer--;
 	}
 	else
 	{
@@ -48,4 +60,20 @@ void Character::SetLookDirection()
 void Character::SetPosition(Vector2& position)
 {
 	_worldPosition = position;
+}
+
+void Character::Send(int message)
+{
+	_messages.push_back(message);
+	for (auto message : _messages)
+	{
+		for (auto component : _components)
+		{
+			if (component != nullptr)
+			{
+				component->Receive(message);
+			}
+		}
+		_messages.erase(_messages.begin());
+	}
 }

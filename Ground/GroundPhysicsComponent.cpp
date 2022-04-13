@@ -18,3 +18,7 @@ void GroundPhysicsComponent::Update(IGameObject& gameObject, const float& deltaT
 	Vector2 position{ _rigidbody.GetPosition().x, _rigidbody.GetPosition().y };
 	gameObject.SetPosition(position);
 }
+
+void GroundPhysicsComponent::Receive(int message)
+{
+}

@@ -11,3 +11,7 @@ void GroundGraphicsComponent::Update(IGameObject& gameObject, const float& delta
 {
 	_ground.Draw(deltaTime, gameObject.GetPosition(), 1.f);
 }
+
+void GroundGraphicsComponent::Receive(int message)
+{
+}

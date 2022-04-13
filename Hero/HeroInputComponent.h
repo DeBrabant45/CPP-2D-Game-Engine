@@ -12,4 +12,5 @@ private:
 public:
 	HeroInputComponent(std::shared_ptr<InputHandler> input);
 	virtual void Update(Character& character, const float& deltaTime) override;
+	virtual void Receive(int message) override;
 };

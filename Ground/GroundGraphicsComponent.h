@@ -12,4 +12,5 @@ private:
 public:
 	GroundGraphicsComponent(const Texture2D texture, Vector2 size);
 	virtual void Update(IGameObject& gameObject, const float& deltaTime) override;
+	virtual void Receive(int message) override;
 };

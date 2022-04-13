@@ -148,13 +148,12 @@
     <ClCompile Include="Game\GameWindow.cpp" />
     <ClCompile Include="Game\Game.cpp" />
     <ClCompile Include="Ground\GroundFactory.cpp" />
+    <ClCompile Include="Health\HealthComponent.cpp" />
     <ClCompile Include="Hero\HeroPhysicsComponent.cpp" />
     <ClCompile Include="Hero\HeroGraphicsComponent.cpp" />
     <ClCompile Include="Hero\HeroInputComponent.cpp" />
     <ClCompile Include="Ground\GroundGraphicsComponent.cpp" />
     <ClCompile Include="Ground\GroundPhysicsComponent.cpp" />
-    <ClCompile Include="GameObject\IGameObject.cpp" />
-    <ClCompile Include="Component\IComponent.cpp" />
     <ClCompile Include="Level\Level.cpp" />
     <ClCompile Include="Camera\MainCamera.cpp" />
     <ClCompile Include="Input\InputHandler.cpp" />
@@ -173,6 +172,7 @@
     <ClInclude Include="Game\Game.h" />
     <ClInclude Include="Ground\GroundFactory.h" />
     <ClInclude Include="Ground\GroundType.h" />
+    <ClInclude Include="Health\HealthComponent.h" />
     <ClInclude Include="Hero\HeroPhysicsComponent.h" />
     <ClInclude Include="Hero\HeroGraphicsComponent.h" />
     <ClInclude Include="Hero\HeroInputComponent.h" />
@@ -180,6 +180,8 @@
     <ClInclude Include="Ground\GroundPhysicsComponent.h" />
     <ClInclude Include="GameObject\IGameObject.h" />
     <ClInclude Include="Component\IComponent.h" />
+    <ClInclude Include="Observer\IReceiver.h" />
+    <ClInclude Include="Observer\ISender.h" />
     <ClInclude Include="Level\Level.h" />
     <ClInclude Include="Camera\MainCamera.h" />
     <ClInclude Include="Input\InputHandler.h" />

@@ -20,8 +20,15 @@ void HeroGraphicsComponent::Update(Character& character, const float& deltaTime)
 		case CharacterState::Attack:
 			_attack.Draw(deltaTime, character.GetPosition(), character.GetLookDirection());
 			break;
+		case CharacterState::Hurt:
+			_hurt.Draw(deltaTime, character.GetPosition(), character.GetLookDirection());
+			break;
 		case CharacterState::Idle:
 			_idle.Draw(deltaTime, character.GetPosition(), character.GetLookDirection());
 			break;
 	}
+}
+
+void HeroGraphicsComponent::Receive(int message)
+{
 }

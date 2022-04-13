@@ -25,7 +25,6 @@ public:
 	const float& GetMass() { return _body->GetMass(); }
 	const b2Vec2& GetPosition() { return _body->GetPosition(); }
 	b2Body* GetBody() const { return _body; }
-
 };
 
 template<typename T>
