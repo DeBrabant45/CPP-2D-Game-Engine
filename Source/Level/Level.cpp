@@ -1,7 +1,7 @@
 #include "Level.h"
 #include <raymath.h>
 #include <iostream>
-#include <box2d.h>
+#include <box2d/box2d.h>
 #include "../Ground/GroundType.h"
 #include "../Component/IComponent.h"
 #include "../Character/Character.h"

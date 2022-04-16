@@ -4,7 +4,7 @@
 #include "../Ground/GroundType.h"
 #include <iostream>
 #include <raymath.h>
-#include <box2d.h>
+#include <box2d/box2d.h>
 
 
 HeroPhysicsComponent::HeroPhysicsComponent(std::shared_ptr<b2World> world, Vector2 startPosition) :

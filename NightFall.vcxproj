@@ -119,7 +119,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\AaronsProjects\cpp-libs\boost_1_79_0;C:\AaronsProjects\box2d-main\include\box2d;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\AaronsProjects\cpp-libs\boost_1_79_0;C:\AaronsProjects\box2d-main\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -143,52 +143,52 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Character\CharacterFactory.cpp" />
-    <ClCompile Include="Character\Character.cpp" />
-    <ClCompile Include="GameObject\GameObject.cpp" />
-    <ClCompile Include="Game\GameWindow.cpp" />
-    <ClCompile Include="Game\Game.cpp" />
-    <ClCompile Include="Ground\GroundFactory.cpp" />
-    <ClCompile Include="Health\HealthComponent.cpp" />
-    <ClCompile Include="Hero\HeroPhysicsComponent.cpp" />
-    <ClCompile Include="Hero\HeroGraphicsComponent.cpp" />
-    <ClCompile Include="Hero\HeroInputComponent.cpp" />
-    <ClCompile Include="Ground\GroundGraphicsComponent.cpp" />
-    <ClCompile Include="Ground\GroundPhysicsComponent.cpp" />
-    <ClCompile Include="Level\Level.cpp" />
-    <ClCompile Include="Camera\MainCamera.cpp" />
-    <ClCompile Include="Input\InputHandler.cpp" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Props\Prop.cpp" />
-    <ClCompile Include="Rigidbody\Rigidbody.cpp" />
-    <ClCompile Include="Sprite\Sprite.cpp" />
+    <ClCompile Include="Source\Character\CharacterFactory.cpp" />
+    <ClCompile Include="Source\Character\Character.cpp" />
+    <ClCompile Include="Source\GameObject\GameObject.cpp" />
+    <ClCompile Include="Source\Game\GameWindow.cpp" />
+    <ClCompile Include="Source\Game\Game.cpp" />
+    <ClCompile Include="Source\Ground\GroundFactory.cpp" />
+    <ClCompile Include="Source\Health\HealthComponent.cpp" />
+    <ClCompile Include="Source\Hero\HeroPhysicsComponent.cpp" />
+    <ClCompile Include="Source\Hero\HeroGraphicsComponent.cpp" />
+    <ClCompile Include="Source\Hero\HeroInputComponent.cpp" />
+    <ClCompile Include="Source\Ground\GroundGraphicsComponent.cpp" />
+    <ClCompile Include="Source\Ground\GroundPhysicsComponent.cpp" />
+    <ClCompile Include="Source\Level\Level.cpp" />
+    <ClCompile Include="Source\Camera\MainCamera.cpp" />
+    <ClCompile Include="Source\Input\InputHandler.cpp" />
+    <ClCompile Include="Source\Main.cpp" />
+    <ClCompile Include="Source\Props\Prop.cpp" />
+    <ClCompile Include="Source\Rigidbody\Rigidbody.cpp" />
+    <ClCompile Include="Source\Sprite\Sprite.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Character\CharacterType.h" />
-    <ClInclude Include="Character\CharacterFactory.h" />
-    <ClInclude Include="Character\CharacterState.h" />
-    <ClInclude Include="Character\Character.h" />
-    <ClInclude Include="GameObject\GameObject.h" />
-    <ClInclude Include="Game\GameWindow.h" />
-    <ClInclude Include="Game\Game.h" />
-    <ClInclude Include="Ground\GroundFactory.h" />
-    <ClInclude Include="Ground\GroundType.h" />
-    <ClInclude Include="Health\HealthComponent.h" />
-    <ClInclude Include="Hero\HeroPhysicsComponent.h" />
-    <ClInclude Include="Hero\HeroGraphicsComponent.h" />
-    <ClInclude Include="Hero\HeroInputComponent.h" />
-    <ClInclude Include="Ground\GroundGraphicsComponent.h" />
-    <ClInclude Include="Ground\GroundPhysicsComponent.h" />
-    <ClInclude Include="GameObject\IGameObject.h" />
-    <ClInclude Include="Component\IComponent.h" />
-    <ClInclude Include="Observer\IReceiver.h" />
-    <ClInclude Include="Observer\ISender.h" />
-    <ClInclude Include="Level\Level.h" />
-    <ClInclude Include="Camera\MainCamera.h" />
-    <ClInclude Include="Input\InputHandler.h" />
-    <ClInclude Include="Props\Prop.h" />
-    <ClInclude Include="Rigidbody\Rigidbody.h" />
-    <ClInclude Include="Sprite\Sprite.h" />
+    <ClInclude Include="Source\Character\CharacterType.h" />
+    <ClInclude Include="Source\Character\CharacterFactory.h" />
+    <ClInclude Include="Source\Character\CharacterState.h" />
+    <ClInclude Include="Source\Character\Character.h" />
+    <ClInclude Include="Source\GameObject\GameObject.h" />
+    <ClInclude Include="Source\Game\GameWindow.h" />
+    <ClInclude Include="Source\Game\Game.h" />
+    <ClInclude Include="Source\Ground\GroundFactory.h" />
+    <ClInclude Include="Source\Ground\GroundType.h" />
+    <ClInclude Include="Source\Health\HealthComponent.h" />
+    <ClInclude Include="Source\Hero\HeroPhysicsComponent.h" />
+    <ClInclude Include="Source\Hero\HeroGraphicsComponent.h" />
+    <ClInclude Include="Source\Hero\HeroInputComponent.h" />
+    <ClInclude Include="Source\Ground\GroundGraphicsComponent.h" />
+    <ClInclude Include="Source\Ground\GroundPhysicsComponent.h" />
+    <ClInclude Include="Source\GameObject\IGameObject.h" />
+    <ClInclude Include="Source\Component\IComponent.h" />
+    <ClInclude Include="Source\Observer\IReceiver.h" />
+    <ClInclude Include="Source\Observer\ISender.h" />
+    <ClInclude Include="Source\Level\Level.h" />
+    <ClInclude Include="Source\Camera\MainCamera.h" />
+    <ClInclude Include="Source\Input\InputHandler.h" />
+    <ClInclude Include="Source\Props\Prop.h" />
+    <ClInclude Include="Source\Rigidbody\Rigidbody.h" />
+    <ClInclude Include="Source\Sprite\Sprite.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

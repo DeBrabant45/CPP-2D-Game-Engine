@@ -33,138 +33,138 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
+    <ClCompile Include="Source\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Game.cpp">
+    <ClCompile Include="Source\Game\Game.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Input\InputHandler.cpp">
+    <ClCompile Include="Source\Input\InputHandler.cpp">
       <Filter>Source Files\Input</Filter>
     </ClCompile>
-    <ClCompile Include="Props\Prop.cpp">
+    <ClCompile Include="Source\Props\Prop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Level\Level.cpp">
+    <ClCompile Include="Source\Level\Level.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\GameWindow.cpp">
+    <ClCompile Include="Source\Game\GameWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Hero\HeroPhysicsComponent.cpp">
+    <ClCompile Include="Source\Hero\HeroPhysicsComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Hero\HeroGraphicsComponent.cpp">
+    <ClCompile Include="Source\Hero\HeroGraphicsComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Hero\HeroInputComponent.cpp">
+    <ClCompile Include="Source\Hero\HeroInputComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Camera\MainCamera.cpp">
+    <ClCompile Include="Source\Camera\MainCamera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Sprite\Sprite.cpp">
+    <ClCompile Include="Source\Sprite\Sprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Ground\GroundPhysicsComponent.cpp">
+    <ClCompile Include="Source\Ground\GroundPhysicsComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Ground\GroundGraphicsComponent.cpp">
+    <ClCompile Include="Source\Ground\GroundGraphicsComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Character\Character.cpp">
+    <ClCompile Include="Source\Character\Character.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Ground\GroundFactory.cpp">
+    <ClCompile Include="Source\Ground\GroundFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Character\CharacterFactory.cpp">
+    <ClCompile Include="Source\Character\CharacterFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameObject\GameObject.cpp">
+    <ClCompile Include="Source\GameObject\GameObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Rigidbody\Rigidbody.cpp">
+    <ClCompile Include="Source\Rigidbody\Rigidbody.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Health\HealthComponent.cpp">
+    <ClCompile Include="Source\Health\HealthComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game\Game.h">
+    <ClInclude Include="Source\Game\Game.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Input\InputHandler.h">
+    <ClInclude Include="Source\Input\InputHandler.h">
       <Filter>Header Files\Input</Filter>
     </ClInclude>
-    <ClInclude Include="Props\Prop.h">
+    <ClInclude Include="Source\Props\Prop.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Level\Level.h">
+    <ClInclude Include="Source\Level\Level.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\GameWindow.h">
+    <ClInclude Include="Source\Game\GameWindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Hero\HeroPhysicsComponent.h">
+    <ClInclude Include="Source\Hero\HeroPhysicsComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Hero\HeroGraphicsComponent.h">
+    <ClInclude Include="Source\Hero\HeroGraphicsComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Hero\HeroInputComponent.h">
+    <ClInclude Include="Source\Hero\HeroInputComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Camera\MainCamera.h">
+    <ClInclude Include="Source\Camera\MainCamera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Sprite\Sprite.h">
+    <ClInclude Include="Source\Sprite\Sprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Ground\GroundPhysicsComponent.h">
+    <ClInclude Include="Source\Ground\GroundPhysicsComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Ground\GroundGraphicsComponent.h">
+    <ClInclude Include="Source\Ground\GroundGraphicsComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject\IGameObject.h">
+    <ClInclude Include="Source\GameObject\IGameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Character\Character.h">
+    <ClInclude Include="Source\Character\Character.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Character\CharacterState.h">
+    <ClInclude Include="Source\Character\CharacterState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Ground\GroundType.h">
+    <ClInclude Include="Source\Ground\GroundType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Ground\GroundFactory.h">
+    <ClInclude Include="Source\Ground\GroundFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Component\IComponent.h">
+    <ClInclude Include="Source\Component\IComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Character\CharacterFactory.h">
+    <ClInclude Include="Source\Character\CharacterFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject\GameObject.h">
+    <ClInclude Include="Source\GameObject\GameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Character\CharacterType.h">
+    <ClInclude Include="Source\Character\CharacterType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Rigidbody\Rigidbody.h">
+    <ClInclude Include="Source\Rigidbody\Rigidbody.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Health\HealthComponent.h">
+    <ClInclude Include="Source\Health\HealthComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Observer\ISender.h">
+    <ClInclude Include="Source\Observer\ISender.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Observer\IReceiver.h">
+    <ClInclude Include="Source\Observer\IReceiver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

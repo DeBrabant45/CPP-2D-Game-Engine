@@ -1,6 +1,6 @@
 #include "GroundPhysicsComponent.h"
 #include "../GameObject/IGameObject.h"
-#include <box2d.h>
+#include <box2d/box2d.h>
 #include <iostream>
 
 GroundPhysicsComponent::GroundPhysicsComponent(std::shared_ptr<b2World> world, GroundType groundType, Vector2 size, Vector2 worldPosition) :

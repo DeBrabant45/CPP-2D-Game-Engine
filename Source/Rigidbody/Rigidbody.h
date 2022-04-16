@@ -3,7 +3,7 @@
 #define RIGIDBODY_H
 #include <raylib.h>
 #include <memory>
-#include <box2d.h>
+#include <box2d/box2d.h>
 
 class Rigidbody
 {
