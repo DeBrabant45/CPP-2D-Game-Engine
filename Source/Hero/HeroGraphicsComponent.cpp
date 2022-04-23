@@ -1,34 +1,45 @@
 #include "HeroGraphicsComponent.h"
-#include "../Character/Character.h"
+#include "HeroInputComponent.h"
+#include "../GameObject/GameObject.h"
+#include "../Transform/Transformation.h"
 #include <iostream>
 
-HeroGraphicsComponent::HeroGraphicsComponent()
+HeroGraphicsComponent::HeroGraphicsComponent(std::shared_ptr<GameObject> owner) :
+	_owner{ owner }
 {
 
 }
 
-void HeroGraphicsComponent::Update(Character& character, const float& deltaTime)
+void HeroGraphicsComponent::Start()
 {
-	switch (character.GetCurrentState())
+	_state = _owner->GetComponent<HeroStateComponent>();
+	_transform = _owner->GetComponent<Transformation>();
+	_input = _owner->GetComponent<HeroInputComponent>();
+}
+
+void HeroGraphicsComponent::Update(const float& deltaTime)
+{
+	switch (_state->GetCurrentState())
 	{
 		case CharacterState::Run:
-			_run.Draw(deltaTime, character.GetPosition(), character.GetLookDirection());
+			_run.Draw(deltaTime, _transform->GetPosition(), _input->GetInputDirection());
 			break;
 		case CharacterState::Jump:
-			_fall.Draw(deltaTime, character.GetPosition(), character.GetLookDirection());
+			_fall.Draw(deltaTime, _transform->GetPosition(), _input->GetInputDirection());
 			break;
 		case CharacterState::Attack:
-			_attack.Draw(deltaTime, character.GetPosition(), character.GetLookDirection());
+			_attack.Draw(deltaTime, _transform->GetPosition(), _input->GetInputDirection());
 			break;
 		case CharacterState::Hurt:
-			_hurt.Draw(deltaTime, character.GetPosition(), character.GetLookDirection());
+			_hurt.Draw(deltaTime, _transform->GetPosition(), _input->GetInputDirection());
 			break;
 		case CharacterState::Idle:
-			_idle.Draw(deltaTime, character.GetPosition(), character.GetLookDirection());
+			_idle.Draw(deltaTime, _transform->GetPosition(), _input->GetInputDirection());
 			break;
 	}
 }
 
 void HeroGraphicsComponent::Receive(int message)
 {
+
 }

@@ -6,9 +6,7 @@
 class IGameObject
 {
 public:
+	virtual void Start() = 0;
 	virtual void Update(const float& deltaTime) = 0;
-	virtual void SetPosition(Vector2& position) = 0;
-	virtual const Vector2& GetPosition() = 0;
-	Vector2 Velocity{ };
 };
 #endif

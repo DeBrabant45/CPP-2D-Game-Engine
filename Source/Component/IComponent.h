@@ -3,10 +3,10 @@
 #define ICOMPONENT_H
 #include "../Observer/IReceiver.h"
 
-template<class T>
 class IComponent : public IReceiver
 {
 public:
-	virtual void Update(T& gameobject, const float& deltaTime) = 0;
+	virtual void Start() = 0;
+	virtual void Update(const float& deltaTime) = 0;
 };
 #endif

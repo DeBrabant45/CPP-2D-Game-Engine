@@ -6,16 +6,22 @@
 #include "../Rigidbody/Rigidbody.h"
 
 class b2World;
-class IGameObject;
+class GameObject;
+class Transformation;
 
-class GroundPhysicsComponent : public IComponent<IGameObject>
+class GroundPhysicsComponent : public IComponent
 {
 private:
-	Rigidbody _rigidbody;
+	std::shared_ptr<GameObject> _owner;
+	std::shared_ptr<Transformation> _transform;
 	std::shared_ptr<b2World> _world{};
+	Rigidbody _rigidbody;
+	GroundType _groundType{};
+	Vector2 _size{};
 
 public:
-	GroundPhysicsComponent(std::shared_ptr<b2World> world, GroundType groundType, Vector2 size, Vector2 worldPosition);
-	virtual void Update(IGameObject& gameObject, const float& deltaTime) override;
+	GroundPhysicsComponent(std::shared_ptr<GameObject> _owner, std::shared_ptr<b2World> world, GroundType groundType, Vector2 size);
+	virtual void Start() override;
+	virtual void Update(const float& deltaTime) override;
 	virtual void Receive(int message) override;
 };

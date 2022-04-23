@@ -20,18 +20,18 @@ std::shared_ptr<GameObject> GroundFactory::Create(GroundType groundtype, std::sh
 
 std::shared_ptr<GameObject> GroundFactory::CreateGraveyard(std::shared_ptr<b2World> world, Vector2 size, Vector2 position)
 {
-	return std::make_shared<GameObject>(std::vector< std::shared_ptr<IComponent<IGameObject> > >
-	{
-		std::make_shared<GroundPhysicsComponent>(world, GroundType::Walkable, Vector2{ size.x, size.y - 20 }, Vector2{ position.x, position.y }),
-		std::make_shared<GroundGraphicsComponent>(LoadTexture("./Assets/Ground/Graveyard-00.png"), Vector2{ size.x, size.y })
-	});
+	auto _graveyardGround = std::make_shared<GameObject>();
+	_graveyardGround->AddComponent(std::make_shared<Transformation>(position));
+	_graveyardGround->AddComponent(std::make_shared<GroundPhysicsComponent>(_graveyardGround, world, GroundType::Walkable, Vector2{ size.x, size.y - 20 }));
+	_graveyardGround->AddComponent(std::make_shared<GroundGraphicsComponent>(_graveyardGround, LoadTexture("./Assets/Ground/Graveyard-00.png"), Vector2{ size.x, size.y }));
+	return _graveyardGround;
 }
 
 std::shared_ptr<GameObject> GroundFactory::CreateGraveyardHazard(std::shared_ptr<b2World> world, Vector2 size, Vector2 position)
 {
-	return std::make_shared<GameObject>(std::vector< std::shared_ptr<IComponent<IGameObject> > >
-	{
-		std::make_shared<GroundPhysicsComponent>(world, GroundType::Hazard, Vector2{ size.x, size.y - 35 }, Vector2{ position.x, position.y }),
-		std::make_shared<GroundGraphicsComponent>(LoadTexture("./Assets/Ground/Graveyard-hazard.png"), Vector2{ size.x, size.y })
-	});
+	auto _graveyardHazard = std::make_shared<GameObject>();
+	_graveyardHazard->AddComponent(std::make_shared<Transformation>(position));
+	_graveyardHazard->AddComponent(std::make_shared<GroundPhysicsComponent>(_graveyardHazard, world, GroundType::Hazard, Vector2{ size.x, size.y - 35 }));
+	_graveyardHazard->AddComponent(std::make_shared<GroundGraphicsComponent>(_graveyardHazard, LoadTexture("./Assets/Ground/Graveyard-hazard.png"), Vector2{ size.x, size.y }));
+	return _graveyardHazard;
 }

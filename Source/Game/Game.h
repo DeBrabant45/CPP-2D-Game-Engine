@@ -17,9 +17,9 @@ public:
 	Game& operator=(const Game& other) = delete;
 	~Game() noexcept;
 	bool IsGameClosed() const;
-	void Tick();
+	void Start();
+	void Update();
 
 private:
 	void Draw();
-	void Update(const float& deltaTime);
 };

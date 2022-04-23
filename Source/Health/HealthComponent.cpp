@@ -32,10 +32,14 @@ void HealthComponent::Receive(int message)
 	std::cout << _currentAmount << std::endl;
 }
 
-void HealthComponent::Update(Character& character, const float& deltaTime)
+void HealthComponent::Update(const float& deltaTime)
 {
 	if (_currentAmount <= 0.f)
 	{
 
 	}
+}
+
+void HealthComponent::Start()
+{
 }

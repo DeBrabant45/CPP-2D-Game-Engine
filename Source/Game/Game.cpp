@@ -24,21 +24,21 @@ bool Game::IsGameClosed() const
 	return WindowShouldClose();
 }
 
-void Game::Tick()
+void Game::Update()
 {
 	BeginDrawing();
 	Draw();
-	Update(GetFrameTime());
+	_level->Update(GetFrameTime());
+	DrawFPS(GameWindow::GetWidth() - 80, GameWindow::GetHeight() - 50);
 	EndDrawing();
+}
+
+void Game::Start()
+{
+	_level->Start();
 }
 
 void Game::Draw()
 {
 	ClearBackground(BLACK);
-}
-
-void Game::Update(const float& deltaTime)
-{
-	_level->Update(deltaTime);
-	DrawFPS(GameWindow::GetWidth() - 80, GameWindow::GetHeight() - 50);
 }

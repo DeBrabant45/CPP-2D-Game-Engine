@@ -4,9 +4,10 @@
 int main(void)
 {
     Game game{ "NightFall" };
+    game.Start();
     while (!game.IsGameClosed())
     {
-        game.Tick();
+        game.Update();
     }
     return 0;
 }

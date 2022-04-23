@@ -1,12 +1,23 @@
+#pragma once
+#ifndef HEROGRAPHICSCOMPONENT_H
+#define HEROGRAPHICSCOMPONENT_H
 #include "../Sprite/Sprite.h"
 #include "../Component/IComponent.h"
+#include "HeroStateComponent.h"
+#include <memory>
 
-class Character;
+class Transformation;
+class GameObject;
+class HeroInputComponent;
 
-class HeroGraphicsComponent : public IComponent<Character>
+class HeroGraphicsComponent : public IComponent
 {
 
 private:
+	std::shared_ptr<GameObject> _owner{};
+	std::shared_ptr<HeroStateComponent> _state{};
+	std::shared_ptr<Transformation> _transform{};
+	std::shared_ptr<HeroInputComponent> _input{};
 	Sprite _idle{ LoadTexture("./Assets/Hero/hero-idle-sheet.png"), 4, 9 };
 	Sprite _run{ LoadTexture("./Assets/Hero/hero-run-sheet.png"), 6, 16 };
 	Sprite _fall{ LoadTexture("./Assets/Hero/hero-fall.png"), 2, 10 };
@@ -14,7 +25,9 @@ private:
 	Sprite _hurt{ LoadTexture("./Assets/Hero/hero-hurt.png"), 1, 10 };
 
 public:
-	HeroGraphicsComponent();
-	virtual void Update(Character& character, const float& deltaTime) override;
+	HeroGraphicsComponent(std::shared_ptr<GameObject> owner);
+	virtual void Start() override;
+	virtual void Update(const float& deltaTime) override;
 	virtual void Receive(int message) override;
 };
+#endif

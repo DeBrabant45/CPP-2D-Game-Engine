@@ -1,8 +1,7 @@
 #pragma once
 #include "../Component/IComponent.h"
-#include "../Character/Character.h"
 
-class HealthComponent : public IComponent<Character>
+class HealthComponent : public IComponent
 {
 private:
 	float _maxAmount;
@@ -10,8 +9,9 @@ private:
 
 public:
 	HealthComponent(float maxAmount);
+	virtual void Start() override;
+	virtual void Receive(int message) override;
+	virtual void Update(const float& deltaTime) override;
 	void Damage(float amount);
 	void Add(float amount);
-	virtual void Receive(int message) override;
-	virtual void Update(Character& gameobject, const float& deltaTime) override;
 };

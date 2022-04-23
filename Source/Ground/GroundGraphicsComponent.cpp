@@ -1,17 +1,24 @@
 #include "GroundGraphicsComponent.h"
-#include "../GameObject/IGameObject.h"
+#include "../GameObject/GameObject.h"
 
-GroundGraphicsComponent::GroundGraphicsComponent(const Texture2D texture, Vector2 size) :
+GroundGraphicsComponent::GroundGraphicsComponent(std::shared_ptr<GameObject> owner, const Texture2D texture, Vector2 size) :
+	_owner{ owner },
 	_ground{ texture, size, 1, 0}
 {
 
 }
 
-void GroundGraphicsComponent::Update(IGameObject& gameObject, const float& deltaTime)
+void GroundGraphicsComponent::Start()
 {
-	_ground.Draw(deltaTime, gameObject.GetPosition(), 1.f);
+	_transform = _owner->GetComponent<Transformation>();
+}
+
+void GroundGraphicsComponent::Update(const float& deltaTime)
+{
+	_ground.Draw(deltaTime, _transform->GetPosition(), 1.f);
 }
 
 void GroundGraphicsComponent::Receive(int message)
 {
+
 }
