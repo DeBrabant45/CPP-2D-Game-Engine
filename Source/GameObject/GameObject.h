@@ -4,6 +4,7 @@
 #include <vector>
 #include <memory>
 #include <iostream>
+#include <boost/signals2.hpp>
 #include "../GameObject/IGameObject.h"
 #include "../Component/IComponent.h"
 
@@ -18,6 +19,7 @@ public:
 	template <typename T> std::shared_ptr<T> GetComponent();
 	virtual void Start() override;
 	virtual void Update(const float& deltaTime) override;
+	boost::signals2::signal<void(int)> Events;
 };
 #endif
 

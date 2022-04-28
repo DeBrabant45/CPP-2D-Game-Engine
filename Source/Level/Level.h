@@ -22,6 +22,7 @@ private:
 	MainCamera _mainCamera{};
 	std::vector<std::shared_ptr<GameObject>> _grounds{};
 	std::shared_ptr<GameObject> _hero{};
+	std::shared_ptr<GameObject> _hellHound{};
 	std::shared_ptr<b2World> _world{};
 
 public:

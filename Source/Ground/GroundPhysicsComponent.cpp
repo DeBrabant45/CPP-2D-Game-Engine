@@ -28,8 +28,3 @@ void GroundPhysicsComponent::Update(const float& deltaTime)
 	Vector2 position{ _rigidbody.GetPosition().x, _rigidbody.GetPosition().y };
 	_transform->SetPosition(position);
 }
-
-void GroundPhysicsComponent::Receive(int message)
-{
-
-}

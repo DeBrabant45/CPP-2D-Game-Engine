@@ -30,16 +30,8 @@ void HeroGraphicsComponent::Update(const float& deltaTime)
 		case CharacterState::Attack:
 			_attack.Draw(deltaTime, _transform->GetPosition(), _input->GetInputDirection());
 			break;
-		case CharacterState::Hurt:
-			_hurt.Draw(deltaTime, _transform->GetPosition(), _input->GetInputDirection());
-			break;
 		case CharacterState::Idle:
 			_idle.Draw(deltaTime, _transform->GetPosition(), _input->GetInputDirection());
 			break;
 	}
-}
-
-void HeroGraphicsComponent::Receive(int message)
-{
-
 }

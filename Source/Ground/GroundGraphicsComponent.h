@@ -17,5 +17,4 @@ public:
 	GroundGraphicsComponent(std::shared_ptr<GameObject> owner, const Texture2D texture, Vector2 size);
 	virtual void Start() override;
 	virtual void Update(const float& deltaTime) override;
-	virtual void Receive(int message) override;
 };

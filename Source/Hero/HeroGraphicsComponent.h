@@ -18,6 +18,7 @@ private:
 	std::shared_ptr<HeroStateComponent> _state{};
 	std::shared_ptr<Transformation> _transform{};
 	std::shared_ptr<HeroInputComponent> _input{};
+	int _flashTimer{};
 	Sprite _idle{ LoadTexture("./Assets/Hero/hero-idle-sheet.png"), 4, 9 };
 	Sprite _run{ LoadTexture("./Assets/Hero/hero-run-sheet.png"), 6, 16 };
 	Sprite _fall{ LoadTexture("./Assets/Hero/hero-fall.png"), 2, 10 };
@@ -28,6 +29,5 @@ public:
 	HeroGraphicsComponent(std::shared_ptr<GameObject> owner);
 	virtual void Start() override;
 	virtual void Update(const float& deltaTime) override;
-	virtual void Receive(int message) override;
 };
 #endif

@@ -15,7 +15,6 @@ public:
 	void SetPosition(Vector2 position);
 	const Vector2& GetPosition() { return _position; }
 	virtual void Start() override;
-	virtual void Receive(int message) override;
 	virtual void Update(const float& deltaTime) override;
 };
 #endif

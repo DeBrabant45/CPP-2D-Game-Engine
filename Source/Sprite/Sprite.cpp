@@ -23,7 +23,7 @@ void Sprite::Draw(const float& deltaTime, const Vector2& location, const float& 
 	LoopFrames(deltaTime, location);
 	Rectangle source{ _currentFrame * _width, 0.f, lookDirection * _width, _height };
 	Rectangle dest{ location.x - _width / 2, location.y - _height / 2, _width,  _height };
-	DrawTexturePro(_texture, source, dest, Vector2{}, 0.f, WHITE);
+	DrawTexturePro(_texture, source, dest, Vector2{}, 0.f, RAYWHITE);
 }
 
 void Sprite::LoopFrames(const float& deltaTime, const Vector2& location)

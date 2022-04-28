@@ -93,6 +93,12 @@
     <ClCompile Include="Source\Hero\HeroStateComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Enemy\Hellhound\HellhoundGraphicsComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Enemy\Hellhound\HellhoundPhysicsComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Game\Game.h">
@@ -171,6 +177,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Hero\HeroStateComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Enemy\Hellhound\HellhoundGraphicsComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Enemy\Hellhound\HellhoundPhysicsComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

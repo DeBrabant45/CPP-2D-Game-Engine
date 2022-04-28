@@ -16,10 +16,6 @@ void Transformation::Start()
 
 }
 
-void Transformation::Receive(int message)
-{
-}
-
 void Transformation::Update(const float& deltaTime)
 {
 

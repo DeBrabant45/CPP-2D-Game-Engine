@@ -1,5 +1,7 @@
 #include "HeroInputComponent.h"
 #include "../Input/InputHandler.h"
+#include "../GameObject/GameObject.h"
+#include "../Hero/HeroPhysicsComponent.h"
 #include <iostream>
 
 
@@ -33,9 +35,8 @@ void HeroInputComponent::Update(const float& deltaTime)
 		_physics->Velocity.x = -95.f;
 		_inputDirection = -1.0f;
 	}
-}
-
-void HeroInputComponent::Receive(int message)
-{
-
+	else if (_input->IsAttackPressed())
+	{
+		_owner->Events(11);
+	}
 }

@@ -1,11 +1,10 @@
 #pragma once
 #include <memory>
 #include "../Component/IComponent.h"
-#include "../GameObject/GameObject.h"
-#include "../Hero/HeroPhysicsComponent.h"
 
 class InputHandler;
-class Character;
+class HeroPhysicsComponent;
+class GameObject;
 
 class HeroInputComponent : public IComponent
 {
@@ -19,6 +18,5 @@ public:
 	HeroInputComponent(std::shared_ptr<GameObject> owner, std::shared_ptr<InputHandler> input);
 	virtual void Start() override;
 	virtual void Update(const float& deltaTime) override;
-	virtual void Receive(int message) override;
 	const float GetInputDirection() { return _inputDirection; }
 };

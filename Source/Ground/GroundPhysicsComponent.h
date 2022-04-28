@@ -23,5 +23,4 @@ public:
 	GroundPhysicsComponent(std::shared_ptr<GameObject> _owner, std::shared_ptr<b2World> world, GroundType groundType, Vector2 size);
 	virtual void Start() override;
 	virtual void Update(const float& deltaTime) override;
-	virtual void Receive(int message) override;
 };

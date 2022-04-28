@@ -17,8 +17,3 @@ void GroundGraphicsComponent::Update(const float& deltaTime)
 {
 	_ground.Draw(deltaTime, _transform->GetPosition(), 1.f);
 }
-
-void GroundGraphicsComponent::Receive(int message)
-{
-
-}

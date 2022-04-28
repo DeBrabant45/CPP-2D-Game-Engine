@@ -1,9 +1,8 @@
 #pragma once
 #ifndef ICOMPONENT_H
 #define ICOMPONENT_H
-#include "../Observer/IReceiver.h"
 
-class IComponent : public IReceiver
+class IComponent
 {
 public:
 	virtual void Start() = 0;

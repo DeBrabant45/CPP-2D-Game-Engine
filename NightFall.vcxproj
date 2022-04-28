@@ -143,6 +143,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Enemy\Hellhound\HellhoundPhysicsComponent.cpp" />
+    <ClCompile Include="Source\Enemy\Hellhound\HellhoundGraphicsComponent.cpp" />
     <ClCompile Include="Source\Hero\HeroStateComponent.cpp" />
     <ClCompile Include="Source\Character\CharacterFactory.cpp" />
     <ClCompile Include="Source\GameObject\GameObject.cpp" />
@@ -165,6 +167,8 @@
     <ClCompile Include="Source\Transform\Transformation.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Enemy\Hellhound\HellhoundPhysicsComponent.h" />
+    <ClInclude Include="Source\Enemy\Hellhound\HellhoundGraphicsComponent.h" />
     <ClInclude Include="Source\Hero\HeroStateComponent.h" />
     <ClInclude Include="Source\Character\CharacterType.h" />
     <ClInclude Include="Source\Character\CharacterFactory.h" />

@@ -10,6 +10,7 @@ Level::Level()
 {
 	_world = std::make_shared<b2World>(b2Vec2(0.f, 129.8f));
 	_hero = _characterFactory.Create(CharacterType::Hero, _world, Vector2{ 100.f, 266.f });
+	_hellHound = _characterFactory.Create(CharacterType::Hellhound, _world, Vector2{ 200.f, 266.f });
 	_grounds =
 	{
 		_groundFactory.Create(GroundType::Hazard, _world, Vector2{ 600.f, 41.f }, Vector2{ 0.f, 300.f}),
@@ -22,6 +23,7 @@ Level::Level()
 void Level::Start()
 {
 	_hero->Start();
+	_hellHound->Start();
 	for (auto ground : _grounds)
 	{
 		ground->Start();
@@ -40,6 +42,7 @@ void Level::Update(const float& deltaTime)
 		ground->Update(deltaTime);
 	}
 	_hero->Update(deltaTime);
+	_hellHound->Update(deltaTime);
 	DrawRectangle(0.f, 320.f, 5000.f, 60.f, BLACK);
 	EndMode2D();
 }

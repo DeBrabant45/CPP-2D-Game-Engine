@@ -5,5 +5,6 @@
 enum class CharacterType
 {
 	Hero,
+	Hellhound
 };
 #endif
