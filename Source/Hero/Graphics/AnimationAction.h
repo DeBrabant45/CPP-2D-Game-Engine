@@ -1,10 +1,11 @@
 #pragma once
-enum class CharacterState
+enum class AnimationAction
 {
 	Idle,
 	Attack,
 	Hurt,
 	Jump,
 	Run,
+	Fall,
 	None
 };

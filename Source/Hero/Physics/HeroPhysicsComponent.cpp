@@ -1,8 +1,8 @@
 #include "HeroPhysicsComponent.h"
-#include "../Character/CharacterType.h"
-#include "../Ground/GroundType.h"
-#include "../GameObject/GameObject.h"
-#include "../Transform/Transformation.h"
+#include "../../Character/CharacterType.h"
+#include "../../Ground/GroundType.h"
+#include "../../GameObject/GameObject.h"
+#include "../../Transform/Transformation.h"
 #include <iostream>
 #include <raymath.h>
 #include <box2d/box2d.h>

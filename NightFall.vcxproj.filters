@@ -51,13 +51,13 @@
     <ClCompile Include="Source\Game\GameWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Hero\HeroPhysicsComponent.cpp">
+    <ClCompile Include="Source\Hero\Physics\HeroPhysicsComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Hero\HeroGraphicsComponent.cpp">
+    <ClCompile Include="Source\Hero\Graphics\HeroGraphicsComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Hero\HeroInputComponent.cpp">
+    <ClCompile Include="Source\Hero\Input\HeroInputComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Camera\MainCamera.cpp">
@@ -90,13 +90,28 @@
     <ClCompile Include="Source\Transform\Transformation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Hero\HeroStateComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Enemy\Hellhound\HellhoundGraphicsComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Enemy\Hellhound\HellhoundPhysicsComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\State\StateController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Hero\States\HeroIdleState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Hero\States\HeroWalkState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Hero\States\HeroJumpState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Hero\States\HeroAttackState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Hero\States\HeroFallState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -116,13 +131,13 @@
     <ClInclude Include="Source\Game\GameWindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Hero\HeroPhysicsComponent.h">
+    <ClInclude Include="Source\Hero\Physics\HeroPhysicsComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Hero\HeroGraphicsComponent.h">
+    <ClInclude Include="Source\Hero\Graphics\HeroGraphicsComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Hero\HeroInputComponent.h">
+    <ClInclude Include="Source\Hero\Input\HeroInputComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Camera\MainCamera.h">
@@ -138,9 +153,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\GameObject\IGameObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Character\CharacterState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Ground\GroundType.h">
@@ -176,13 +188,34 @@
     <ClInclude Include="Source\Transform\Transformation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Hero\HeroStateComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Enemy\Hellhound\HellhoundGraphicsComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Enemy\Hellhound\HellhoundPhysicsComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\State\IState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\State\StateController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Hero\States\HeroIdleState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Hero\States\HeroWalkState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Hero\States\HeroJumpState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Hero\States\HeroAttackState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Hero\States\HeroFallState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Hero\Graphics\AnimationAction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

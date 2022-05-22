@@ -1,8 +1,8 @@
 #pragma once
 #include <memory>
 #include <raylib.h>
-#include "../Component/IComponent.h"
-#include "../Rigidbody/Rigidbody.h"
+#include "../../Component/IComponent.h"
+#include "../../Rigidbody/Rigidbody.h"
 
 class b2World;
 class b2Contact;

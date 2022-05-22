@@ -1,7 +1,7 @@
 #include "HeroInputComponent.h"
-#include "../Input/InputHandler.h"
-#include "../GameObject/GameObject.h"
-#include "../Hero/HeroPhysicsComponent.h"
+#include "../../Input/InputHandler.h"
+#include "../../GameObject/GameObject.h"
+#include "../Physics/HeroPhysicsComponent.h"
 #include <iostream>
 
 
@@ -23,17 +23,17 @@ void HeroInputComponent::Update(const float& deltaTime)
 	_physics->Velocity = {0.f, 0.f};
 	if (_input->IsJumpPressed() && _physics->GetIsGrounded())
 	{
-		_physics->Velocity.y = -95.f;
+		_owner->Events(40);
 	}
 	else if (_input->IsMoveRightPressed())
 	{
-		_physics->Velocity.x = 95.f;
+		_owner->Events(20);
 		_inputDirection = 1.0f;
 	}
 	else if (_input->IsMoveLeftPressed())
 	{
-		_physics->Velocity.x = -95.f;
 		_inputDirection = -1.0f;
+		_owner->Events(30);
 	}
 	else if (_input->IsAttackPressed())
 	{

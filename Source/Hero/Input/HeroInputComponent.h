@@ -1,6 +1,6 @@
 #pragma once
 #include <memory>
-#include "../Component/IComponent.h"
+#include "../../Component/IComponent.h"
 
 class InputHandler;
 class HeroPhysicsComponent;

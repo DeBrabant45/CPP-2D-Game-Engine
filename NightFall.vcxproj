@@ -143,18 +143,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Hero\States\HeroFallState.cpp" />
+    <ClCompile Include="Source\Hero\States\HeroAttackState.cpp" />
+    <ClCompile Include="Source\Hero\States\HeroJumpState.cpp" />
+    <ClCompile Include="Source\Hero\States\HeroWalkState.cpp" />
+    <ClCompile Include="Source\Hero\States\HeroIdleState.cpp" />
     <ClCompile Include="Source\Enemy\Hellhound\HellhoundPhysicsComponent.cpp" />
     <ClCompile Include="Source\Enemy\Hellhound\HellhoundGraphicsComponent.cpp" />
-    <ClCompile Include="Source\Hero\HeroStateComponent.cpp" />
     <ClCompile Include="Source\Character\CharacterFactory.cpp" />
     <ClCompile Include="Source\GameObject\GameObject.cpp" />
     <ClCompile Include="Source\Game\GameWindow.cpp" />
     <ClCompile Include="Source\Game\Game.cpp" />
     <ClCompile Include="Source\Ground\GroundFactory.cpp" />
     <ClCompile Include="Source\Health\HealthComponent.cpp" />
-    <ClCompile Include="Source\Hero\HeroPhysicsComponent.cpp" />
-    <ClCompile Include="Source\Hero\HeroGraphicsComponent.cpp" />
-    <ClCompile Include="Source\Hero\HeroInputComponent.cpp" />
+    <ClCompile Include="Source\Hero\Physics\HeroPhysicsComponent.cpp" />
+    <ClCompile Include="Source\Hero\Graphics\HeroGraphicsComponent.cpp" />
+    <ClCompile Include="Source\Hero\Input\HeroInputComponent.cpp" />
     <ClCompile Include="Source\Ground\GroundGraphicsComponent.cpp" />
     <ClCompile Include="Source\Ground\GroundPhysicsComponent.cpp" />
     <ClCompile Include="Source\Level\Level.cpp" />
@@ -165,23 +169,29 @@
     <ClCompile Include="Source\Rigidbody\Rigidbody.cpp" />
     <ClCompile Include="Source\Sprite\Sprite.cpp" />
     <ClCompile Include="Source\Transform\Transformation.cpp" />
+    <ClCompile Include="Source\State\StateController.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Hero\Graphics\AnimationAction.h" />
+    <ClInclude Include="Source\Hero\States\HeroFallState.h" />
+    <ClInclude Include="Source\Hero\States\HeroAttackState.h" />
+    <ClInclude Include="Source\Hero\States\HeroJumpState.h" />
+    <ClInclude Include="Source\Hero\States\HeroWalkState.h" />
+    <ClInclude Include="Source\Hero\States\HeroIdleState.h" />
+    <ClInclude Include="Source\State\IState.h" />
     <ClInclude Include="Source\Enemy\Hellhound\HellhoundPhysicsComponent.h" />
     <ClInclude Include="Source\Enemy\Hellhound\HellhoundGraphicsComponent.h" />
-    <ClInclude Include="Source\Hero\HeroStateComponent.h" />
     <ClInclude Include="Source\Character\CharacterType.h" />
     <ClInclude Include="Source\Character\CharacterFactory.h" />
-    <ClInclude Include="Source\Character\CharacterState.h" />
     <ClInclude Include="Source\GameObject\GameObject.h" />
     <ClInclude Include="Source\Game\GameWindow.h" />
     <ClInclude Include="Source\Game\Game.h" />
     <ClInclude Include="Source\Ground\GroundFactory.h" />
     <ClInclude Include="Source\Ground\GroundType.h" />
     <ClInclude Include="Source\Health\HealthComponent.h" />
-    <ClInclude Include="Source\Hero\HeroPhysicsComponent.h" />
-    <ClInclude Include="Source\Hero\HeroGraphicsComponent.h" />
-    <ClInclude Include="Source\Hero\HeroInputComponent.h" />
+    <ClInclude Include="Source\Hero\Physics\HeroPhysicsComponent.h" />
+    <ClInclude Include="Source\Hero\Graphics\HeroGraphicsComponent.h" />
+    <ClInclude Include="Source\Hero\Input\HeroInputComponent.h" />
     <ClInclude Include="Source\Ground\GroundGraphicsComponent.h" />
     <ClInclude Include="Source\Ground\GroundPhysicsComponent.h" />
     <ClInclude Include="Source\GameObject\IGameObject.h" />
@@ -195,6 +205,7 @@
     <ClInclude Include="Source\Rigidbody\Rigidbody.h" />
     <ClInclude Include="Source\Sprite\Sprite.h" />
     <ClInclude Include="Source\Transform\Transformation.h" />
+    <ClInclude Include="Source\State\StateController.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
