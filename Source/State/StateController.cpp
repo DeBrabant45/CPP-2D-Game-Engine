@@ -1,23 +1,31 @@
 #include "StateController.h"
 #include "IState.h"
 
-StateController::StateController(std::shared_ptr<GameObject> owner, std::shared_ptr<IState> startState) :
-	_owner{ owner },
-	_currentState{ startState }
+StateController::StateController(std::shared_ptr<GameObject> owner) :
+	_owner{ owner }
 {
 
 }
 
+void StateController::DefaultState(std::shared_ptr<IState> state)
+{
+	_currentState = state;
+}
+
 void StateController::Start()
 {
-	_currentState->OnEnter(_owner, this);
+	for (auto state : _states)
+	{
+		state->Start();
+	}
+	_currentState->OnEnter();
 }
 
 void StateController::TransitionToState(std::shared_ptr<IState> state)
 {
 	_currentState->OnExit();
 	_currentState = state;
-	_currentState->OnEnter(_owner, this);
+	_currentState->OnEnter();
 }
 
 void StateController::Update(const float& deltaTime)

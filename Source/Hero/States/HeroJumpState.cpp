@@ -5,12 +5,24 @@
 #include "../Graphics/HeroGraphicsComponent.h"
 #include "../Physics/HeroPhysicsComponent.h"
 
-void HeroJumpState::OnEnter(std::shared_ptr<GameObject> owner, StateController* controller)
+
+HeroJumpState::HeroJumpState(std::shared_ptr<GameObject> owner, std::shared_ptr<StateController> controller) :
+	_owner { owner },
+	_controller { controller }
 {
-	_controller = { controller };
-	_graphics = owner->GetComponent<HeroGraphicsComponent>();
+
+}
+
+void HeroJumpState::Start()
+{
+	_graphics = _owner->GetComponent<HeroGraphicsComponent>();
+	_physics = _owner->GetComponent<HeroPhysicsComponent>();
+}
+
+void HeroJumpState::OnEnter()
+{
+	_timer = 9.f;
 	_graphics->SetGraphics(AnimationAction::Jump);
-	_physics = owner->GetComponent<HeroPhysicsComponent>();
 	_physics->Velocity.y += _jumpHeight;
 }
 
@@ -19,11 +31,13 @@ void HeroJumpState::OnUpdate()
 	_timer--;
 	if (_timer <= 0)
 	{
-		_controller->TransitionToState(std::make_shared<HeroFallState>());
+		_controller->TransitionToState(_controller->GetState<HeroFallState>());
+		return;
 	}
 	else if (_physics->GetIsGrounded())
 	{
-		_controller->TransitionToState(std::make_shared<HeroIdleState>());
+		_controller->TransitionToState(_controller->GetState<HeroIdleState>());
+		return;
 	}
 	else if (IsKeyDown(KEY_D) && !_physics->GetIsGrounded())
 	{

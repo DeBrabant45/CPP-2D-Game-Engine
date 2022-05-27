@@ -170,8 +170,11 @@
     <ClCompile Include="Source\Sprite\Sprite.cpp" />
     <ClCompile Include="Source\Transform\Transformation.cpp" />
     <ClCompile Include="Source\State\StateController.cpp" />
+    <ClCompile Include="Source\State\StateControllerFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\GameObject\IStart.h" />
+    <ClInclude Include="Source\GameObject\IUpdate.h" />
     <ClInclude Include="Source\Hero\Graphics\AnimationAction.h" />
     <ClInclude Include="Source\Hero\States\HeroFallState.h" />
     <ClInclude Include="Source\Hero\States\HeroAttackState.h" />
@@ -206,6 +209,7 @@
     <ClInclude Include="Source\Sprite\Sprite.h" />
     <ClInclude Include="Source\Transform\Transformation.h" />
     <ClInclude Include="Source\State\StateController.h" />
+    <ClInclude Include="Source\State\StateControllerFactory.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

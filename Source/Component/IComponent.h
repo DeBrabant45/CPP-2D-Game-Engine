@@ -1,11 +1,11 @@
 #pragma once
 #ifndef ICOMPONENT_H
 #define ICOMPONENT_H
+#include "../GameObject/IStart.h"
+#include "../GameObject/IUpdate.h"
 
-class IComponent
+class IComponent : public IStart, public IUpdate
 {
-public:
-	virtual void Start() = 0;
-	virtual void Update(const float& deltaTime) = 0;
+
 };
 #endif

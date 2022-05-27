@@ -11,7 +11,6 @@
 #include "../Enemy/Hellhound/HellhoundGraphicsComponent.h"
 #include "../Enemy/Hellhound/HellhoundPhysicsComponent.h"
 #include "../State/StateController.h"
-#include "../Hero/States/HeroIdleState.h"
 #include "../Transform/Transformation.h"
 
 std::shared_ptr<GameObject> CharacterFactory::Create(CharacterType characterType, std::shared_ptr<b2World> world, Vector2 position)
@@ -30,13 +29,13 @@ std::shared_ptr<GameObject> CharacterFactory::Create(CharacterType characterType
 
 std::shared_ptr<GameObject> CharacterFactory::CreateHero(std::shared_ptr<b2World> world, Vector2 position)
 {
-	std::shared_ptr<GameObject> hero = std::make_shared<GameObject>();
+	auto hero = std::make_shared<GameObject>();
 	hero->AddComponent(std::make_shared<Transformation>(position));
 	hero->AddComponent(std::make_shared<HeroPhysicsComponent>(hero, world));
 	hero->AddComponent(std::make_shared<HeroGraphicsComponent>(hero));
 	hero->AddComponent(std::make_shared<HeroInputComponent>(hero, std::make_shared<InputHandler>()));
 	hero->AddComponent(std::make_shared<HealthComponent>(100.f));
-	hero->AddComponent(std::make_shared<StateController>(hero, std::make_shared<HeroIdleState>()));
+	hero->AddComponent(_stateFactory.CreateController(hero, CharacterType::Hero));
 	return hero;
 }
 

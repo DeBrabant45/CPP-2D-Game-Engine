@@ -1,17 +1,25 @@
 #include "HeroAttackState.h"
-#include "../Graphics/HeroGraphicsComponent.h"
 #include "HeroIdleState.h"
+#include "../Graphics/HeroGraphicsComponent.h"
+#include "../Physics/HeroPhysicsComponent.h"
 
-void HeroAttackState::OnEnter(std::shared_ptr<GameObject> owner, StateController* controller)
+HeroAttackState::HeroAttackState(std::shared_ptr<GameObject> owner, std::shared_ptr<StateController> controller) :
+	_owner{ owner },
+	_controller{ controller }
 {
-	_controller = { controller };
-	auto animation = owner->GetComponent<HeroGraphicsComponent>();
-	animation->SetGraphics(AnimationAction::Attack);
+
 }
 
-void HeroAttackState::OnExit()
+void HeroAttackState::Start()
 {
+	_graphics = _owner->GetComponent<HeroGraphicsComponent>();
+	_physics = _owner->GetComponent<HeroPhysicsComponent>();
+}
 
+void HeroAttackState::OnEnter()
+{
+	_graphics->SetGraphics(AnimationAction::Attack);
+	_attackTimer = 25.f;
 }
 
 void HeroAttackState::OnUpdate()
@@ -19,6 +27,12 @@ void HeroAttackState::OnUpdate()
 	_attackTimer--;
 	if (_attackTimer <= 0)
 	{
-		_controller->TransitionToState(std::make_shared<HeroIdleState>());
+		_controller->TransitionToState(_controller->GetState<HeroIdleState>());
+		return;
 	}
+}
+
+void HeroAttackState::OnExit()
+{
+
 }

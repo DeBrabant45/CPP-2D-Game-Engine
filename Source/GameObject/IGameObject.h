@@ -2,11 +2,11 @@
 #ifndef IGAMEOBJECT_H
 #define IGAMEOBJECT_H
 #include "raylib.h"
+#include "IStart.h"
+#include "IUpdate.h"
 
-class IGameObject
+class IGameObject : public IStart, public IUpdate
 {
-public:
-	virtual void Start() = 0;
-	virtual void Update(const float& deltaTime) = 0;
+
 };
 #endif

@@ -1,27 +1,32 @@
 #include "HeroFallState.h"
-#include "../../State/StateController.h"
 #include "../Graphics/HeroGraphicsComponent.h"
 #include "../Physics/HeroPhysicsComponent.h"
 #include "HeroIdleState.h"
 
-void HeroFallState::OnEnter(std::shared_ptr<GameObject> owner, StateController* controller)
+HeroFallState::HeroFallState(std::shared_ptr<GameObject> owner, std::shared_ptr<StateController> controller) :
+	_owner { owner },
+	_controller { controller }
 {
-	_controller = { controller };
-	_graphics = owner->GetComponent<HeroGraphicsComponent>();
-	_graphics->SetGraphics(AnimationAction::Fall);
-	_physics = owner->GetComponent<HeroPhysicsComponent>();
+
 }
 
-void HeroFallState::OnExit()
+void HeroFallState::Start()
 {
+	_physics = _owner->GetComponent<HeroPhysicsComponent>();
+	_graphics = _owner->GetComponent<HeroGraphicsComponent>();
+}
 
+void HeroFallState::OnEnter()
+{
+	_graphics->SetGraphics(AnimationAction::Fall);
 }
 
 void HeroFallState::OnUpdate()
 {
 	if (_physics->GetIsGrounded())
 	{
-		_controller->TransitionToState(std::make_shared<HeroIdleState>());
+		_controller->TransitionToState(_controller->GetState<HeroIdleState>());
+		return;
 	}
 	else if (IsKeyDown(KEY_D) && !_physics->GetIsGrounded())
 	{
@@ -34,4 +39,9 @@ void HeroFallState::OnUpdate()
 		_physics->Velocity.x += -60;
 		_graphics->SetLookDirection(-1.f);
 	}
+}
+
+void HeroFallState::OnExit()
+{
+
 }

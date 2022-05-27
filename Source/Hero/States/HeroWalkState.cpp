@@ -4,24 +4,40 @@
 #include "HeroFallState.h"
 #include "../Graphics/HeroGraphicsComponent.h"
 #include "../Physics/HeroPhysicsComponent.h"
+#include "HeroAttackState.h"
 
-void HeroWalkState::OnEnter(std::shared_ptr<GameObject> owner, StateController* controller)
+HeroWalkState::HeroWalkState(std::shared_ptr<GameObject> owner, std::shared_ptr<StateController> controller) :
+	_owner{ owner },
+	_controller{ controller }
 {
-	_controller = controller;
-	_graphics = owner->GetComponent<HeroGraphicsComponent>();
-	_graphics->SetGraphics(AnimationAction::Run);
-	_physics = owner->GetComponent<HeroPhysicsComponent>();
+
 }
 
-void HeroWalkState::OnExit()
+void HeroWalkState::Start()
 {
+	_graphics = _owner->GetComponent<HeroGraphicsComponent>();
+	_physics = _owner->GetComponent<HeroPhysicsComponent>();
+}
 
+void HeroWalkState::OnEnter()
+{
+	_graphics->SetGraphics(AnimationAction::Run);
 }
 
 void HeroWalkState::OnUpdate()
 {
 	if (_physics->GetIsGrounded())
 	{
+		if (IsKeyDown(KEY_SPACE))
+		{
+			_controller->TransitionToState(_controller->GetState<HeroJumpState>());
+			return;
+		}
+		if (IsMouseButtonPressed(0))
+		{
+			_controller->TransitionToState(_controller->GetState<HeroAttackState>());
+			return;
+		}
 		if (IsKeyDown(KEY_D))
 		{
 			_physics->Velocity.x = _speed;
@@ -34,17 +50,19 @@ void HeroWalkState::OnUpdate()
 		}
 		else
 		{
-			_controller->TransitionToState(std::make_shared<HeroIdleState>());
+			_controller->TransitionToState(_controller->GetState<HeroIdleState>());
+			return;
 		}
-		if (IsKeyDown(KEY_SPACE))
-		{
-			_controller->TransitionToState(std::make_shared<HeroJumpState>());
-		}
-
 	}
 	else
 	{
-		_controller->TransitionToState(std::make_shared<HeroFallState>());
+		_controller->TransitionToState(_controller->GetState<HeroFallState>());
+		return;
 	}
+
+}
+
+void HeroWalkState::OnExit()
+{
 
 }
