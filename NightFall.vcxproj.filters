@@ -75,9 +75,6 @@
     <ClCompile Include="Source\Ground\GroundFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Character\CharacterFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\GameObject\GameObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -90,10 +87,10 @@
     <ClCompile Include="Source\Transform\Transformation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Enemy\Hellhound\HellhoundGraphicsComponent.cpp">
+    <ClCompile Include="Source\Enemy\Hellhound\Graphics\HellhoundGraphicsComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Enemy\Hellhound\HellhoundPhysicsComponent.cpp">
+    <ClCompile Include="Source\Enemy\Hellhound\Physics\HellhoundPhysicsComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\State\StateController.cpp">
@@ -115,6 +112,33 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\State\StateControllerFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Physics\RayCastCallback.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\IHittable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameObject\GameObjectFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Hero\Factory\HeroFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Hero\Factory\HeroProduction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Hero\StateController\HeroStateControllerFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Hero\StateController\HeroStateControllerProduction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Enemy\Hellhound\Factory\HellhoundFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Enemy\Hellhound\Factory\HellhoundProduction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -167,9 +191,6 @@
     <ClInclude Include="Source\Component\IComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Character\CharacterFactory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\GameObject\GameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -191,10 +212,10 @@
     <ClInclude Include="Source\Transform\Transformation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Enemy\Hellhound\HellhoundGraphicsComponent.h">
+    <ClInclude Include="Source\Enemy\Hellhound\Graphics\HellhoundGraphicsComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Enemy\Hellhound\HellhoundPhysicsComponent.h">
+    <ClInclude Include="Source\Enemy\Hellhound\Physics\HellhoundPhysicsComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\State\IState.h">
@@ -228,6 +249,39 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\GameObject\IUpdate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Physics\RayCastCallback.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\IHittable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GameObject\GameObjectFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GameObject\IGameObjectProduction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Hero\Factory\HeroFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Hero\Factory\HeroProduction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\State\IStateControllerProduction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Hero\StateController\HeroStateControllerFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Hero\StateController\HeroStateControllerProduction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Enemy\Hellhound\Factory\HellhoundFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Enemy\Hellhound\Factory\HellhoundProduction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

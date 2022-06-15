@@ -143,14 +143,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Enemy\Hellhound\Factory\HellhoundProduction.cpp" />
+    <ClCompile Include="Source\Enemy\Hellhound\Factory\HellhoundFactory.cpp" />
+    <ClCompile Include="Source\Hero\StateController\HeroStateControllerProduction.cpp" />
+    <ClCompile Include="Source\Hero\StateController\HeroStateControllerFactory.cpp" />
+    <ClCompile Include="Source\Hero\Factory\HeroProduction.cpp" />
+    <ClCompile Include="Source\Hero\Factory\HeroFactory.cpp" />
+    <ClCompile Include="Source\GameObject\GameObjectFactory.cpp" />
+    <ClCompile Include="Source\IHittable.cpp" />
+    <ClCompile Include="Source\Physics\RayCastCallback.cpp" />
     <ClCompile Include="Source\Hero\States\HeroFallState.cpp" />
     <ClCompile Include="Source\Hero\States\HeroAttackState.cpp" />
     <ClCompile Include="Source\Hero\States\HeroJumpState.cpp" />
     <ClCompile Include="Source\Hero\States\HeroWalkState.cpp" />
     <ClCompile Include="Source\Hero\States\HeroIdleState.cpp" />
-    <ClCompile Include="Source\Enemy\Hellhound\HellhoundPhysicsComponent.cpp" />
-    <ClCompile Include="Source\Enemy\Hellhound\HellhoundGraphicsComponent.cpp" />
-    <ClCompile Include="Source\Character\CharacterFactory.cpp" />
+    <ClCompile Include="Source\Enemy\Hellhound\Physics\HellhoundPhysicsComponent.cpp" />
+    <ClCompile Include="Source\Enemy\Hellhound\Graphics\HellhoundGraphicsComponent.cpp" />
     <ClCompile Include="Source\GameObject\GameObject.cpp" />
     <ClCompile Include="Source\Game\GameWindow.cpp" />
     <ClCompile Include="Source\Game\Game.cpp" />
@@ -173,6 +181,16 @@
     <ClCompile Include="Source\State\StateControllerFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Enemy\Hellhound\Factory\HellhoundProduction.h" />
+    <ClInclude Include="Source\Enemy\Hellhound\Factory\HellhoundFactory.h" />
+    <ClInclude Include="Source\Hero\StateController\HeroStateControllerProduction.h" />
+    <ClInclude Include="Source\Hero\StateController\HeroStateControllerFactory.h" />
+    <ClInclude Include="Source\Hero\Factory\HeroProduction.h" />
+    <ClInclude Include="Source\Hero\Factory\HeroFactory.h" />
+    <ClInclude Include="Source\GameObject\GameObjectFactory.h" />
+    <ClInclude Include="Source\GameObject\IGameObjectProduction.h" />
+    <ClInclude Include="Source\IHittable.h" />
+    <ClInclude Include="Source\Physics\RayCastCallback.h" />
     <ClInclude Include="Source\GameObject\IStart.h" />
     <ClInclude Include="Source\GameObject\IUpdate.h" />
     <ClInclude Include="Source\Hero\Graphics\AnimationAction.h" />
@@ -182,10 +200,9 @@
     <ClInclude Include="Source\Hero\States\HeroWalkState.h" />
     <ClInclude Include="Source\Hero\States\HeroIdleState.h" />
     <ClInclude Include="Source\State\IState.h" />
-    <ClInclude Include="Source\Enemy\Hellhound\HellhoundPhysicsComponent.h" />
-    <ClInclude Include="Source\Enemy\Hellhound\HellhoundGraphicsComponent.h" />
+    <ClInclude Include="Source\Enemy\Hellhound\Physics\HellhoundPhysicsComponent.h" />
+    <ClInclude Include="Source\Enemy\Hellhound\Graphics\HellhoundGraphicsComponent.h" />
     <ClInclude Include="Source\Character\CharacterType.h" />
-    <ClInclude Include="Source\Character\CharacterFactory.h" />
     <ClInclude Include="Source\GameObject\GameObject.h" />
     <ClInclude Include="Source\Game\GameWindow.h" />
     <ClInclude Include="Source\Game\Game.h" />
@@ -207,6 +224,7 @@
     <ClInclude Include="Source\Props\Prop.h" />
     <ClInclude Include="Source\Rigidbody\Rigidbody.h" />
     <ClInclude Include="Source\Sprite\Sprite.h" />
+    <ClInclude Include="Source\State\IStateControllerProduction.h" />
     <ClInclude Include="Source\Transform\Transformation.h" />
     <ClInclude Include="Source\State\StateController.h" />
     <ClInclude Include="Source\State\StateControllerFactory.h" />

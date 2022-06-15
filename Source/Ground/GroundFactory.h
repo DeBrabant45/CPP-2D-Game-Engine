@@ -15,6 +15,6 @@ private:
 	std::shared_ptr<GameObject> CreateGraveyardHazard(std::shared_ptr<b2World> world, Vector2 size, Vector2 position);
 
 public:
-	std::shared_ptr<GameObject> Create(GroundType groundtype, std::shared_ptr<b2World> world, Vector2 size, Vector2 position);
+	std::shared_ptr<GameObject> CreateGameObject(GroundType groundtype, std::shared_ptr<b2World> world, Vector2 size, Vector2 position);
 };
 #endif

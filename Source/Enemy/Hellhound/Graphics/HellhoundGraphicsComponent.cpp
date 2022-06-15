@@ -1,6 +1,6 @@
 #include "HellhoundGraphicsComponent.h"
-#include "../../Transform/Transformation.h"
-#include "../../GameObject/GameObject.h"
+#include "../../../Transform/Transformation.h"
+#include "../../../GameObject/GameObject.h"
 
 HellhoundGraphicsComponent::HellhoundGraphicsComponent(std::shared_ptr<GameObject> owner) :
 	_owner{ owner }

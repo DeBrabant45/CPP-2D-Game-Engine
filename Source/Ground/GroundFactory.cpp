@@ -4,7 +4,7 @@
 #include "../GameObject/GameObject.h"
 #include <iostream>
 
-std::shared_ptr<GameObject> GroundFactory::Create(GroundType groundtype, std::shared_ptr<b2World> world, Vector2 size, Vector2 position)
+std::shared_ptr<GameObject> GroundFactory::CreateGameObject(GroundType groundtype, std::shared_ptr<b2World> world, Vector2 size, Vector2 position)
 {
 	switch (groundtype)
 	{

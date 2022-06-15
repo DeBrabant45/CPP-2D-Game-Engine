@@ -1,16 +1,13 @@
 #pragma once
 #include <memory>
-#include "../Character/CharacterType.h"
+#include "IStateControllerProduction.h"
 
 class StateController;
 class GameObject;
 
 class StateControllerFactory
 {
-
 public:
-	std::shared_ptr<StateController> CreateController(std::shared_ptr<GameObject> owner, CharacterType character);
-
-private:
-	std::shared_ptr<StateController> CreateHeroStateController(std::shared_ptr<GameObject> owner);
+	std::shared_ptr<StateController> CreateController(std::shared_ptr<GameObject> owner);
+	virtual std::shared_ptr<IStateControllerProduction> CreateProduction() = 0;
 };

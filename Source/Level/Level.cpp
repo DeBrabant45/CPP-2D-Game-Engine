@@ -9,14 +9,14 @@
 Level::Level()
 {
 	_world = std::make_shared<b2World>(b2Vec2(0.f, 129.8f));
-	_hero = _characterFactory.Create(CharacterType::Hero, _world, Vector2{ 100.f, 266.f });
-	_hellHound = _characterFactory.Create(CharacterType::Hellhound, _world, Vector2{ 200.f, 266.f });
+	_hero = _heroFactory.CreateGameObject(_world, Vector2{ 100.f, 266.f });
+	_hellHound = _hellhoundFactory.CreateGameObject(_world, Vector2{ 200.f, 266.f });
 	_grounds =
 	{
-		_groundFactory.Create(GroundType::Hazard, _world, Vector2{ 600.f, 41.f }, Vector2{ 0.f, 300.f}),
-		_groundFactory.Create(GroundType::Walkable, _world, Vector2{ 300.f, 41.f }, Vector2{ 190.f, 300.f}),
-		_groundFactory.Create(GroundType::Hazard, _world, Vector2{ 100.f, 41.f }, Vector2{ 390.f, 300.f}),
-		_groundFactory.Create(GroundType::Walkable, _world, Vector2{ 300.f, 41.f }, Vector2{ 590.f, 300.f}),
+		_groundFactory.CreateGameObject(GroundType::Hazard, _world, Vector2{ 600.f, 41.f }, Vector2{ 0.f, 300.f}),
+		_groundFactory.CreateGameObject(GroundType::Walkable, _world, Vector2{ 300.f, 41.f }, Vector2{ 190.f, 300.f}),
+		_groundFactory.CreateGameObject(GroundType::Hazard, _world, Vector2{ 100.f, 41.f }, Vector2{ 390.f, 300.f}),
+		_groundFactory.CreateGameObject(GroundType::Walkable, _world, Vector2{ 300.f, 41.f }, Vector2{ 590.f, 300.f}),
 	};
 }
 

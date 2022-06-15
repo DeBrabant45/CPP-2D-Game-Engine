@@ -1,7 +1,7 @@
 #pragma once
 #include <memory>
-#include "../../Component/IComponent.h"
-#include "../../Sprite/Sprite.h"
+#include "../../../Component/IComponent.h"
+#include "../../../Sprite/Sprite.h"
 
 class GameObject;
 class Transformation;
