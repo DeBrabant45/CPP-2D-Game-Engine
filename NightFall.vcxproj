@@ -143,6 +143,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Ground\GroundRigidbody.cpp" />
+    <ClCompile Include="Source\Enemy\Hellhound\Physics\HellhoundRigidbody.cpp" />
+    <ClCompile Include="Source\Hero\Physics\HeroRigidbody.cpp" />
     <ClCompile Include="Source\Enemy\Hellhound\Factory\HellhoundProduction.cpp" />
     <ClCompile Include="Source\Enemy\Hellhound\Factory\HellhoundFactory.cpp" />
     <ClCompile Include="Source\Hero\StateController\HeroStateControllerProduction.cpp" />
@@ -150,14 +153,12 @@
     <ClCompile Include="Source\Hero\Factory\HeroProduction.cpp" />
     <ClCompile Include="Source\Hero\Factory\HeroFactory.cpp" />
     <ClCompile Include="Source\GameObject\GameObjectFactory.cpp" />
-    <ClCompile Include="Source\IHittable.cpp" />
     <ClCompile Include="Source\Physics\RayCastCallback.cpp" />
     <ClCompile Include="Source\Hero\States\HeroFallState.cpp" />
     <ClCompile Include="Source\Hero\States\HeroAttackState.cpp" />
     <ClCompile Include="Source\Hero\States\HeroJumpState.cpp" />
     <ClCompile Include="Source\Hero\States\HeroWalkState.cpp" />
     <ClCompile Include="Source\Hero\States\HeroIdleState.cpp" />
-    <ClCompile Include="Source\Enemy\Hellhound\Physics\HellhoundPhysicsComponent.cpp" />
     <ClCompile Include="Source\Enemy\Hellhound\Graphics\HellhoundGraphicsComponent.cpp" />
     <ClCompile Include="Source\GameObject\GameObject.cpp" />
     <ClCompile Include="Source\Game\GameWindow.cpp" />
@@ -168,7 +169,6 @@
     <ClCompile Include="Source\Hero\Graphics\HeroGraphicsComponent.cpp" />
     <ClCompile Include="Source\Hero\Input\HeroInputComponent.cpp" />
     <ClCompile Include="Source\Ground\GroundGraphicsComponent.cpp" />
-    <ClCompile Include="Source\Ground\GroundPhysicsComponent.cpp" />
     <ClCompile Include="Source\Level\Level.cpp" />
     <ClCompile Include="Source\Camera\MainCamera.cpp" />
     <ClCompile Include="Source\Input\InputHandler.cpp" />
@@ -181,6 +181,9 @@
     <ClCompile Include="Source\State\StateControllerFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Ground\GroundRigidbody.h" />
+    <ClInclude Include="Source\Enemy\Hellhound\Physics\HellhoundRigidbody.h" />
+    <ClInclude Include="Source\Hero\Physics\HeroRigidbody.h" />
     <ClInclude Include="Source\Enemy\Hellhound\Factory\HellhoundProduction.h" />
     <ClInclude Include="Source\Enemy\Hellhound\Factory\HellhoundFactory.h" />
     <ClInclude Include="Source\Hero\StateController\HeroStateControllerProduction.h" />
@@ -189,7 +192,7 @@
     <ClInclude Include="Source\Hero\Factory\HeroFactory.h" />
     <ClInclude Include="Source\GameObject\GameObjectFactory.h" />
     <ClInclude Include="Source\GameObject\IGameObjectProduction.h" />
-    <ClInclude Include="Source\IHittable.h" />
+    <ClInclude Include="Source\Health\IHittable.h" />
     <ClInclude Include="Source\Physics\RayCastCallback.h" />
     <ClInclude Include="Source\GameObject\IStart.h" />
     <ClInclude Include="Source\GameObject\IUpdate.h" />
@@ -199,8 +202,8 @@
     <ClInclude Include="Source\Hero\States\HeroJumpState.h" />
     <ClInclude Include="Source\Hero\States\HeroWalkState.h" />
     <ClInclude Include="Source\Hero\States\HeroIdleState.h" />
+    <ClInclude Include="Source\Rigidbody\Rigidbody.h" />
     <ClInclude Include="Source\State\IState.h" />
-    <ClInclude Include="Source\Enemy\Hellhound\Physics\HellhoundPhysicsComponent.h" />
     <ClInclude Include="Source\Enemy\Hellhound\Graphics\HellhoundGraphicsComponent.h" />
     <ClInclude Include="Source\Character\CharacterType.h" />
     <ClInclude Include="Source\GameObject\GameObject.h" />
@@ -213,7 +216,6 @@
     <ClInclude Include="Source\Hero\Graphics\HeroGraphicsComponent.h" />
     <ClInclude Include="Source\Hero\Input\HeroInputComponent.h" />
     <ClInclude Include="Source\Ground\GroundGraphicsComponent.h" />
-    <ClInclude Include="Source\Ground\GroundPhysicsComponent.h" />
     <ClInclude Include="Source\GameObject\IGameObject.h" />
     <ClInclude Include="Source\Component\IComponent.h" />
     <ClInclude Include="Source\Observer\IReceiver.h" />
@@ -222,7 +224,6 @@
     <ClInclude Include="Source\Camera\MainCamera.h" />
     <ClInclude Include="Source\Input\InputHandler.h" />
     <ClInclude Include="Source\Props\Prop.h" />
-    <ClInclude Include="Source\Rigidbody\Rigidbody.h" />
     <ClInclude Include="Source\Sprite\Sprite.h" />
     <ClInclude Include="Source\State\IStateControllerProduction.h" />
     <ClInclude Include="Source\Transform\Transformation.h" />

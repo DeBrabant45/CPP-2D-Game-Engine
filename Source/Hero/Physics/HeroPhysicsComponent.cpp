@@ -6,12 +6,14 @@
 #include <iostream>
 #include <raymath.h>
 #include <box2d/box2d.h>
+#include "../../Physics/RayCastCallback.h"
+#include "../../Health/IHittable.h"
+#include "../../Rigidbody/Rigidbody.h"
 
 
 HeroPhysicsComponent::HeroPhysicsComponent(std::shared_ptr<GameObject> owner, std::shared_ptr<b2World> world) :
     _owner{ owner },
-    _world{ world },
-    _rigidbody{ world }
+    _world{ world }
 {
 
 }
@@ -19,26 +21,59 @@ HeroPhysicsComponent::HeroPhysicsComponent(std::shared_ptr<GameObject> owner, st
 void HeroPhysicsComponent::Start()
 {
     _transform = _owner->GetComponent<Transformation>();
-    _rigidbody.CreateDefinition(b2_dynamicBody, _transform->GetPosition());
-    _rigidbody.AddToWorld();
-    _rigidbody.CreateShape(Vector2{ 20.f, 48.f });
-    _rigidbody.CreateFixtureDefinition<CharacterType>(1.f, 0.3f, CharacterType::Hero);
+    _rigidbody = _owner->GetComponent<Rigidbody>();
 }
 
 void HeroPhysicsComponent::Update(const float& deltaTime)
 { 
     ContactCheck();
-    Vector2 position{ _rigidbody.GetPosition().x,  _rigidbody.GetBody()->GetPosition().y };
-    _transform->SetPosition(position);
-    float velocityChange = Velocity.x - _rigidbody.GetBody()->GetLinearVelocity().x;
-    float impulse = _rigidbody.GetMass() * velocityChange;
-    float jumpImpluse = _rigidbody.GetMass() * Velocity.y;
-    _rigidbody.GetBody()->ApplyLinearImpulseToCenter(b2Vec2(impulse, jumpImpluse), true);
+    AddMovement();
+    AddAttackDetection();
+}
+
+void HeroPhysicsComponent::AddAttackDetection()
+{
+    if (IsMouseButtonPressed(0))
+    {
+        b2Vec2 eyeOffset;
+        if (_lookDirection == 1.f)
+        {
+            eyeOffset = b2Vec2(.5, 0);
+        }
+        else
+        {
+            eyeOffset = b2Vec2(-.5, 0);
+        }
+        b2Vec2 eye = _rigidbody->GetWorldPoint(eyeOffset);
+        b2Vec2 target = eye - _rigidbody->GetWorldCenter();
+        target.Normalize();
+        target *= 50.0;
+        target = eye + target;
+        RayCastCallback callback;
+        _world->RayCast(&callback, _rigidbody->GetPosition(), target);
+        if (callback.m_fixture)
+        {
+            //auto bodydata = (CharacterType)callback.m_fixture->GetUserData().pointer;
+            IHittable* iHit = { (IHittable*)callback.m_fixture->GetUserData().pointer };
+            if (iHit)
+            {
+                //iHit->TakeDamage(10);
+            }
+        }
+    }
+}
+
+void HeroPhysicsComponent::AddMovement()
+{
+    float velocityChange = Velocity.x - _rigidbody->GetLinearVelocity().x;
+    float impulse = _rigidbody->GetMass() * velocityChange;
+    float jumpImpluse = _rigidbody->GetMass() * Velocity.y;
+    _rigidbody->ApplyLinearImpulseToCenter(b2Vec2(impulse, jumpImpluse), true);
 }
 
 void HeroPhysicsComponent::ContactCheck()
 {
-    for (b2ContactEdge* contactEdge = _rigidbody.GetBody()->GetContactList(); contactEdge != nullptr; contactEdge = contactEdge->next)
+    for (b2ContactEdge* contactEdge = _rigidbody->GetContactList(); contactEdge != nullptr; contactEdge = contactEdge->next)
     {
         b2Contact* contactPoint = contactEdge->contact;
         ApplyDamage(contactPoint);
@@ -56,7 +91,7 @@ void HeroPhysicsComponent::GroundedCheck(b2Contact* contact)
         contact->GetWorldManifold(&man);
         for (int i = 0; i < b2_maxManifoldPoints; i++)
         {
-            if (man.points[i].y > _rigidbody.GetPosition().y - _rigidbody.GetPosition().y / 2.0f + 0.01f)
+            if (man.points[i].y > _rigidbody->GetPosition().y - _rigidbody->GetPosition().y / 2.0f + 0.01f)
             {
                 _isGrounded = true;
             }

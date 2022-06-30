@@ -41,11 +41,13 @@ void HeroWalkState::OnUpdate()
 		if (IsKeyDown(KEY_D))
 		{
 			_physics->Velocity.x = _speed;
+			_physics->SetLookDirection(1.f);
 			_graphics->SetLookDirection(1.f);
 		}
 		else if (IsKeyDown(KEY_A))
 		{
 			_physics->Velocity.x = -_speed;
+			_physics->SetLookDirection(-1.f);
 			_graphics->SetLookDirection(-1.f);
 		}
 		else

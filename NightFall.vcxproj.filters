@@ -66,9 +66,6 @@
     <ClCompile Include="Source\Sprite\Sprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Ground\GroundPhysicsComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Ground\GroundGraphicsComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -78,9 +75,6 @@
     <ClCompile Include="Source\GameObject\GameObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Rigidbody\Rigidbody.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Health\HealthComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -88,9 +82,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Enemy\Hellhound\Graphics\HellhoundGraphicsComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Enemy\Hellhound\Physics\HellhoundPhysicsComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\State\StateController.cpp">
@@ -117,9 +108,6 @@
     <ClCompile Include="Source\Physics\RayCastCallback.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\IHittable.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\GameObject\GameObjectFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -139,6 +127,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Enemy\Hellhound\Factory\HellhoundProduction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Hero\Physics\HeroRigidbody.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Rigidbody\Rigidbody.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Enemy\Hellhound\Physics\HellhoundRigidbody.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Ground\GroundRigidbody.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -173,9 +173,6 @@
     <ClInclude Include="Source\Sprite\Sprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Ground\GroundPhysicsComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Ground\GroundGraphicsComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -197,9 +194,6 @@
     <ClInclude Include="Source\Character\CharacterType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Rigidbody\Rigidbody.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Health\HealthComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -213,9 +207,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Enemy\Hellhound\Graphics\HellhoundGraphicsComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Enemy\Hellhound\Physics\HellhoundPhysicsComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\State\IState.h">
@@ -254,7 +245,7 @@
     <ClInclude Include="Source\Physics\RayCastCallback.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\IHittable.h">
+    <ClInclude Include="Source\Health\IHittable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\GameObject\GameObjectFactory.h">
@@ -282,6 +273,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Enemy\Hellhound\Factory\HellhoundProduction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Rigidbody\Rigidbody.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Hero\Physics\HeroRigidbody.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Enemy\Hellhound\Physics\HellhoundRigidbody.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Ground\GroundRigidbody.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

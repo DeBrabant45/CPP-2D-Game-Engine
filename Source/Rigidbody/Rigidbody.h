@@ -1,40 +1,39 @@
 #pragma once
-#ifndef RIGIDBODY_H
-#define RIGIDBODY_H
+#include <box2d/box2d.h>
 #include <raylib.h>
 #include <memory>
-#include <box2d/box2d.h>
+#include "../Component/IComponent.h"
+#ifndef RIGIDBODY_H
+#define RIGIDBODY_H
 
-class Rigidbody
+class GameObject;
+
+class Rigidbody : public IComponent
 {
+protected:
+	std::shared_ptr<GameObject> Owner{};
+	std::shared_ptr<b2World> World{};
+	b2BodyType BodyType{};
+	b2Body* Body{};
+	b2BodyDef BodyDefinition{};
+	b2PolygonShape Shape{};
 
-private:
-	b2Body* _body{};
-	b2BodyDef _bodyDefinition;
-	b2PolygonShape _shape;
-	std::shared_ptr<b2World> _world;
+protected:
+	virtual void CreateDefinition(Vector2 position) = 0;
+	virtual void CreateShape(Vector2 size) = 0;
+	virtual void CreateFixtureDefinition(uintptr_t userData) = 0;
 
 public:
-	Rigidbody(std::shared_ptr<b2World> world);
-	void CreateDefinition(b2BodyType bodyType, Vector2 position);
-	void CreateShape(Vector2 size);
-	template<typename T>
-	void CreateFixtureDefinition(float density, float friction, T data);
+	Rigidbody(std::shared_ptr<GameObject> owner, std::shared_ptr<b2World> world);
 	void AddToWorld();
 	void RemoveFromWorld();
-	const float& GetMass() { return _body->GetMass(); }
-	const b2Vec2& GetPosition() { return _body->GetPosition(); }
-	b2Body* GetBody() const { return _body; }
+	void ApplyLinearImpulseToCenter(const b2Vec2& impluse, bool wake);
+	const float& GetMass();
+	const b2Vec2& GetPosition();
+	const Vector2& GetVector2Position();
+	const b2Vec2 GetLinearVelocity();
+	b2Vec2 GetWorldCenter();
+	b2Vec2 GetWorldPoint(const b2Vec2& localpoint);
+	b2ContactEdge* GetContactList();
 };
-
-template<typename T>
-inline void Rigidbody::CreateFixtureDefinition(float density, float friction, T data)
-{
-	b2FixtureDef fixtureDefinition;
-	fixtureDefinition.shape = &_shape;
-	fixtureDefinition.density = density;
-	fixtureDefinition.friction = friction;
-	fixtureDefinition.userData.pointer = uintptr_t(data);
-	_body->CreateFixture(&fixtureDefinition);
-}
 #endif

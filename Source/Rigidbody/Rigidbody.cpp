@@ -1,29 +1,59 @@
 #include "Rigidbody.h"
+#include "../GameObject/GameObject.h"
 
-Rigidbody::Rigidbody(std::shared_ptr<b2World> world) :
-    _world { world }
+Rigidbody::Rigidbody(std::shared_ptr<GameObject> owner, std::shared_ptr<b2World> world) :
+	Owner { owner },
+	World { world }
 {
 
 }
 
 void Rigidbody::AddToWorld()
 {
-    _body = _world->CreateBody(&_bodyDefinition);
+	Body = World->CreateBody(&BodyDefinition);
 }
 
 void Rigidbody::RemoveFromWorld()
 {
-    _world->DestroyBody(_body);
+	World->DestroyBody(Body);
 }
 
-void Rigidbody::CreateDefinition(b2BodyType bodyType, Vector2 position)
+void Rigidbody::ApplyLinearImpulseToCenter(const b2Vec2& impluse, bool wake)
 {
-    _bodyDefinition.type = bodyType;
-    _bodyDefinition.position.Set(position.x, position.y);
-    _bodyDefinition.fixedRotation = true;
+	Body->ApplyLinearImpulseToCenter(impluse, wake);
 }
 
-void Rigidbody::CreateShape(Vector2 size)
+const float& Rigidbody::GetMass()
 {
-    _shape.SetAsBox(size.x / 2.f, size.y / 2.f);
+	return Body->GetMass();
+}
+
+const b2Vec2& Rigidbody::GetPosition()
+{
+	return Body->GetPosition();
+}
+
+const Vector2& Rigidbody::GetVector2Position()
+{
+	return Vector2{ GetPosition().x,  GetPosition().y }; 
+}
+
+const b2Vec2 Rigidbody::GetLinearVelocity()
+{
+	return Body->GetLinearVelocity();
+}
+
+b2Vec2 Rigidbody::GetWorldCenter()
+{
+	return Body->GetWorldCenter();
+}
+
+b2Vec2 Rigidbody::GetWorldPoint(const b2Vec2& localpoint)
+{
+	return Body->GetWorldPoint(localpoint);
+}
+
+b2ContactEdge* Rigidbody::GetContactList()
+{
+	return Body->GetContactList();
 }

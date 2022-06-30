@@ -15,15 +15,19 @@ private:
 	std::shared_ptr<GameObject> _owner{};
 	std::shared_ptr<b2World> _world{};
 	std::shared_ptr<Transformation> _transform{};
-	Rigidbody _rigidbody;
+	std::shared_ptr<Rigidbody> _rigidbody{};
 	bool _isGrounded{ true };
+	float _lookDirection{ 1.f };
 
 public:
 	HeroPhysicsComponent(std::shared_ptr<GameObject> owner, std::shared_ptr<b2World> world);
 	virtual void Start() override;
 	virtual void Update(const float& deltaTime) override;
+	void AddAttackDetection();
+	void AddMovement();
 	Vector2 Velocity{ 0.f, 0.f };
 	const bool GetIsGrounded() { return _isGrounded; }
+	void SetLookDirection(float direction) { _lookDirection = direction; }
 
 private:
 	void GroundedCheck(b2Contact* contact);
