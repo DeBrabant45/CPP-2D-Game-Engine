@@ -24,8 +24,6 @@ public:
 	virtual void Start() override;
 	virtual void Update(const float& deltaTime) override;
 	void AddAttackDetection();
-	void AddMovement();
-	Vector2 Velocity{ 0.f, 0.f };
 	const bool GetIsGrounded() { return _isGrounded; }
 	void SetLookDirection(float direction) { _lookDirection = direction; }
 

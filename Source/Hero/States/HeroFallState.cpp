@@ -1,6 +1,8 @@
 #include "HeroFallState.h"
 #include "../Graphics/HeroGraphicsComponent.h"
 #include "../Physics/HeroPhysicsComponent.h"
+#include "../../Physics/MovementComponent.h"
+#include "../../Transform/Transformation.h"
 #include "HeroIdleState.h"
 
 HeroFallState::HeroFallState(std::shared_ptr<GameObject> owner, std::shared_ptr<StateController> controller) :
@@ -12,8 +14,9 @@ HeroFallState::HeroFallState(std::shared_ptr<GameObject> owner, std::shared_ptr<
 
 void HeroFallState::Start()
 {
-	_physics = _owner->GetComponent<HeroPhysicsComponent>();
 	_graphics = _owner->GetComponent<HeroGraphicsComponent>();
+	_movement = _owner->GetComponent<MovementComponent>();
+	_transform = _owner->GetComponent<Transformation>();
 }
 
 void HeroFallState::OnEnter()
@@ -23,21 +26,21 @@ void HeroFallState::OnEnter()
 
 void HeroFallState::OnUpdate()
 {
-	if (_physics->GetIsGrounded())
+	if (_movement->IsGrounded())
 	{
 		_controller->TransitionToState(_controller->GetState<HeroIdleState>());
 		return;
 	}
-	else if (IsKeyDown(KEY_D) && !_physics->GetIsGrounded())
+	else if (IsKeyDown(KEY_D) && !_movement->IsGrounded())
 	{
-		_physics->Velocity.x += 60;
-		_graphics->SetLookDirection(1.f);
+		_movement->SetXVelocity(60);
+		_transform->SetDirection(1.f);
 
 	}
-	else if (IsKeyDown(KEY_A) && !_physics->GetIsGrounded())
+	else if (IsKeyDown(KEY_A) && !_movement->IsGrounded())
 	{
-		_physics->Velocity.x += -60;
-		_graphics->SetLookDirection(-1.f);
+		_movement->SetXVelocity(-60);
+		_transform->SetDirection(-1.f);
 	}
 }
 

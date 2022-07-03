@@ -20,7 +20,6 @@ void HeroInputComponent::Start()
 void HeroInputComponent::Update(const float& deltaTime)
 {
 	_input->Update(deltaTime);
-	_physics->Velocity = {0.f, 0.f};
 	if (_input->IsJumpPressed() && _physics->GetIsGrounded())
 	{
 		_owner->Events(40);

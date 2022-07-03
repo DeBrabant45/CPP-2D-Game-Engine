@@ -1,17 +1,19 @@
 #pragma once
 #include "../../State/IState.h"
 #include <memory>
+#include "../../Physics/MovementComponent.h"
 
-class HeroPhysicsComponent;
 class HeroGraphicsComponent;
+class Transformation;
 
 class HeroJumpState : public IState
 {
 private:
 	std::shared_ptr<GameObject> _owner{};
 	std::shared_ptr<HeroGraphicsComponent> _graphics{};
-	std::shared_ptr<HeroPhysicsComponent> _physics{};
 	std::shared_ptr<StateController> _controller{};
+	std::shared_ptr<MovementComponent> _movement{};
+	std::shared_ptr<Transformation> _transform{};
 	float _jumpHeight{ -95.f };
 	float _timer{ 9.f };
 

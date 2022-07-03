@@ -2,9 +2,9 @@
 #include "HeroIdleState.h"
 #include "HeroJumpState.h"
 #include "HeroFallState.h"
-#include "../Graphics/HeroGraphicsComponent.h"
-#include "../Physics/HeroPhysicsComponent.h"
 #include "HeroAttackState.h"
+#include "../Graphics/HeroGraphicsComponent.h"
+#include "../../Transform/Transformation.h"
 
 HeroWalkState::HeroWalkState(std::shared_ptr<GameObject> owner, std::shared_ptr<StateController> controller) :
 	_owner{ owner },
@@ -16,7 +16,8 @@ HeroWalkState::HeroWalkState(std::shared_ptr<GameObject> owner, std::shared_ptr<
 void HeroWalkState::Start()
 {
 	_graphics = _owner->GetComponent<HeroGraphicsComponent>();
-	_physics = _owner->GetComponent<HeroPhysicsComponent>();
+	_movement = _owner->GetComponent<MovementComponent>();
+	_transform = _owner->GetComponent<Transformation>();
 }
 
 void HeroWalkState::OnEnter()
@@ -26,7 +27,7 @@ void HeroWalkState::OnEnter()
 
 void HeroWalkState::OnUpdate()
 {
-	if (_physics->GetIsGrounded())
+	if (_movement->IsGrounded())
 	{
 		if (IsKeyDown(KEY_SPACE))
 		{
@@ -40,15 +41,15 @@ void HeroWalkState::OnUpdate()
 		}
 		if (IsKeyDown(KEY_D))
 		{
-			_physics->Velocity.x = _speed;
-			_physics->SetLookDirection(1.f);
-			_graphics->SetLookDirection(1.f);
+			_movement->SetXVelocity(_speed);
+			_movement->SetLookDirection(1.f);
+			_transform->SetDirection(1.f);
 		}
 		else if (IsKeyDown(KEY_A))
 		{
-			_physics->Velocity.x = -_speed;
-			_physics->SetLookDirection(-1.f);
-			_graphics->SetLookDirection(-1.f);
+			_movement->SetXVelocity(-_speed);
+			_movement->SetLookDirection(-1.f);
+			_transform->SetDirection(-1.f);
 		}
 		else
 		{

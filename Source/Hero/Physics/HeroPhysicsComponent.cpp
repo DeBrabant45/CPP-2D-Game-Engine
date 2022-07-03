@@ -27,7 +27,6 @@ void HeroPhysicsComponent::Start()
 void HeroPhysicsComponent::Update(const float& deltaTime)
 { 
     ContactCheck();
-    AddMovement();
     AddAttackDetection();
 }
 
@@ -54,21 +53,13 @@ void HeroPhysicsComponent::AddAttackDetection()
         if (callback.m_fixture)
         {
             //auto bodydata = (CharacterType)callback.m_fixture->GetUserData().pointer;
-            IHittable* iHit = { (IHittable*)callback.m_fixture->GetUserData().pointer };
-            if (iHit)
-            {
-                //iHit->TakeDamage(10);
-            }
+            //IHittable* iHit = { (IHittable*)callback.m_fixture->GetUserData().pointer };
+            //if (iHit)
+            //{
+            //    //iHit->TakeDamage(10);
+            //}
         }
     }
-}
-
-void HeroPhysicsComponent::AddMovement()
-{
-    float velocityChange = Velocity.x - _rigidbody->GetLinearVelocity().x;
-    float impulse = _rigidbody->GetMass() * velocityChange;
-    float jumpImpluse = _rigidbody->GetMass() * Velocity.y;
-    _rigidbody->ApplyLinearImpulseToCenter(b2Vec2(impulse, jumpImpluse), true);
 }
 
 void HeroPhysicsComponent::ContactCheck()

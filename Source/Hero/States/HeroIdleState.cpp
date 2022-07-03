@@ -17,8 +17,8 @@ HeroIdleState::HeroIdleState(std::shared_ptr<GameObject> owner, std::shared_ptr<
 
 void HeroIdleState::Start()
 {
-	_physics = _owner->GetComponent<HeroPhysicsComponent>();
 	_graphics = _owner->GetComponent<HeroGraphicsComponent>();
+	_movement = _owner->GetComponent<MovementComponent>();
 }
 
 void HeroIdleState::OnEnter()
@@ -33,7 +33,7 @@ void HeroIdleState::OnUpdate()
 		_controller->TransitionToState(_controller->GetState<HeroWalkState>());
 		return;
 	}
-	else if (IsKeyDown(KEY_SPACE) && _physics->GetIsGrounded())
+	else if (IsKeyDown(KEY_SPACE) && _movement->IsGrounded())
 	{
 		_controller->TransitionToState(_controller->GetState<HeroJumpState>());
 		return;
@@ -43,7 +43,7 @@ void HeroIdleState::OnUpdate()
 		_controller->TransitionToState(_controller->GetState<HeroAttackState>());
 		return;
 	}
-	else if (!_physics->GetIsGrounded())
+	else if (!_movement->IsGrounded())
 	{
 		_controller->TransitionToState(_controller->GetState<HeroFallState>());
 		return;

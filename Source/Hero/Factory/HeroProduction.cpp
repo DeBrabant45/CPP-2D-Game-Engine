@@ -8,6 +8,7 @@
 #include "../../Input/InputHandler.h"
 #include "../../State/StateController.h"
 #include "../Physics/HeroRigidbody.h"
+#include "../../Physics/MovementComponent.h"
 
 std::shared_ptr<GameObject> HeroProduction::Produce(std::shared_ptr<b2World> world, Vector2 position)
 {
@@ -19,5 +20,6 @@ std::shared_ptr<GameObject> HeroProduction::Produce(std::shared_ptr<b2World> wor
 	hero->AddComponent(std::make_shared<HealthComponent>(100.f));
 	hero->AddComponent(_stateFactory.CreateController(hero));
 	hero->AddComponent(std::make_shared<HeroRigidbody>(hero, world));
+	hero->AddComponent(std::make_shared<MovementComponent>(hero, world));
 	return hero;
 }

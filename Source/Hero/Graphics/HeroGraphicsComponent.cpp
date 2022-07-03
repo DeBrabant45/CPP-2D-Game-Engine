@@ -38,5 +38,5 @@ void HeroGraphicsComponent::Start()
 
 void HeroGraphicsComponent::Update(const float& deltaTime)
 {
-	_current->Draw(deltaTime, _transform->GetPosition(), _lookDirection);
+	_current->Draw(deltaTime, _transform->GetPosition(), _transform->GetDirection());
 }

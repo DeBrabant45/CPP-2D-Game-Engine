@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Physics\MovementComponent.cpp" />
     <ClCompile Include="Source\Ground\GroundRigidbody.cpp" />
     <ClCompile Include="Source\Enemy\Hellhound\Physics\HellhoundRigidbody.cpp" />
     <ClCompile Include="Source\Hero\Physics\HeroRigidbody.cpp" />
@@ -181,6 +182,7 @@
     <ClCompile Include="Source\State\StateControllerFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Physics\MovementComponent.h" />
     <ClInclude Include="Source\Ground\GroundRigidbody.h" />
     <ClInclude Include="Source\Enemy\Hellhound\Physics\HellhoundRigidbody.h" />
     <ClInclude Include="Source\Hero\Physics\HeroRigidbody.h" />

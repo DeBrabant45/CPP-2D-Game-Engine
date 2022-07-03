@@ -15,6 +15,11 @@ void Transformation::SetPosition(Vector2 position)
 	_position = position;
 }
 
+void Transformation::SetDirection(float direction)
+{
+	_direction = direction;
+}
+
 void Transformation::Start()
 {
 	_rigidbody = _owner->GetComponent<Rigidbody>();

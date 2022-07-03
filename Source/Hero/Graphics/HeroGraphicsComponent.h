@@ -22,12 +22,10 @@ private:
 	std::shared_ptr<Sprite> _attack = std::make_shared<Sprite>( LoadTexture("./Assets/Hero/hero-attack-sheet.png"), 5, 16 );
 	std::shared_ptr<Sprite> _hurt = std::make_shared<Sprite>( LoadTexture("./Assets/Hero/hero-hurt.png"), 1, 10 );
 	std::shared_ptr<Sprite> _jump = std::make_shared<Sprite>(LoadTexture("./Assets/Hero/hero-j.png"), 2, 10);
-	float _lookDirection{ 1.f };
 
 public:
 	HeroGraphicsComponent(std::shared_ptr<GameObject> owner);
 	void SetGraphics(AnimationAction action);
-	void SetLookDirection(float direction) { _lookDirection = direction; }
 	virtual void Start() override;
 	virtual void Update(const float& deltaTime) override;
 
