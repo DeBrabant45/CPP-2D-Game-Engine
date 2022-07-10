@@ -14,17 +14,18 @@ void HealthComponent::Start()
 
 }
 
-void HealthComponent::Damage(float amount)
-{
-	_currentAmount -= amount;
-}
-
 void HealthComponent::Add(float amount)
 {
 	if (_currentAmount < _maxAmount)
 	{
 		_currentAmount += amount;
 	}
+}
+
+void HealthComponent::TakeDamage(float value)
+{
+	_currentAmount -= value;
+	std::cout << "You hit me" << std::endl;
 }
 
 void HealthComponent::Update(const float& deltaTime)

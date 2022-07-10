@@ -3,28 +3,30 @@
 #include <raylib.h>
 #include <memory>
 #include "../Component/IComponent.h"
+#include "RigidbodyData.h"
 #ifndef RIGIDBODY_H
 #define RIGIDBODY_H
 
 class GameObject;
+class b2World;
+class Transformation;
 
 class Rigidbody : public IComponent
 {
-protected:
-	std::shared_ptr<GameObject> Owner{};
-	std::shared_ptr<b2World> World{};
-	b2BodyType BodyType{};
-	b2Body* Body{};
-	b2BodyDef BodyDefinition{};
-	b2PolygonShape Shape{};
-
-protected:
-	virtual void CreateDefinition(Vector2 position) = 0;
-	virtual void CreateShape(Vector2 size) = 0;
-	virtual void CreateFixtureDefinition(uintptr_t userData) = 0;
+private:
+	RigidbodyData _bodyData{};
+	std::shared_ptr<GameObject> _owner{};
+	std::shared_ptr<b2World> _world{};
+	std::shared_ptr<Transformation> _tranform{};
+	b2BodyType _bodyType{};
+	b2Body* _body{};
+	b2BodyDef _bodyDefinition{};
+	b2PolygonShape _shape{};
 
 public:
-	Rigidbody(std::shared_ptr<GameObject> owner, std::shared_ptr<b2World> world);
+	Rigidbody(std::shared_ptr<GameObject> owner, std::shared_ptr<b2World> world, RigidbodyData bodyData);
+	virtual void Start() override;
+	virtual void Update(const float& deltaTime) override;
 	void AddToWorld();
 	void RemoveFromWorld();
 	void ApplyLinearImpulseToCenter(const b2Vec2& impluse, bool wake);
@@ -35,5 +37,10 @@ public:
 	b2Vec2 GetWorldCenter();
 	b2Vec2 GetWorldPoint(const b2Vec2& localpoint);
 	b2ContactEdge* GetContactList();
+
+private:
+	void CreateDefinition();
+	void CreateShape();
+	void CreateFixtureDefinition();
 };
 #endif

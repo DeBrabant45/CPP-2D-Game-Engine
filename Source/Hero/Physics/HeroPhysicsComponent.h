@@ -23,7 +23,6 @@ public:
 	HeroPhysicsComponent(std::shared_ptr<GameObject> owner, std::shared_ptr<b2World> world);
 	virtual void Start() override;
 	virtual void Update(const float& deltaTime) override;
-	void AddAttackDetection();
 	const bool GetIsGrounded() { return _isGrounded; }
 	void SetLookDirection(float direction) { _lookDirection = direction; }
 

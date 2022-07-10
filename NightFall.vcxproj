@@ -143,10 +143,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Hero\Combat\HeroAttackComponent.cpp" />
     <ClCompile Include="Source\Physics\MovementComponent.cpp" />
-    <ClCompile Include="Source\Ground\GroundRigidbody.cpp" />
-    <ClCompile Include="Source\Enemy\Hellhound\Physics\HellhoundRigidbody.cpp" />
-    <ClCompile Include="Source\Hero\Physics\HeroRigidbody.cpp" />
     <ClCompile Include="Source\Enemy\Hellhound\Factory\HellhoundProduction.cpp" />
     <ClCompile Include="Source\Enemy\Hellhound\Factory\HellhoundFactory.cpp" />
     <ClCompile Include="Source\Hero\StateController\HeroStateControllerProduction.cpp" />
@@ -182,10 +180,9 @@
     <ClCompile Include="Source\State\StateControllerFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Hero\Combat\HeroAttackComponent.h" />
+    <ClInclude Include="Source\Combat\IDamage.h" />
     <ClInclude Include="Source\Physics\MovementComponent.h" />
-    <ClInclude Include="Source\Ground\GroundRigidbody.h" />
-    <ClInclude Include="Source\Enemy\Hellhound\Physics\HellhoundRigidbody.h" />
-    <ClInclude Include="Source\Hero\Physics\HeroRigidbody.h" />
     <ClInclude Include="Source\Enemy\Hellhound\Factory\HellhoundProduction.h" />
     <ClInclude Include="Source\Enemy\Hellhound\Factory\HellhoundFactory.h" />
     <ClInclude Include="Source\Hero\StateController\HeroStateControllerProduction.h" />
@@ -194,7 +191,7 @@
     <ClInclude Include="Source\Hero\Factory\HeroFactory.h" />
     <ClInclude Include="Source\GameObject\GameObjectFactory.h" />
     <ClInclude Include="Source\GameObject\IGameObjectProduction.h" />
-    <ClInclude Include="Source\Health\IHittable.h" />
+    <ClInclude Include="Source\Combat\IHurt.h" />
     <ClInclude Include="Source\Physics\RayCastCallback.h" />
     <ClInclude Include="Source\GameObject\IStart.h" />
     <ClInclude Include="Source\GameObject\IUpdate.h" />
@@ -205,6 +202,7 @@
     <ClInclude Include="Source\Hero\States\HeroWalkState.h" />
     <ClInclude Include="Source\Hero\States\HeroIdleState.h" />
     <ClInclude Include="Source\Rigidbody\Rigidbody.h" />
+    <ClInclude Include="Source\Rigidbody\RigidbodyData.h" />
     <ClInclude Include="Source\State\IState.h" />
     <ClInclude Include="Source\Enemy\Hellhound\Graphics\HellhoundGraphicsComponent.h" />
     <ClInclude Include="Source\Character\CharacterType.h" />

@@ -129,19 +129,13 @@
     <ClCompile Include="Source\Enemy\Hellhound\Factory\HellhoundProduction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Hero\Physics\HeroRigidbody.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Rigidbody\Rigidbody.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Enemy\Hellhound\Physics\HellhoundRigidbody.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Ground\GroundRigidbody.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Physics\MovementComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Hero\Combat\HeroAttackComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -248,7 +242,7 @@
     <ClInclude Include="Source\Physics\RayCastCallback.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Health\IHittable.h">
+    <ClInclude Include="Source\Combat\IHurt.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\GameObject\GameObjectFactory.h">
@@ -281,16 +275,16 @@
     <ClInclude Include="Source\Rigidbody\Rigidbody.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Hero\Physics\HeroRigidbody.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Enemy\Hellhound\Physics\HellhoundRigidbody.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Ground\GroundRigidbody.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Physics\MovementComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Combat\IDamage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Hero\Combat\HeroAttackComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Rigidbody\RigidbodyData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

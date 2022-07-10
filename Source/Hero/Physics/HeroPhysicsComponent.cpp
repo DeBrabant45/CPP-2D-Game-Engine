@@ -7,7 +7,7 @@
 #include <raymath.h>
 #include <box2d/box2d.h>
 #include "../../Physics/RayCastCallback.h"
-#include "../../Health/IHittable.h"
+//#include "../../Health/IHittable.h"
 #include "../../Rigidbody/Rigidbody.h"
 
 
@@ -27,39 +27,6 @@ void HeroPhysicsComponent::Start()
 void HeroPhysicsComponent::Update(const float& deltaTime)
 { 
     ContactCheck();
-    AddAttackDetection();
-}
-
-void HeroPhysicsComponent::AddAttackDetection()
-{
-    if (IsMouseButtonPressed(0))
-    {
-        b2Vec2 eyeOffset;
-        if (_lookDirection == 1.f)
-        {
-            eyeOffset = b2Vec2(.5, 0);
-        }
-        else
-        {
-            eyeOffset = b2Vec2(-.5, 0);
-        }
-        b2Vec2 eye = _rigidbody->GetWorldPoint(eyeOffset);
-        b2Vec2 target = eye - _rigidbody->GetWorldCenter();
-        target.Normalize();
-        target *= 50.0;
-        target = eye + target;
-        RayCastCallback callback;
-        _world->RayCast(&callback, _rigidbody->GetPosition(), target);
-        if (callback.m_fixture)
-        {
-            //auto bodydata = (CharacterType)callback.m_fixture->GetUserData().pointer;
-            //IHittable* iHit = { (IHittable*)callback.m_fixture->GetUserData().pointer };
-            //if (iHit)
-            //{
-            //    //iHit->TakeDamage(10);
-            //}
-        }
-    }
 }
 
 void HeroPhysicsComponent::ContactCheck()

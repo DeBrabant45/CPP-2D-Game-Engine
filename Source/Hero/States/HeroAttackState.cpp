@@ -14,11 +14,13 @@ void HeroAttackState::Start()
 {
 	_graphics = _owner->GetComponent<HeroGraphicsComponent>();
 	_physics = _owner->GetComponent<HeroPhysicsComponent>();
+	_attack = _owner->GetComponent<HeroAttackComponent>();
 }
 
 void HeroAttackState::OnEnter()
 {
 	_graphics->SetGraphics(AnimationAction::Attack);
+	_attack->Inflict();
 	_attackTimer = 25.f;
 }
 
