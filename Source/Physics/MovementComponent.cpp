@@ -35,6 +35,11 @@ const bool MovementComponent::IsGrounded()
 	return false;
 }
 
+const bool MovementComponent::IsMoving()
+{
+	return (_velocity.x != 0 || _velocity.y != 0) ? true : false;
+}
+
 void MovementComponent::Update(const float& deltaTime)
 {
 	AddMovement();

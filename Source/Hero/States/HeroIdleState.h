@@ -1,20 +1,16 @@
 #pragma once
 #ifndef HEROIDLESTATE_H
 #define HEROIDLESTATE_H
-#include "../../State/IState.h"
+#include "HeroBaseState.h"
 #include <memory>
 
 class HeroGraphicsComponent;
-class MovementComponent;
 class GameObject;
 
-class HeroIdleState : public IState
+class HeroIdleState : public HeroBaseState
 {
 private:
-	std::shared_ptr<StateController> _controller{};
-	std::shared_ptr<GameObject> _owner{};
 	std::shared_ptr<HeroGraphicsComponent> _graphics{};
-	std::shared_ptr<MovementComponent> _movement{};
 
 public:
 	HeroIdleState(std::shared_ptr<GameObject> owner, std::shared_ptr<StateController> controller);

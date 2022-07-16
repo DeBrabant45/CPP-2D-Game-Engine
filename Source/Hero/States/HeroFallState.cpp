@@ -1,22 +1,19 @@
 #include "HeroFallState.h"
 #include "../Graphics/HeroGraphicsComponent.h"
-#include "../Physics/HeroPhysicsComponent.h"
-#include "../../Physics/MovementComponent.h"
-#include "../../Transform/Transformation.h"
-#include "HeroIdleState.h"
+#include "../Transitions/IdleTransition.h"
+#include "../Actions/FloatAction.h"
 
 HeroFallState::HeroFallState(std::shared_ptr<GameObject> owner, std::shared_ptr<StateController> controller) :
-	_owner { owner },
-	_controller { controller }
+	HeroBaseState(owner, controller)
 {
-
+	AddAction(std::make_shared<FloatAction>(owner));
+	AddTransition(std::make_shared<IdleTransition>(owner, controller));
 }
 
 void HeroFallState::Start()
 {
-	_graphics = _owner->GetComponent<HeroGraphicsComponent>();
-	_movement = _owner->GetComponent<MovementComponent>();
-	_transform = _owner->GetComponent<Transformation>();
+	_graphics = Owner->GetComponent<HeroGraphicsComponent>();
+	HeroBaseState::Start();
 }
 
 void HeroFallState::OnEnter()
@@ -26,22 +23,7 @@ void HeroFallState::OnEnter()
 
 void HeroFallState::OnUpdate()
 {
-	if (_movement->IsGrounded())
-	{
-		_controller->TransitionToState(_controller->GetState<HeroIdleState>());
-		return;
-	}
-	else if (IsKeyDown(KEY_D) && !_movement->IsGrounded())
-	{
-		_movement->SetXVelocity(60);
-		_transform->SetDirection(1.f);
-
-	}
-	else if (IsKeyDown(KEY_A) && !_movement->IsGrounded())
-	{
-		_movement->SetXVelocity(-60);
-		_transform->SetDirection(-1.f);
-	}
+	HeroBaseState::OnUpdate();
 }
 
 void HeroFallState::OnExit()

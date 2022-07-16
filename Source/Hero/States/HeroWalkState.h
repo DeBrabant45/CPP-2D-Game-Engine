@@ -1,20 +1,17 @@
 #pragma once
-#include "../../State/IState.h"
-#include "../../State/StateController.h"
-#include "../../Physics/MovementComponent.h"
+#include "HeroBaseState.h"
 
 class HeroGraphicsComponent;
-class Transformation;
+class StateController;
+class ITransition;
+class GameObejct;
 
-class HeroWalkState : public IState
+class HeroWalkState : public HeroBaseState
 {
 private:
 	std::shared_ptr<GameObject> _owner{};
 	std::shared_ptr<HeroGraphicsComponent> _graphics{};
 	std::shared_ptr<StateController> _controller{};
-	std::shared_ptr<MovementComponent> _movement{};
-	std::shared_ptr<Transformation> _transform{};
-	float _speed{ 95.f };
 
 public:
 	HeroWalkState(std::shared_ptr<GameObject> owner, std::shared_ptr<StateController> controller);

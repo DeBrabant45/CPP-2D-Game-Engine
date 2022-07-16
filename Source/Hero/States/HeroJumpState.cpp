@@ -1,24 +1,29 @@
 #include "HeroJumpState.h"
-#include "HeroFallState.h"
-#include "HeroIdleState.h"
 #include <raylib.h>
 #include "../Graphics/HeroGraphicsComponent.h"
 #include "../Physics/HeroPhysicsComponent.h"
 #include "../../Transform/Transformation.h"
+#include "../Actions/FloatAction.h"
+#include "../Transitions/JumpTransition.h"
+#include "../Transitions/IdleTransition.h"
+#include "../Transitions/AttackTransition.h"
+#include "../Transitions/FallTransition.h"
 
 
 HeroJumpState::HeroJumpState(std::shared_ptr<GameObject> owner, std::shared_ptr<StateController> controller) :
-	_owner { owner },
-	_controller { controller }
+	HeroBaseState(owner, controller)
 {
-
+	AddAction(std::make_shared<FloatAction>(owner));
+	AddTransition(std::make_shared<FallTransition>(owner, controller));
+	AddTransition(std::make_shared<JumpTransition>(owner, controller));
+	AddTransition(std::make_shared<IdleTransition>(owner, controller));
 }
 
 void HeroJumpState::Start()
 {
-	_graphics = _owner->GetComponent<HeroGraphicsComponent>();
-	_movement = _owner->GetComponent<MovementComponent>();
-	_transform = _owner->GetComponent<Transformation>();
+	_graphics = Owner->GetComponent<HeroGraphicsComponent>();
+	_movement = Owner->GetComponent<MovementComponent>();
+	HeroBaseState::Start();
 }
 
 void HeroJumpState::OnEnter()
@@ -33,23 +38,7 @@ void HeroJumpState::OnUpdate()
 	_timer--;
 	if (_timer <= 0)
 	{
-		_controller->TransitionToState(_controller->GetState<HeroFallState>());
-		return;
-	}
-	else if (_movement->IsGrounded())
-	{
-		_controller->TransitionToState(_controller->GetState<HeroIdleState>());
-		return;
-	}
-	else if (IsKeyDown(KEY_D) && !_movement->IsGrounded())
-	{
-		_movement->SetXVelocity(60);
-		_transform->SetDirection(1.f);
-	}
-	else if (IsKeyDown(KEY_A) && !_movement->IsGrounded())
-	{
-		_movement->SetXVelocity(-60);
-		_transform->SetDirection(-1.f);
+		HeroBaseState::OnUpdate();
 	}
 }
 

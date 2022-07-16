@@ -1,23 +1,27 @@
 #include "HeroWalkState.h"
-#include "HeroIdleState.h"
-#include "HeroJumpState.h"
-#include "HeroFallState.h"
-#include "HeroAttackState.h"
+#include "../../State/StateController.h"
 #include "../Graphics/HeroGraphicsComponent.h"
 #include "../../Transform/Transformation.h"
+#include "../Transitions/IdleTransition.h"
+#include "../Actions/WalkAction.h"
+#include "../Transitions/JumpTransition.h"
+#include "../Transitions/AttackTransition.h"
+#include "../Transitions/FallTransition.h"
 
 HeroWalkState::HeroWalkState(std::shared_ptr<GameObject> owner, std::shared_ptr<StateController> controller) :
-	_owner{ owner },
-	_controller{ controller }
+	HeroBaseState(owner, controller)
 {
-
+	AddAction(std::make_shared<WalkAction>(owner));
+	AddTransition(std::make_shared<IdleTransition>(owner, controller));
+	AddTransition(std::make_shared<JumpTransition>(owner, controller));
+	AddTransition(std::make_shared<AttackTransition>(owner, controller));
+	AddTransition(std::make_shared<FallTransition>(owner, controller));
 }
 
 void HeroWalkState::Start()
 {
-	_graphics = _owner->GetComponent<HeroGraphicsComponent>();
-	_movement = _owner->GetComponent<MovementComponent>();
-	_transform = _owner->GetComponent<Transformation>();
+	_graphics = Owner->GetComponent<HeroGraphicsComponent>();
+	HeroBaseState::Start();
 }
 
 void HeroWalkState::OnEnter()
@@ -27,42 +31,7 @@ void HeroWalkState::OnEnter()
 
 void HeroWalkState::OnUpdate()
 {
-	if (_movement->IsGrounded())
-	{
-		if (IsKeyDown(KEY_SPACE))
-		{
-			_controller->TransitionToState(_controller->GetState<HeroJumpState>());
-			return;
-		}
-		if (IsMouseButtonPressed(0))
-		{
-			_controller->TransitionToState(_controller->GetState<HeroAttackState>());
-			return;
-		}
-		if (IsKeyDown(KEY_D))
-		{
-			_movement->SetXVelocity(_speed);
-			_movement->SetLookDirection(1.f);
-			_transform->SetDirection(1.f);
-		}
-		else if (IsKeyDown(KEY_A))
-		{
-			_movement->SetXVelocity(-_speed);
-			_movement->SetLookDirection(-1.f);
-			_transform->SetDirection(-1.f);
-		}
-		else
-		{
-			_controller->TransitionToState(_controller->GetState<HeroIdleState>());
-			return;
-		}
-	}
-	else
-	{
-		_controller->TransitionToState(_controller->GetState<HeroFallState>());
-		return;
-	}
-
+	HeroBaseState::OnUpdate();
 }
 
 void HeroWalkState::OnExit()

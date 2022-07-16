@@ -12,6 +12,7 @@ class GameObject : public IGameObject
 {
 private:
 	std::vector<std::shared_ptr<IComponent>> _components{};
+	bool _active{};
 
 public:
 	GameObject();
@@ -19,6 +20,8 @@ public:
 	template <typename T> std::shared_ptr<T> GetComponent();
 	virtual void Start() override;
 	virtual void Update(const float& deltaTime) override;
+	bool IsActive() const { return _active; }
+	void Destroy();
 	boost::signals2::signal<void(int)> Events;
 };
 #endif

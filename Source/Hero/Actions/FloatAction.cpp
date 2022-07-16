@@ -1,0 +1,35 @@
+#include "FloatAction.h"
+#include <raylib.h>
+#include "../../GameObject/GameObject.h"
+#include "../../Physics/MovementComponent.h"
+#include "../../Transform/Transformation.h"
+
+FloatAction::FloatAction(std::shared_ptr<GameObject> owner) :
+	_owner{ owner },
+	_speed{ 60.f }
+{
+
+}
+
+void FloatAction::Start()
+{
+	_movement = _owner->GetComponent<MovementComponent>();
+	_transform = _owner->GetComponent<Transformation>();
+}
+
+void FloatAction::DoAction()
+{
+	if (!_movement->IsGrounded())
+	{
+		if (IsKeyDown(KEY_D))
+		{
+			_movement->SetXVelocity(_speed);
+			_transform->SetDirection(1.f);
+		}
+		else if (IsKeyDown(KEY_A))
+		{
+			_movement->SetXVelocity(-_speed);
+			_transform->SetDirection(-1.f);
+		}
+	}
+}

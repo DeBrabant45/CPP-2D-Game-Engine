@@ -143,6 +143,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Hero\Actions\FloatAction.cpp" />
+    <ClCompile Include="Source\Hero\Transitions\AttackTransition.cpp" />
+    <ClCompile Include="Source\Hero\Transitions\FallTransition.cpp" />
+    <ClCompile Include="Source\Hero\Transitions\JumpTransition.cpp" />
+    <ClCompile Include="Source\Hero\States\HeroBaseState.cpp" />
+    <ClCompile Include="Source\Hero\Transitions\IdleTransition.cpp" />
+    <ClCompile Include="Source\Hero\States\HeroDeathState.cpp" />
     <ClCompile Include="Source\Hero\Combat\HeroAttackComponent.cpp" />
     <ClCompile Include="Source\Physics\MovementComponent.cpp" />
     <ClCompile Include="Source\Enemy\Hellhound\Factory\HellhoundProduction.cpp" />
@@ -178,8 +185,17 @@
     <ClCompile Include="Source\Transform\Transformation.cpp" />
     <ClCompile Include="Source\State\StateController.cpp" />
     <ClCompile Include="Source\State\StateControllerFactory.cpp" />
+    <ClCompile Include="Source\Hero\Actions\WalkAction.cpp" />
+    <ClCompile Include="Source\Hero\Transitions\WalkTransition.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Hero\Actions\FloatAction.h" />
+    <ClInclude Include="Source\Hero\Transitions\AttackTransition.h" />
+    <ClInclude Include="Source\Hero\Transitions\FallTransition.h" />
+    <ClInclude Include="Source\Hero\Transitions\JumpTransition.h" />
+    <ClInclude Include="Source\Hero\States\HeroBaseState.h" />
+    <ClInclude Include="Source\Hero\Transitions\IdleTransition.h" />
+    <ClInclude Include="Source\Hero\States\HeroDeathState.h" />
     <ClInclude Include="Source\Hero\Combat\HeroAttackComponent.h" />
     <ClInclude Include="Source\Combat\IDamage.h" />
     <ClInclude Include="Source\Physics\MovementComponent.h" />
@@ -203,6 +219,7 @@
     <ClInclude Include="Source\Hero\States\HeroIdleState.h" />
     <ClInclude Include="Source\Rigidbody\Rigidbody.h" />
     <ClInclude Include="Source\Rigidbody\RigidbodyData.h" />
+    <ClInclude Include="Source\State\IAction.h" />
     <ClInclude Include="Source\State\IState.h" />
     <ClInclude Include="Source\Enemy\Hellhound\Graphics\HellhoundGraphicsComponent.h" />
     <ClInclude Include="Source\Character\CharacterType.h" />
@@ -226,9 +243,12 @@
     <ClInclude Include="Source\Props\Prop.h" />
     <ClInclude Include="Source\Sprite\Sprite.h" />
     <ClInclude Include="Source\State\IStateControllerProduction.h" />
+    <ClInclude Include="Source\State\ITransition.h" />
     <ClInclude Include="Source\Transform\Transformation.h" />
     <ClInclude Include="Source\State\StateController.h" />
     <ClInclude Include="Source\State\StateControllerFactory.h" />
+    <ClInclude Include="Source\Hero\Actions\WalkAction.h" />
+    <ClInclude Include="Source\Hero\Transitions\WalkTransition.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

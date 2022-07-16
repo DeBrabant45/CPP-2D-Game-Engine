@@ -1,6 +1,7 @@
 #include "GameObject.h"
 
-GameObject::GameObject()
+GameObject::GameObject() :
+	_active{ true }
 {
 
 }
@@ -15,8 +16,16 @@ void GameObject::Start()
 
 void GameObject::Update(const float& deltaTime)
 {
-	for (auto component : _components)
+	if (_active != false)
 	{
-		component->Update(deltaTime);
+		for (auto component : _components)
+		{
+			component->Update(deltaTime);
+		}
 	}
+}
+
+void GameObject::Destroy()
+{
+	_active = false;
 }

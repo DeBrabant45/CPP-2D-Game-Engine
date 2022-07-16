@@ -23,6 +23,7 @@ public:
 	virtual void Start() override;
 	virtual void Update(const float& deltaTime) override;
 	const bool IsGrounded();
+	const bool IsMoving();
 	void SetXVelocity(float xVelocity);
 	void SetYVelocity(float yVelocity);
 	void SetLookDirection(float direction);
