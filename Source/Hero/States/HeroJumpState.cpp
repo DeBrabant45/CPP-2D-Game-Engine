@@ -8,12 +8,14 @@
 #include "../Transitions/IdleTransition.h"
 #include "../Transitions/AttackTransition.h"
 #include "../Transitions/FallTransition.h"
+#include "../Transitions/DeathTransition.h"
 
 
 HeroJumpState::HeroJumpState(std::shared_ptr<GameObject> owner, std::shared_ptr<StateController> controller) :
 	HeroBaseState(owner, controller)
 {
 	AddAction(std::make_shared<FloatAction>(owner));
+	AddTransition(std::make_shared<DeathTransition>(owner, controller));
 	AddTransition(std::make_shared<FallTransition>(owner, controller));
 	AddTransition(std::make_shared<JumpTransition>(owner, controller));
 	AddTransition(std::make_shared<IdleTransition>(owner, controller));

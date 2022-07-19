@@ -13,11 +13,11 @@ HeroBaseState::HeroBaseState(std::shared_ptr<GameObject> owner, std::shared_ptr<
 
 void HeroBaseState::Start()
 {
-	for (auto action : _actions)
+	for (auto& action : _actions)
 	{
 		action->Start();
 	}
-	for (auto transition : _transitions)
+	for (auto& transition : _transitions)
 	{
 		transition->Start();
 	}
@@ -25,11 +25,21 @@ void HeroBaseState::Start()
 
 void HeroBaseState::OnUpdate()
 {
-	for (auto action : _actions)
+	DoActions();
+	CheckTransitions();
+}
+
+void HeroBaseState::DoActions()
+{
+	for (auto& action : _actions)
 	{
 		action->DoAction();
 	}
-	for (auto transition : _transitions)
+}
+
+void HeroBaseState::CheckTransitions()
+{
+	for (auto& transition : _transitions)
 	{
 		if (transition->IsAbleToTransition())
 		{
@@ -38,12 +48,12 @@ void HeroBaseState::OnUpdate()
 	}
 }
 
-void HeroBaseState::AddTransition(std::shared_ptr<ITransition> transition)
-{
-	_transitions.push_back(transition);
-}
-
 void HeroBaseState::AddAction(std::shared_ptr<IAction> action)
 {
 	_actions.push_back(action);
+}
+
+void HeroBaseState::AddTransition(std::shared_ptr<ITransition> transition)
+{
+	_transitions.push_back(transition);
 }

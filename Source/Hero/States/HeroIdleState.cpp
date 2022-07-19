@@ -6,10 +6,12 @@
 #include "../Transitions/AttackTransition.h"
 #include "../Transitions/FallTransition.h"
 #include "../Transitions/WalkTransition.h"
+#include "../Transitions/DeathTransition.h"
 
 HeroIdleState::HeroIdleState(std::shared_ptr<GameObject> owner, std::shared_ptr<StateController> controller) :
 	HeroBaseState(owner, controller)
 {
+	AddTransition(std::make_shared<DeathTransition>(owner, controller));
 	AddTransition(std::make_shared<AttackTransition>(owner, controller));
 	AddTransition(std::make_shared<WalkTransition> (owner, controller));
 	AddTransition(std::make_shared<JumpTransition>(owner, controller));
@@ -25,11 +27,6 @@ void HeroIdleState::Start()
 void HeroIdleState::OnEnter()
 {
 	_graphics->SetGraphics(AnimationAction::Idle);
-}
-
-void HeroIdleState::OnUpdate()
-{
-	HeroBaseState::OnUpdate();
 }
 
 void HeroIdleState::OnExit()

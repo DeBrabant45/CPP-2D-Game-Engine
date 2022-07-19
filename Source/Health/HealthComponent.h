@@ -14,4 +14,5 @@ public:
 	virtual void Update(const float& deltaTime) override;
 	void Add(float amount);
 	virtual void TakeDamage(float value) override;
+	float GetCurrentAmount() const { return _currentAmount; }
 };

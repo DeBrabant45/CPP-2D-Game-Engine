@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Hero\Transitions\DeathTransition.cpp" />
     <ClCompile Include="Source\Hero\Actions\FloatAction.cpp" />
     <ClCompile Include="Source\Hero\Transitions\AttackTransition.cpp" />
     <ClCompile Include="Source\Hero\Transitions\FallTransition.cpp" />
@@ -189,6 +190,7 @@
     <ClCompile Include="Source\Hero\Transitions\WalkTransition.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Hero\Transitions\DeathTransition.h" />
     <ClInclude Include="Source\Hero\Actions\FloatAction.h" />
     <ClInclude Include="Source\Hero\Transitions\AttackTransition.h" />
     <ClInclude Include="Source\Hero\Transitions\FallTransition.h" />

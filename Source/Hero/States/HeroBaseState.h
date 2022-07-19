@@ -24,5 +24,9 @@ public:
 protected:
 	void AddTransition(std::shared_ptr<ITransition> transition);
 	void AddAction(std::shared_ptr<IAction> action);
+
+private:
+	void DoActions();
+	void CheckTransitions();
 };
 

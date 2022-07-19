@@ -4,11 +4,13 @@
 #include "../Physics/HeroPhysicsComponent.h"
 #include "../../Physics/MovementComponent.h"
 #include "../Transitions/IdleTransition.h"
+#include "../Transitions/DeathTransition.h"
 
 HeroAttackState::HeroAttackState(std::shared_ptr<GameObject> owner, std::shared_ptr<StateController> controller) :
 	HeroBaseState(owner, controller)
 {
-	AddTransition(std::make_shared<IdleTransition>(owner, controller));
+	AddTransition(std::make_shared<IdleTransition>(Owner, Controller));
+	AddTransition(std::make_shared<DeathTransition>(Owner, Controller));
 }
 
 void HeroAttackState::Start()
