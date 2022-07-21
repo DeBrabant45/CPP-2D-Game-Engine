@@ -22,8 +22,3 @@ void HeroFallState::OnEnter()
 {
 	_graphics->SetGraphics(AnimationAction::Fall);
 }
-
-void HeroFallState::OnExit()
-{
-
-}

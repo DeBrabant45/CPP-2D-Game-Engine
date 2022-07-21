@@ -30,8 +30,3 @@ void HeroWalkState::OnEnter()
 {
 	_graphics->SetGraphics(AnimationAction::Run);
 }
-
-void HeroWalkState::OnExit()
-{
-
-}

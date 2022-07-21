@@ -28,8 +28,3 @@ void HeroIdleState::OnEnter()
 {
 	_graphics->SetGraphics(AnimationAction::Idle);
 }
-
-void HeroIdleState::OnExit()
-{
-
-}

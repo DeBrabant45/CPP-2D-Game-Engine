@@ -43,8 +43,3 @@ void HeroJumpState::OnUpdate()
 		StateBase::OnUpdate();
 	}
 }
-
-void HeroJumpState::OnExit()
-{
-
-}

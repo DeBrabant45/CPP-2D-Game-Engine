@@ -23,7 +23,6 @@ void StateController::Start()
 
 void StateController::TransitionToState(std::shared_ptr<IState> state)
 {
-	_currentState->OnExit();
 	_currentState = state;
 	_currentState->OnEnter();
 }

@@ -16,7 +16,6 @@ public:
 	HeroJumpState(std::shared_ptr<GameObject> owner, std::shared_ptr<StateController> controller);
 	virtual void Start() override;
 	virtual void OnEnter() override;
-	virtual void OnExit() override;
 	virtual void OnUpdate() override;
 };
 

@@ -27,11 +27,6 @@ void HeroAttackState::OnEnter()
 	_attackTimer = 25.f;
 }
 
-void HeroAttackState::OnExit()
-{
-
-}
-
 void HeroAttackState::OnUpdate()
 {
 	_attackTimer--;
