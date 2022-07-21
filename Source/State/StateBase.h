@@ -1,12 +1,13 @@
 #pragma once
-#include "../../State/IState.h"
+#include <memory>
+#include "IState.h"
 
 class ITransition;
 class IAction;
 class GameObject;
 class StateController;
 
-class HeroBaseState : public IState
+class StateBase : public IState
 {
 private:
 	std::vector<std::shared_ptr<ITransition>> _transitions{};
@@ -17,7 +18,7 @@ protected:
 	std::shared_ptr<StateController> Controller{};
 
 public:
-	HeroBaseState(std::shared_ptr<GameObject> owner, std::shared_ptr<StateController> controller);
+	StateBase(std::shared_ptr<GameObject> owner, std::shared_ptr<StateController> controller);
 	virtual void Start() override;
 	virtual void OnUpdate() override;
 

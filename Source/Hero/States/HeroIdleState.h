@@ -1,13 +1,12 @@
 #pragma once
 #ifndef HEROIDLESTATE_H
 #define HEROIDLESTATE_H
-#include "HeroBaseState.h"
-#include <memory>
+#include "../../State/StateBase.h"
 
 class HeroGraphicsComponent;
 class GameObject;
 
-class HeroIdleState : public HeroBaseState
+class HeroIdleState : public StateBase
 {
 private:
 	std::shared_ptr<HeroGraphicsComponent> _graphics{};

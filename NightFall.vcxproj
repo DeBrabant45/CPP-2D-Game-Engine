@@ -148,7 +148,6 @@
     <ClCompile Include="Source\Hero\Transitions\AttackTransition.cpp" />
     <ClCompile Include="Source\Hero\Transitions\FallTransition.cpp" />
     <ClCompile Include="Source\Hero\Transitions\JumpTransition.cpp" />
-    <ClCompile Include="Source\Hero\States\HeroBaseState.cpp" />
     <ClCompile Include="Source\Hero\Transitions\IdleTransition.cpp" />
     <ClCompile Include="Source\Hero\States\HeroDeathState.cpp" />
     <ClCompile Include="Source\Hero\Combat\HeroAttackComponent.cpp" />
@@ -188,6 +187,7 @@
     <ClCompile Include="Source\State\StateControllerFactory.cpp" />
     <ClCompile Include="Source\Hero\Actions\WalkAction.cpp" />
     <ClCompile Include="Source\Hero\Transitions\WalkTransition.cpp" />
+    <ClCompile Include="Source\State\StateBase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Hero\Transitions\DeathTransition.h" />
@@ -195,7 +195,6 @@
     <ClInclude Include="Source\Hero\Transitions\AttackTransition.h" />
     <ClInclude Include="Source\Hero\Transitions\FallTransition.h" />
     <ClInclude Include="Source\Hero\Transitions\JumpTransition.h" />
-    <ClInclude Include="Source\Hero\States\HeroBaseState.h" />
     <ClInclude Include="Source\Hero\Transitions\IdleTransition.h" />
     <ClInclude Include="Source\Hero\States\HeroDeathState.h" />
     <ClInclude Include="Source\Hero\Combat\HeroAttackComponent.h" />
@@ -251,6 +250,7 @@
     <ClInclude Include="Source\State\StateControllerFactory.h" />
     <ClInclude Include="Source\Hero\Actions\WalkAction.h" />
     <ClInclude Include="Source\Hero\Transitions\WalkTransition.h" />
+    <ClInclude Include="Source\State\StateBase.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

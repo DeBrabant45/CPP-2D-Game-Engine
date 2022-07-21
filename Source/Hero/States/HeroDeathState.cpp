@@ -4,14 +4,14 @@
 #include "../Graphics/HeroGraphicsComponent.h"
 
 HeroDeathState::HeroDeathState(std::shared_ptr<GameObject> owner, std::shared_ptr<StateController> controller) :
-	HeroBaseState(owner, controller)
+	StateBase(owner, controller)
 {
 
 }
 
 void HeroDeathState::Start()
 {
-	HeroBaseState::Start();
+	StateBase::Start();
 }
 
 void HeroDeathState::OnEnter()

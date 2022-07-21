@@ -12,7 +12,7 @@
 
 
 HeroJumpState::HeroJumpState(std::shared_ptr<GameObject> owner, std::shared_ptr<StateController> controller) :
-	HeroBaseState(owner, controller)
+	StateBase(owner, controller)
 {
 	AddAction(std::make_shared<FloatAction>(owner));
 	AddTransition(std::make_shared<DeathTransition>(owner, controller));
@@ -25,7 +25,7 @@ void HeroJumpState::Start()
 {
 	_graphics = Owner->GetComponent<HeroGraphicsComponent>();
 	_movement = Owner->GetComponent<MovementComponent>();
-	HeroBaseState::Start();
+	StateBase::Start();
 }
 
 void HeroJumpState::OnEnter()
@@ -40,7 +40,7 @@ void HeroJumpState::OnUpdate()
 	_timer--;
 	if (_timer <= 0)
 	{
-		HeroBaseState::OnUpdate();
+		StateBase::OnUpdate();
 	}
 }
 

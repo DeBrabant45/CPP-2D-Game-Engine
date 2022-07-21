@@ -9,7 +9,7 @@
 #include "../Transitions/DeathTransition.h"
 
 HeroIdleState::HeroIdleState(std::shared_ptr<GameObject> owner, std::shared_ptr<StateController> controller) :
-	HeroBaseState(owner, controller)
+	StateBase(owner, controller)
 {
 	AddTransition(std::make_shared<DeathTransition>(owner, controller));
 	AddTransition(std::make_shared<AttackTransition>(owner, controller));
@@ -21,7 +21,7 @@ HeroIdleState::HeroIdleState(std::shared_ptr<GameObject> owner, std::shared_ptr<
 void HeroIdleState::Start()
 {
 	_graphics = Owner->GetComponent<HeroGraphicsComponent>();
-	HeroBaseState::Start();
+	StateBase::Start();
 }
 
 void HeroIdleState::OnEnter()

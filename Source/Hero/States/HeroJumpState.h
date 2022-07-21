@@ -1,11 +1,10 @@
 #pragma once
-#include <memory>
-#include "HeroBaseState.h"
+#include "../../State/StateBase.h"
 #include "../../Physics/MovementComponent.h"
 
 class HeroGraphicsComponent;
 
-class HeroJumpState : public HeroBaseState
+class HeroJumpState : public StateBase
 {
 private:
 	std::shared_ptr<HeroGraphicsComponent> _graphics{};

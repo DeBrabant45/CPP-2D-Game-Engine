@@ -5,7 +5,7 @@
 #include "../Transitions/DeathTransition.h"
 
 HeroFallState::HeroFallState(std::shared_ptr<GameObject> owner, std::shared_ptr<StateController> controller) :
-	HeroBaseState(owner, controller)
+	StateBase(owner, controller)
 {
 	AddAction(std::make_shared<FloatAction>(owner));
 	AddTransition(std::make_shared<DeathTransition>(owner, controller));
@@ -15,7 +15,7 @@ HeroFallState::HeroFallState(std::shared_ptr<GameObject> owner, std::shared_ptr<
 void HeroFallState::Start()
 {
 	_graphics = Owner->GetComponent<HeroGraphicsComponent>();
-	HeroBaseState::Start();
+	StateBase::Start();
 }
 
 void HeroFallState::OnEnter()

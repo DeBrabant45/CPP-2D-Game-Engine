@@ -1,12 +1,12 @@
 #pragma once
-#include "HeroBaseState.h"
+#include "../../State/StateBase.h"
 
 class HeroGraphicsComponent;
 class StateController;
 class ITransition;
 class GameObejct;
 
-class HeroWalkState : public HeroBaseState
+class HeroWalkState : public StateBase
 {
 private:
 	std::shared_ptr<GameObject> _owner{};
