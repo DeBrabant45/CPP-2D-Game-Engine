@@ -5,6 +5,7 @@
 
 class HeroGraphicsComponent;
 class HeroAttackComponent;
+class GameObject;
 
 class HeroAttackState : public StateBase
 {

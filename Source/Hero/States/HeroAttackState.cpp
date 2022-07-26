@@ -5,6 +5,7 @@
 #include "../../Physics/MovementComponent.h"
 #include "../Transitions/IdleTransition.h"
 #include "../Transitions/DeathTransition.h"
+#include "../../GameObject/GameObject.h"
 
 HeroAttackState::HeroAttackState(std::shared_ptr<GameObject> owner, std::shared_ptr<StateController> controller) :
 	StateBase(owner, controller)

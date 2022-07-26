@@ -2,10 +2,11 @@
 #include <string>
 #include <memory>
 #include "raylib.h"
+#include "../Component/IStart.h"
 
 class Level;
 
-class Game
+class Game : public IStart
 {
 
 private:
@@ -17,7 +18,7 @@ public:
 	Game& operator=(const Game& other) = delete;
 	~Game() noexcept;
 	bool IsGameClosed() const;
-	void Start();
+	virtual void Start() override;
 	void Update();
 
 private:

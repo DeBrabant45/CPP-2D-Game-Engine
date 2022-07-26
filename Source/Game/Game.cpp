@@ -24,6 +24,11 @@ bool Game::IsGameClosed() const
 	return WindowShouldClose();
 }
 
+void Game::Start()
+{
+	_level->Start();
+}
+
 void Game::Update()
 {
 	BeginDrawing();
@@ -31,11 +36,6 @@ void Game::Update()
 	_level->Update(GetFrameTime());
 	DrawFPS(GameWindow::GetWidth() - 80, GameWindow::GetHeight() - 50);
 	EndDrawing();
-}
-
-void Game::Start()
-{
-	_level->Start();
 }
 
 void Game::Draw()

@@ -1,10 +1,7 @@
 #pragma once
 #ifndef ISTATE_H
 #define ISTATE_H
-#include "StateController.h"
-#include "../GameObject/IStart.h"
-
-class StateController;
+#include "../Component/IStart.h"
 
 class IState : public IStart
 {

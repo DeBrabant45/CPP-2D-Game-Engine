@@ -4,13 +4,17 @@
 #include <box2d/box2d.h>
 #include "../Ground/GroundType.h"
 #include "../Component/IComponent.h"
-#include "../Character/CharacterType.h"
+#include "../GameObject/Factory/GameObjectFactory.h"
+#include "../Hero/Factory/HeroFactory.h"
+#include "../Enemy/Hellhound/Factory/HellhoundFactory.h"
 
 Level::Level()
 {
 	_world = std::make_shared<b2World>(b2Vec2(0.f, 129.8f));
-	_hero = _heroFactory.CreateGameObject(_world, Vector2{ 100.f, 266.f });
-	_hellHound = _hellhoundFactory.CreateGameObject(_world, Vector2{ 200.f, 266.f });
+	std::shared_ptr<GameObjectFactory> heroFactory = std::make_shared<HeroFactory>();
+	std::shared_ptr<GameObjectFactory> hellhoundFactory = std::make_shared<HellhoundFactory>();
+	_hero = heroFactory->CreateGameObject(_world, Vector2{ 100.f, 266.f });
+	_hellHound = hellhoundFactory->CreateGameObject(_world, Vector2{ 200.f, 266.f });
 	_grounds =
 	{
 		_groundFactory.CreateGameObject(GroundType::Hazard, _world, Vector2{ 600.f, 41.f }, Vector2{ 0.f, 300.f}),
@@ -49,5 +53,5 @@ void Level::Update(const float& deltaTime)
 
 void Level::DrawMapToWorld()
 {
-	DrawTextureEx(_texture, _worldPosition, 0.0f, _scale, WHITE);
+	DrawTextureEx(_texture1, _worldPosition, 0.0f, 1.f, WHITE);
 }

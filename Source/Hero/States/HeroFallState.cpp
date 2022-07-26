@@ -3,6 +3,7 @@
 #include "../Transitions/IdleTransition.h"
 #include "../Actions/FloatAction.h"
 #include "../Transitions/DeathTransition.h"
+#include "../../GameObject/GameObject.h"
 
 HeroFallState::HeroFallState(std::shared_ptr<GameObject> owner, std::shared_ptr<StateController> controller) :
 	StateBase(owner, controller)

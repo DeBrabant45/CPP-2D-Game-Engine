@@ -1,6 +1,6 @@
 #pragma once
 #include <memory>
-#include "GameObject.h"
+#include "../GameObject.h"
 #include "IGameObjectProduction.h"
 
 class b2World;

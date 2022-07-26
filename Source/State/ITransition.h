@@ -1,5 +1,5 @@
 #pragma once
-#include "../GameObject/IStart.h"
+#include "../Component/IStart.h"
 
 class ITransition : public IStart
 {

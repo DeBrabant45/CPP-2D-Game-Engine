@@ -1,13 +1,12 @@
 #pragma once
 #include <memory>
 #include "../../State/ITransition.h"
-#include "../../GameObject/IStart.h"
 
 class GameObject;
 class StateController;
 class MovementComponent;
 
-class IdleTransition : public ITransition, public IStart
+class IdleTransition : public ITransition
 {
 private:
 	std::shared_ptr<GameObject> _owner{};

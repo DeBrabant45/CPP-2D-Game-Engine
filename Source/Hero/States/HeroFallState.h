@@ -2,6 +2,7 @@
 #include "../../State/StateBase.h"
 
 class HeroGraphicsComponent;
+class GameObject;
 
 class HeroFallState : public StateBase
 {

@@ -108,7 +108,7 @@
     <ClCompile Include="Source\Physics\RayCastCallback.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\GameObject\GameObjectFactory.cpp">
+    <ClCompile Include="Source\GameObject\Factory\GameObjectFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Hero\Factory\HeroFactory.cpp">
@@ -166,6 +166,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\State\StateBase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scenes\Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -263,10 +266,10 @@
     <ClInclude Include="Source\State\StateControllerFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\GameObject\IStart.h">
+    <ClInclude Include="Source\Component\IStart.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\GameObject\IUpdate.h">
+    <ClInclude Include="Source\Component\IUpdate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Physics\RayCastCallback.h">
@@ -275,10 +278,10 @@
     <ClInclude Include="Source\Combat\IHurt.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\GameObject\GameObjectFactory.h">
+    <ClInclude Include="Source\GameObject\Factory\GameObjectFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\GameObject\IGameObjectProduction.h">
+    <ClInclude Include="Source\GameObject\Factory\IGameObjectProduction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Hero\Factory\HeroFactory.h">
@@ -351,6 +354,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\State\StateBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scenes\Scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

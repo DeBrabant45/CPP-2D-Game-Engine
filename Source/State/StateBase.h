@@ -1,5 +1,6 @@
 #pragma once
 #include <memory>
+#include <vector>
 #include "IState.h"
 
 class ITransition;

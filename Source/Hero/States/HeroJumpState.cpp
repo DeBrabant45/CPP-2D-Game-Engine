@@ -10,7 +10,6 @@
 #include "../Transitions/FallTransition.h"
 #include "../Transitions/DeathTransition.h"
 
-
 HeroJumpState::HeroJumpState(std::shared_ptr<GameObject> owner, std::shared_ptr<StateController> controller) :
 	StateBase(owner, controller)
 {

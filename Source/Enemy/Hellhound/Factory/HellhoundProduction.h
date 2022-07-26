@@ -1,5 +1,5 @@
 #pragma once
-#include "../../../GameObject/IGameObjectProduction.h"
+#include "../../../GameObject/Factory/IGameObjectProduction.h"
 
 class HellhoundProduction : public IGameObjectProduction
 {

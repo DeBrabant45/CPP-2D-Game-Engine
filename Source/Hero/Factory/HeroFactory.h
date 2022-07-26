@@ -1,5 +1,5 @@
 #pragma once
-#include "../../GameObject/GameObjectFactory.h"
+#include "../../GameObject/Factory/GameObjectFactory.h"
 
 class HeroFactory : public GameObjectFactory
 {

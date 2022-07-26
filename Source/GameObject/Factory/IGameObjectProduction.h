@@ -1,6 +1,6 @@
 #pragma once
 #include <memory>
-#include "GameObject.h"
+#include "../GameObject.h"
 #include <box2d/box2d.h>
 
 class IGameObjectProduction
