@@ -6,6 +6,13 @@ GameObject::GameObject() :
 
 }
 
+GameObject::GameObject(std::string tag) :
+	_active{ true },
+	_tag{ tag }
+{
+
+}
+
 void GameObject::Start()
 {
 	for (auto component : _components)

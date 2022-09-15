@@ -39,9 +39,6 @@
     <ClCompile Include="Source\Game\Game.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Input\InputHandler.cpp">
-      <Filter>Source Files\Input</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Props\Prop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -55,9 +52,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Hero\Graphics\HeroGraphicsComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Hero\Input\HeroInputComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Camera\MainCamera.cpp">
@@ -171,13 +165,13 @@
     <ClCompile Include="Source\Scenes\Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\GameObject\GameObjectRegistry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Game\Game.h">
       <Filter>Header Files\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Input\InputHandler.h">
-      <Filter>Header Files\Input</Filter>
     </ClInclude>
     <ClInclude Include="Source\Props\Prop.h">
       <Filter>Header Files</Filter>
@@ -192,9 +186,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Hero\Graphics\HeroGraphicsComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Hero\Input\HeroInputComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Camera\MainCamera.h">
@@ -359,5 +350,100 @@
     <ClInclude Include="Source\Scenes\Scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\GameObject\GameObjectRegistry.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Enemy\Hellhound\hell-hound-idle.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Enemy\Hellhound\hell-hound-walk.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Enemy\Hellhound\hell-hound-jump.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Enemy\Hellhound\hell-hound-run.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Ground\Graveyard-00.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Ground\Graveyard-hazard.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Ground\Ground.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Hero\hero-attack-sheet.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Hero\hero-fall.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Hero\hero-hurt.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Hero\hero-idle-sheet.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Hero\hero-j.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Hero\hero-run-sheet.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Map\Backbground\background.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Map\Backbground\Back-ground.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Map\Backbground\clouds.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Map\Backbground\gothic-castle-preview.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Map\Backbground\graveyard.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Map\Backbground\mountains.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Map\Backbground\town.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Props\Nature\bush-large.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Props\Nature\bush-small.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Props\Nature\tree-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Props\Nature\tree-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Props\Nature\tree-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Props\Stone\statue.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Props\Stone\stone-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Props\Stone\stone-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Props\Stone\stone-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Props\Stone\stone-4.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

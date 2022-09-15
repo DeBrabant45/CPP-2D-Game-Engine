@@ -1,7 +1,6 @@
 #include "Game.h"
 #include "raylib.h"
 #include <cassert>
-#include "../Input/InputHandler.h"
 #include "../Level/Level.h"
 #include "GameWindow.h"
 

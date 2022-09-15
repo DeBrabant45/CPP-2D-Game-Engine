@@ -5,7 +5,7 @@
 #include "../Sprite/Sprite.h"
 #include "../Camera/MainCamera.h"
 #include "../Ground/GroundFactory.h"
-#include "../GameObject/GameObject.h"
+#include "../GameObject/GameObjectRegistry.h"
 
 class b2World;
 
@@ -18,10 +18,8 @@ private:
 	Vector2 _worldPosition{ 0.f, 0.f };
 	GroundFactory _groundFactory{};
 	MainCamera _mainCamera{};
-	std::vector<std::shared_ptr<GameObject>> _grounds{};
-	std::shared_ptr<GameObject> _hero{};
-	std::shared_ptr<GameObject> _hellHound{};
 	std::shared_ptr<b2World> _world{};
+	GameObjectRegistry _registry;
 
 public:
 	Level();

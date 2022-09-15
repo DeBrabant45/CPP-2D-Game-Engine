@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\GameObject\GameObjectRegistry.cpp" />
     <ClCompile Include="Source\Scenes\Scene.cpp" />
     <ClCompile Include="Source\Hero\Transitions\DeathTransition.cpp" />
     <ClCompile Include="Source\Hero\Actions\FloatAction.cpp" />
@@ -174,11 +175,9 @@
     <ClCompile Include="Source\Health\HealthComponent.cpp" />
     <ClCompile Include="Source\Hero\Physics\HeroPhysicsComponent.cpp" />
     <ClCompile Include="Source\Hero\Graphics\HeroGraphicsComponent.cpp" />
-    <ClCompile Include="Source\Hero\Input\HeroInputComponent.cpp" />
     <ClCompile Include="Source\Ground\GroundGraphicsComponent.cpp" />
     <ClCompile Include="Source\Level\Level.cpp" />
     <ClCompile Include="Source\Camera\MainCamera.cpp" />
-    <ClCompile Include="Source\Input\InputHandler.cpp" />
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\Props\Prop.cpp" />
     <ClCompile Include="Source\Rigidbody\Rigidbody.cpp" />
@@ -191,6 +190,7 @@
     <ClCompile Include="Source\State\StateBase.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\GameObject\GameObjectRegistry.h" />
     <ClInclude Include="Source\Scenes\Scene.h" />
     <ClInclude Include="Source\Hero\Transitions\DeathTransition.h" />
     <ClInclude Include="Source\Hero\Actions\FloatAction.h" />
@@ -234,7 +234,6 @@
     <ClInclude Include="Source\Health\HealthComponent.h" />
     <ClInclude Include="Source\Hero\Physics\HeroPhysicsComponent.h" />
     <ClInclude Include="Source\Hero\Graphics\HeroGraphicsComponent.h" />
-    <ClInclude Include="Source\Hero\Input\HeroInputComponent.h" />
     <ClInclude Include="Source\Ground\GroundGraphicsComponent.h" />
     <ClInclude Include="Source\GameObject\IGameObject.h" />
     <ClInclude Include="Source\Component\IComponent.h" />
@@ -242,7 +241,6 @@
     <ClInclude Include="Source\Observer\ISender.h" />
     <ClInclude Include="Source\Level\Level.h" />
     <ClInclude Include="Source\Camera\MainCamera.h" />
-    <ClInclude Include="Source\Input\InputHandler.h" />
     <ClInclude Include="Source\Props\Prop.h" />
     <ClInclude Include="Source\Sprite\Sprite.h" />
     <ClInclude Include="Source\State\IStateControllerProduction.h" />
@@ -253,6 +251,38 @@
     <ClInclude Include="Source\Hero\Actions\WalkAction.h" />
     <ClInclude Include="Source\Hero\Transitions\WalkTransition.h" />
     <ClInclude Include="Source\State\StateBase.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Enemy\Hellhound\hell-hound-idle.png" />
+    <Image Include="Assets\Enemy\Hellhound\hell-hound-jump.png" />
+    <Image Include="Assets\Enemy\Hellhound\hell-hound-run.png" />
+    <Image Include="Assets\Enemy\Hellhound\hell-hound-walk.png" />
+    <Image Include="Assets\Ground\Graveyard-00.png" />
+    <Image Include="Assets\Ground\Graveyard-hazard.png" />
+    <Image Include="Assets\Ground\Ground.png" />
+    <Image Include="Assets\Hero\hero-attack-sheet.png" />
+    <Image Include="Assets\Hero\hero-fall.png" />
+    <Image Include="Assets\Hero\hero-hurt.png" />
+    <Image Include="Assets\Hero\hero-idle-sheet.png" />
+    <Image Include="Assets\Hero\hero-j.png" />
+    <Image Include="Assets\Hero\hero-run-sheet.png" />
+    <Image Include="Assets\Map\Backbground\Back-ground.png" />
+    <Image Include="Assets\Map\Backbground\background.png" />
+    <Image Include="Assets\Map\Backbground\clouds.png" />
+    <Image Include="Assets\Map\Backbground\gothic-castle-preview.png" />
+    <Image Include="Assets\Map\Backbground\graveyard.png" />
+    <Image Include="Assets\Map\Backbground\mountains.png" />
+    <Image Include="Assets\Map\Backbground\town.png" />
+    <Image Include="Assets\Props\Nature\bush-large.png" />
+    <Image Include="Assets\Props\Nature\bush-small.png" />
+    <Image Include="Assets\Props\Nature\tree-1.png" />
+    <Image Include="Assets\Props\Nature\tree-2.png" />
+    <Image Include="Assets\Props\Nature\tree-3.png" />
+    <Image Include="Assets\Props\Stone\statue.png" />
+    <Image Include="Assets\Props\Stone\stone-1.png" />
+    <Image Include="Assets\Props\Stone\stone-2.png" />
+    <Image Include="Assets\Props\Stone\stone-3.png" />
+    <Image Include="Assets\Props\Stone\stone-4.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

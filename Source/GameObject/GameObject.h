@@ -4,6 +4,7 @@
 #include <vector>
 #include <memory>
 #include <iostream>
+#include <string>
 #include <boost/signals2.hpp>
 #include "../GameObject/IGameObject.h"
 #include "../Component/IComponent.h"
@@ -12,16 +13,19 @@ class GameObject : public IGameObject
 {
 private:
 	std::vector<std::shared_ptr<IComponent>> _components{};
+	std::string _tag;
 	bool _active{};
 
 public:
 	GameObject();
+	GameObject(std::string tag);
 	template <typename T> void AddComponent(std::shared_ptr<T> newComponent);
 	template <typename T> std::shared_ptr<T> GetComponent();
 	virtual void Start() override;
 	virtual void Update(const float& deltaTime) override;
 	bool IsActive() const { return _active; }
 	void Destroy();
+	std::string GetTag() const { return _tag; }
 	boost::signals2::signal<void(int)> Events;
 };
 #endif
